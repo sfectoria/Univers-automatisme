@@ -1,9 +1,10 @@
 import React from 'react'
 import "../styles/globals.css"
+import Hero from '@/components/Hero'
 const page = () => {
   return (
     <div>
-      page
+     <Hero/>
     </div>
   )
 }
