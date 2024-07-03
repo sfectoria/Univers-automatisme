@@ -89,12 +89,12 @@ const Header = () => {
           </ul>
         )}
       </div>
-      <div>
+      {/* <div>
       header Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
       Provident distinctio facere soluta et, 
       iure perferendis eaque tenetur vitae veritatis quam necessitatibus saepe, enim,
      expedita maiores explicabo. Fuga repellat dicta laudantium.
-      </div>
+      </div> */}
     </section>
 
     // <section >
