@@ -4,7 +4,7 @@ function Footer() {
   
   return (
 
-<footer className=" dark:bg-gray-900" style={{background:"#EAF2AE",position:"relative"}}>
+<footer className=" dark:bg-gray-900 z-0" style={{background:"#EAF2AE",position:"relative"}}>
   <div className="waves">
     <div className="wave" id='wave1'></div>
     <div className="wave" id='wave2'></div>
