@@ -1,7 +1,7 @@
 import Footer from "@/layouts/Footer"
 import Header from "@/layouts/Header"
 import "../styles/globals.css"
-import "../styles/footer.css"
+
 
 export const metadata = {
   title: 'Next.js',
