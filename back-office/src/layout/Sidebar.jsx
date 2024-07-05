@@ -28,6 +28,14 @@ import MenuItem from "@mui/material/MenuItem";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import logo from "../assets/logo.png";
 import Avatar from "@mui/material/Avatar";
+import SlideshowIcon from "@mui/icons-material/Slideshow";
+import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
+import SportsScoreIcon from "@mui/icons-material/SportsScore";
+import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined';
+import CategoryIcon from '@mui/icons-material/Category';
+import HandshakeIcon from '@mui/icons-material/Handshake';
+import WorkIcon from '@mui/icons-material/Work';
+import FeedbackIcon from '@mui/icons-material/Feedback';
 
 const drawerWidth = 240;
 
@@ -201,10 +209,10 @@ export default function MiniDrawer() {
               alt="Logo"
               src={logo} // Remplacez par l'URL de votre logo
               sx={{
-                width: 100,
-                height: 50,
+                width: 80,
+                height: 40,
                 marginRight: "auto",
-                marginLeft: "auto",
+                marginLeft: 2,
               }}
             />
           )}
@@ -228,7 +236,7 @@ export default function MiniDrawer() {
             sx={{
               minHeight: 48,
               justifyContent: open ? "initial" : "center",
-              px: 0.4,
+              px: 2.5,
             }}
           >
             <AccordionSummary
@@ -254,78 +262,94 @@ export default function MiniDrawer() {
               {open && <Typography>Accueil</Typography>}
             </AccordionSummary>
 
-            {open && (
-              <>
-                <AccordionDetails
-                  sx={{
-                    "&:hover": {
-                      backgroundColor: "rgba(0, 0, 0, 0.08)",
-                      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                    },
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      justifyContent: "center",
-                      px: 6.5,
-                    }}
-                  >
-                    Secteur d'Activité
-                  </Typography>
-                </AccordionDetails>
-                <AccordionDetails
-                  sx={{
-                    "&:hover": {
-                      backgroundColor: "rgba(0, 0, 0, 0.08)",
-                      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                    },
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      justifyContent: "center",
-                      px: 6.5,
-                    }}
-                  >
-                    Famille de Produits
-                  </Typography>
-                </AccordionDetails>
-                <AccordionDetails
-                  sx={{
-                    "&:hover": {
-                      backgroundColor: "rgba(0, 0, 0, 0.08)",
-                      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                    },
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      justifyContent: "center",
-                      px: 6.5,
-                    }}
-                  >
-                    Services
-                  </Typography>
-                </AccordionDetails>
-                <AccordionDetails
-                  sx={{
-                    "&:hover": {
-                      backgroundColor: "rgba(0, 0, 0, 0.08)",
-                      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                    },
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      justifyContent: "center",
-                      px: 6.5,
-                    }}
-                  >
-                    Avis des Clients
-                  </Typography>
-                </AccordionDetails>
-              </>
-            )}
+            {/* {open && (
+              <> */}
+              <AccordionDetails
+              sx={{
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.08)",
+                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                },
+                display: "flex",
+                alignItems: "center", // Aligner verticalement le contenu
+              }}
+            >
+              <BusinessOutlinedIcon sx={{ marginRight: 1 }} />{" "}
+              {/* Ajoutez un margin-right à l'icône pour l'espace */}
+              <Typography variant="body1" sx={{}}>
+                Secteur d'activité
+              </Typography>
+            </AccordionDetails>
+
+            <AccordionDetails
+              sx={{
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.08)",
+                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                },
+                display: "flex",
+                alignItems: "center", // Aligner verticalement le contenu
+              }}
+            >
+              <CategoryIcon sx={{ marginRight: 1 }} />{" "}
+              {/* Ajoutez un margin-right à l'icône pour l'espace */}
+              <Typography variant="body1" sx={{}}>
+                Famille de produits
+              </Typography>
+            </AccordionDetails>
+
+            <AccordionDetails
+              sx={{
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.08)",
+                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                },
+                display: "flex",
+                alignItems: "center", // Aligner verticalement le contenu
+              }}
+            >
+              <HandshakeIcon sx={{ marginRight: 1 }} />{" "}
+              {/* Ajoutez un margin-right à l'icône pour l'espace */}
+              <Typography variant="body1" sx={{}}>
+                Les partenaires
+              </Typography>
+            </AccordionDetails>
+
+            <AccordionDetails
+              sx={{
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.08)",
+                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                },
+                display: "flex",
+                alignItems: "center", // Aligner verticalement le contenu
+              }}
+            >
+              <WorkIcon sx={{ marginRight: 1 }} />{" "}
+              {/* Ajoutez un margin-right à l'icône pour l'espace */}
+              <Typography variant="body1" sx={{}}>
+                Services
+              </Typography>
+            </AccordionDetails>
+
+            <AccordionDetails
+              sx={{
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.08)",
+                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                },
+                display: "flex",
+                alignItems: "center", // Aligner verticalement le contenu
+              }}
+            >
+              <FeedbackIcon sx={{ marginRight: 1 }} />{" "}
+              {/* Ajoutez un margin-right à l'icône pour l'espace */}
+              <Typography variant="body1" sx={{}}>
+                Avis des clients
+              </Typography>
+            </AccordionDetails>
+            {/* </>
+            )} */}
           </Accordion>
 
           <Accordion
@@ -360,61 +384,60 @@ export default function MiniDrawer() {
               </ListItemIcon>
               {open && <Typography>Qui sommes-nous</Typography>}
             </AccordionSummary>
-            {open && (
-              <>
-                <AccordionDetails
-                  sx={{
-                    "&:hover": {
-                      backgroundColor: "rgba(0, 0, 0, 0.08)",
-                      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                    },
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      justifyContent: "center",
-                      px: 6.5,
-                    }}
-                  >
-                    Présentation
-                  </Typography>
-                </AccordionDetails>
-                <AccordionDetails
-                  sx={{
-                    "&:hover": {
-                      backgroundColor: "rgba(0, 0, 0, 0.08)",
-                      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                    },
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      justifyContent: "center",
-                      px: 6.5,
-                    }}
-                  >
-                    Nos Valeurs
-                  </Typography>
-                </AccordionDetails>
-                <AccordionDetails
-                  sx={{
-                    "&:hover": {
-                      backgroundColor: "rgba(0, 0, 0, 0.08)",
-                      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                    },
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      justifyContent: "center",
-                      px: 6.5,
-                    }}
-                  >
-                    Notre Mission
-                  </Typography>
-                </AccordionDetails>
-              </>
-            )}
+            {/* {open && (
+              <> */}
+            <AccordionDetails
+              sx={{
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.08)",
+                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                },
+                display: "flex",
+                alignItems: "center", // Aligner verticalement le contenu
+              }}
+            >
+              <SlideshowIcon sx={{ marginRight: 1 }} />{" "}
+              {/* Ajoutez un margin-right à l'icône pour l'espace */}
+              <Typography variant="body1" sx={{}}>
+                Présentation
+              </Typography>
+            </AccordionDetails>
+
+            <AccordionDetails
+              sx={{
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.08)",
+                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                },
+                display: "flex",
+                alignItems: "center", // Aligner verticalement le contenu
+              }}
+            >
+              <PeopleOutlineIcon sx={{ marginRight: 1 }} />{" "}
+              {/* Ajoutez un margin-right à l'icône pour l'espace */}
+              <Typography variant="body1" sx={{}}>
+                Equipe
+              </Typography>
+            </AccordionDetails>
+
+            <AccordionDetails
+              sx={{
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.08)",
+                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                },
+                display: "flex",
+                alignItems: "center", // Aligner verticalement le contenu
+              }}
+            >
+              <SportsScoreIcon sx={{ marginRight: 1 }} />{" "}
+              {/* Ajoutez un margin-right à l'icône pour l'espace */}
+              <Typography variant="body1" sx={{}}>
+                Notre mission
+              </Typography>
+            </AccordionDetails>
+            {/* </>
+            )} */}
           </Accordion>
 
           <ListItem
