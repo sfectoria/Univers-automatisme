@@ -36,7 +36,7 @@ import CategoryIcon from "@mui/icons-material/Category";
 import HandshakeIcon from "@mui/icons-material/Handshake";
 import WorkIcon from "@mui/icons-material/Work";
 import FeedbackIcon from "@mui/icons-material/Feedback";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -55,9 +55,9 @@ const closedMixin = (theme) => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: "hidden",
-  width: `calc(${theme.spacing(7)} + 1px)`,
+  width: `calc(${theme.spacing(7)} + 10px)`,
   [theme.breakpoints.up("sm")]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
+    width: `calc(${theme.spacing(8)} + 6px)`,
   },
 });
 
@@ -105,12 +105,32 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
+
+const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
+  ({ theme, open }) => ({
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft:0,
+    ...(open && {
+      transition: theme.transitions.create('margin', {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+      marginLeft: 0,
+    }),
+  }),
+);
+
 const getIcon = (text, index) => {
   const icons = [<HomeIcon />, <InfoIcon />, <MailIcon />];
   return icons[index % icons.length];
 };
 
-export default function MiniDrawer() {
+export default function Sidebar() {
   const handleAccordionChange = (accordion) => (event, isExpanded) => {
     setAccordionState({ ...accordionState, [accordion]: isExpanded });
   };
@@ -128,7 +148,7 @@ export default function MiniDrawer() {
 
   const handleDrawerClose = () => {
     setOpen(false);
-    setAccordionState({ acc1: false, acc2: false });
+    // setAccordionState({ acc1: false, acc2: false });
   };
 
   const handleMenu = (event) => {
@@ -255,17 +275,18 @@ export default function MiniDrawer() {
                 sx={{
                   minWidth: 0,
                   mr: open ? 3 : "auto",
-                  justifyContent: "center",
+                  justifyContent: "start",
+
                 }}
               >
-                <HomeIcon />
+                <HomeIcon style={{width:27,height:27, color:"black"}}/>
               </ListItemIcon>
-              {open && <Typography>Accueil</Typography>}
+              {open && <Typography style={{width:131}} >Accueil</Typography>}
             </AccordionSummary>
 
             {/* {open && (
               <> */}
-            <Link to="/">
+            <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
               <AccordionDetails
                 sx={{
                   "&:hover": {
@@ -284,7 +305,10 @@ export default function MiniDrawer() {
               </AccordionDetails>
             </Link>
 
-            <Link to="/famille">
+            <Link
+              to="/famille"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <AccordionDetails
                 sx={{
                   "&:hover": {
@@ -303,7 +327,10 @@ export default function MiniDrawer() {
               </AccordionDetails>
             </Link>
 
-            <Link to="/partenaires">
+            <Link
+              to="/partenaires"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <AccordionDetails
                 sx={{
                   "&:hover": {
@@ -322,7 +349,10 @@ export default function MiniDrawer() {
               </AccordionDetails>
             </Link>
 
-            <Link to="/services">
+            <Link
+              to="/services"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <AccordionDetails
                 sx={{
                   "&:hover": {
@@ -341,7 +371,10 @@ export default function MiniDrawer() {
               </AccordionDetails>
             </Link>
 
-            <Link to="/avis">
+            <Link
+              to="/avis"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <AccordionDetails
                 sx={{
                   "&:hover": {
@@ -391,13 +424,16 @@ export default function MiniDrawer() {
                   justifyContent: "center",
                 }}
               >
-                <InfoIcon />
+                <InfoIcon style={{color:"black"}} />
               </ListItemIcon>
               {open && <Typography>Qui sommes-nous</Typography>}
             </AccordionSummary>
             {/* {open && (
               <> */}
-            <Link to="/presentation">
+            <Link
+              to="/presentation"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <AccordionDetails
                 sx={{
                   "&:hover": {
@@ -416,7 +452,10 @@ export default function MiniDrawer() {
               </AccordionDetails>
             </Link>
 
-            <Link to="/equipe">
+            <Link
+              to="/equipe"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <AccordionDetails
                 sx={{
                   "&:hover": {
@@ -435,7 +474,10 @@ export default function MiniDrawer() {
               </AccordionDetails>
             </Link>
 
-            <Link to="/mission">
+            <Link
+              to="/mission"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <AccordionDetails
                 sx={{
                   "&:hover": {
@@ -457,7 +499,10 @@ export default function MiniDrawer() {
             )} */}
           </Accordion>
 
-          <Link to="/contact">
+          <Link
+            to="/contact"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
             <ListItem
               key="Contactez Nous"
               disablePadding
@@ -477,7 +522,7 @@ export default function MiniDrawer() {
                     justifyContent: "center",
                   }}
                 >
-                  <MailIcon />
+                  <MailIcon style={{color:"black"}}/>
                 </ListItemIcon>
                 <ListItemText
                   primary="Contactez Nous"
@@ -488,6 +533,11 @@ export default function MiniDrawer() {
           </Link>
         </List>
       </Drawer>
+
+      <Main open={open}>
+        <DrawerHeader />
+        <Outlet />
+      </Main>
     </Box>
   );
 }

@@ -6,6 +6,7 @@ import Footer from "./layout/Footer";
 import Navbar from "./layout/Navbar";
 import Sidebar from "./layout/Sidebar";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Main from './layout/Sidebar';
 
 function App() {
   const [open, setOpen] = React.useState(false);
@@ -13,8 +14,7 @@ function App() {
     <div className="App">
       {/* <Navbar /> */}
       {/* <DrawerLeft /> */}
-      <Sidebar open={open} />
-      <Outlet open={open} />
+      <Sidebar  />
       {/* <Footer/> */}
     </div>
   );
