@@ -13,7 +13,7 @@ function Footer() {
   
   return (
 
-<footer className=" dark:bg-gray-900 z-0" style={{background:"#B8D941",position:"relative"}}>
+<footer className=" dark:bg-gray-900 z-0 py-2" style={{background:"#B8D941",position:"relative"}}>
   <div className="waves">
     <div className="wave" id='wave1'></div>
     <div className="wave" id='wave2'></div>
@@ -22,12 +22,12 @@ function Footer() {
   <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
     <div className="lg:flex lg:items-start lg:gap-8">
 
-      <div className="mt-8 grid grid-cols-2 gap-8 lg:mt-0 lg:grid-cols-5 lg:gap-y-16">
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 lg:mt-0 lg:grid-cols-5 lg:gap-y-16">
         <div className="col-span-2">
           <div>
-            <h2 className="text-2xl font-bold  text-white" >Get the latest news!</h2>
+            <h2 className="text-2xl font-bold  text-white drop-shadow-lg" >Get the latest news!</h2>
 
-            <p className="mt-4 text-gray-100">
+            <p className="mt-4 text-gray-100 drop-shadow-lg">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non cupiditate quae nam
               molestias.
             </p>
@@ -39,7 +39,7 @@ function Footer() {
             <label htmlFor="UserEmail" className="sr-only"> Email </label>
 
             <div
-              className="border p-2 focus-within:ring sm:flex sm:items-center sm:gap-4 "
+              className="border p-2 focus-within:ring sm:flex sm:items-center sm:gap-4 rounded-full "
               style={{
                 borderColor: "white",
               }}
@@ -49,12 +49,12 @@ function Footer() {
                 id="UserEmail"
                 placeholder="john@rhcp.com"
                 
-                className="w-full border-none focus:border-transparent focus:ring-transparent sm:text-sm text-white "
-             style={{background:"#B8D941",}} />
+                className="w-full placeholder-white px-4 border-none focus:border-transparent focus:ring-transparent sm:text-sm text-white "
+                style={{background:"#B8D941",}} />
 
               <button
                 className="mt-1 w-full  px-6 py-3 text-sm font-bold
-                 uppercase tracking-wide  transition-none hover:bg-teal-600 sm:mt-0 sm:w-auto sm:shrink-0"
+                 uppercase tracking-wide rounded-full transition-none hover:bg-teal-600 sm:mt-0 sm:w-auto sm:shrink-0"
               style={{background:"white",color:"#B8D941"}}>
                 Sign Up
               </button>
@@ -103,19 +103,19 @@ function Footer() {
 
           <ul className="  font-medium flex  space-x-6 " >
             <li>
-              <a href="#" className="text-white transition hover:opacity-75 ">
+              <a href="#" className="text-white transition hover:opacity-75 drop-shadow-lg">
                 Home
               </a>
             </li>
 
             <li>
-              <a href="#" className="text-white transition hover:opacity-75 ">
+              <a href="#" className="text-white transition hover:opacity-75 drop-shadow-lg">
                 About
               </a>
             </li>
 
             <li>
-              <a href="#" className="text-white transition hover:opacity-75 dark:text-gray-200">
+              <a href="#" className="text-white transition hover:opacity-75 dark:text-gray-200 drop-shadow-lg">
                 Contact
               </a>
             </li>
@@ -128,7 +128,7 @@ function Footer() {
               href="#"
               rel="noreferrer"
               target="_blank"
-              className=" transition hover:opacity-75 dark:text-gray-200"
+              className=" transition hover:opacity-75 dark:text-gray-200 drop-shadow-lg"
               style={{color:"#B8D941"}}
             >
               <span className="sr-only">Facebook</span>
@@ -148,7 +148,7 @@ function Footer() {
               href="#"
               rel="noreferrer"
               target="_blank"
-              className=" transition hover:opacity-75 dark:text-gray-200"
+              className=" transition hover:opacity-75 dark:text-gray-200 drop-shadow-lg"
               style={{color:"#B8D941"}}
             >
               <span className="sr-only">Instagram</span>
@@ -168,7 +168,7 @@ function Footer() {
               href="#"
               rel="noreferrer"
               target="_blank"
-              className=" transition hover:opacity-75 dark:text-gray-200"
+              className=" transition hover:opacity-75 dark:text-gray-200  drop-shadow-lg"
               style={{color:"#B8D941"}}
             >
               <span className="sr-only">Twitter</span>
@@ -186,7 +186,7 @@ function Footer() {
               href="#"
               rel="noreferrer"
               target="_blank"
-              className=" transition hover:opacity-75 dark:text-gray-200"
+              className=" transition hover:opacity-75 dark:text-gray-200 drop-shadow-lg"
               style={{color:"#B8D941"}}
             >
               <span className="sr-only">GitHub</span>
@@ -206,7 +206,7 @@ function Footer() {
               href="#"
               rel="noreferrer"
               target="_blank"
-              className="transition hover:opacity-75 dark:text-gray-200"
+              className="transition hover:opacity-75 dark:text-gray-200 drop-shadow-lg"
               style={{color:"#B8D941"}}
             >
               <span className="sr-only">Dribbble</span>
@@ -303,13 +303,13 @@ function Footer() {
 
     <div className="mt-2 border-t  pt-4 dark:border-gray-800" style={{borderColor:"white"}}>
       <div className="sm:flex sm:justify-between">
-        <p className="text-xs text-gray-100 dark:text-gray-400">
+        <p className="text-xs text-gray-100 dark:text-gray-400 drop-shadow-lg">
           &copy; 2024. Univers Automatisme. All rights reserved.
         </p>
 
         <ul className="mt-8 flex flex-wrap justify-start gap-4 text-xs sm:mt-0 lg:justify-end">
           <li>
-            <a href="#" className="text-gray-100 transition hover:opacity-75 dark:text-gray-400">
+            <a href="#" className="text-gray-100 transition hover:opacity-75 dark:text-gray-400 drop-shadow-lg">
               Terms & Conditions
             </a>
           </li>
