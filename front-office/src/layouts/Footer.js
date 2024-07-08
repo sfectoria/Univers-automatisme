@@ -1,5 +1,8 @@
 import React from 'react'
 import "../styles/footer.css"
+import {
+  FaLocationArrow,
+} from "react-icons/fa";
 import styled from 'styled-components';
 function Footer() {
 //   const StyledInput = styled.input`
@@ -14,6 +17,7 @@ function Footer() {
   return (
 
 <footer className=" dark:bg-gray-900 z-0 py-2" style={{background:"#B8D941",position:"relative"}}>
+
   <div className="waves">
     <div className="wave" id='wave1'></div>
     <div className="wave" id='wave2'></div>
@@ -25,12 +29,16 @@ function Footer() {
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 lg:mt-0 lg:grid-cols-5 lg:gap-y-16">
         <div className="col-span-2">
           <div>
-            <h2 className="text-2xl font-bold  text-white drop-shadow-lg" >Get the latest news!</h2>
+            <h2 className="text-4xl font-bold  text-white drop-shadow-lg font-caveat" >Get the latest news!</h2>
 
-            <p className="mt-4 text-gray-100 drop-shadow-lg">
+            <p className="mt-4 text-gray-100 drop-shadow-lg" style={{fontFamily:"Segoe UI Emoji"}}>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non cupiditate quae nam
               molestias.
             </p>
+            {/* <div className="flex items-center gap-3 ">
+                  <FaLocationArrow style={{color:"white"}} />
+                  <p style={{color:"white"}}>Noida, Uttar Pradesh</p> */}
+                {/* </div> */}
           </div>
         </div>
 

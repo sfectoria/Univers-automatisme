@@ -1,10 +1,35 @@
-/* .bg-[#B8D941] {
-    display: flex;
-    flex-wrap: wrap;
+@media only screen and (max-width:960px){
+  .container{
+  display: none;
   }
-  
-  .bg-[#B8D941] > div {
-    flex: 1;
+  .icon{
+    display: none;
+  }
+  .first-section{
+    height: 30vh;
+  }
+  .formulaire{
 
-    height: 100%;
-  } */
+  }
+}
+@media only screen and (max-width:420px){
+  .formulaire{
+
+    
+  }
+}
+
+.title{
+  /* -webkit-text-stroke: 1px #fff;
+  color: #B8D941; */
+  /* text-shadow: 1px 1px 1px #fff, 1px 1px 1px #fff, 1px 1px 1px #fff, 1px 1px 1px #fff; */
+  /* text-shadow: 5px 1px 6px rgba(255, 255, 255, 0.58); */
+    
+
+}
+/* .problem{
+  display: inline;
+  background: #fff;
+  color: #B8D941;
+  /* -webkit-text-stroke: 1px #fff; */
+
