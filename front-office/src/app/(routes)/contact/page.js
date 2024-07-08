@@ -11,13 +11,13 @@ function page() {
 
     <section className="w-full min-h-screen">
       {/* Partie avec le fond #B8D941 */}
-      <div className="bg-[#B8D941] p-6 lg:p-24 flex justify-center lg:justify-end relative ">
+      <div className="bg-[#B8D941] p-6 lg:p-24 flex justify-center lg:justify-end relative">
         <div className="container mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between ">
-          <div className="lg:w-1/2 lg:mx-6 mb-6 lg:mb-0 ">
-            <p className="text-base font-medium text-white capitalize lg:text-3xl px-1  py-1 drop-shadow-lg  -ml-16" style={{ fontSize: "20px" }}>
+          <div className=" lg:w-1/2 lg:mx-6 mb-6 lg:mb-0 text-center md:text-left " >
+            <p className=" hidden md:block ms:block text-base md:text-sm  font-medium text-white capitalize lg:text-3xl px-1  py-1 drop-shadow-lg  -ml-16 md:ml-0" style={{ fontSize: "20px" }}>
               Contact us
             </p>
-            <h1 className="text-4xl font-bold text-white capitalize lg:text-3xl m-2 drop-shadow-lg shadow-black -ml-16">
+            <h1 className="hidden md:block ms:block text-4xl  font-bold text-white capitalize m-2 drop-shadow-lg shadow-black -ml-16 md:ml-0">
               Let's talk about <br /> your problem.
             </h1>
 
@@ -25,8 +25,8 @@ function page() {
         </div>
       
       {/* formulaire */}
-      <div className="lg:w-1/2 lg:mx-6 lg:mt-0 lg:pl-56 lg:top-10 flex justify-center lg:justify-end absolute">
-              <div className="w-full px-8 py-10 mx-auto bg-white shadow-2xl lg:max-w-xl rounded-xl">
+      <div className="w-[60%] md:block  lg:w-1/2 lg:mx-6 lg:mt-0 lg:pl-56 lg:top-10 flex justify-center lg:justify-end absolute">
+              <div className="w-full px-8 py-10 mx-auto bg-white shadow-2xl lg:max-w-xl rounded-xl ">
                 <h1 className="text-xl font-bold drop-shadow-lg " style={{ color: "#B8D941" }}>Send Us a message</h1>
                 <form className="mt-6">
                   <div className="flex-1">
@@ -50,7 +50,7 @@ function page() {
 
 
       </div>
-      <div className="lg:w-1/2 lg:mx-6">
+      <div className="hidden md:block ms:block lg:w-1/2 lg:mx-6">
         <div className="mt-6 space-y-8 md:mt-8">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 mt-8 px-16">
             <div className="flex gap-4">
@@ -58,9 +58,9 @@ function page() {
                 <AiOutlineMail size={30} color='#B8D941' />
               </div>
               <div>
-                <h2 className="mt-4 text-base font-medium drop-shadow-lg" style={{ color: "#B8D941",fontSize: "18px" }}>How Can we Help?</h2>
-                <p className="mt-2 text-sm text-gray-700 font-sans drop-shadow-lg">Our friendly team is here to help.</p>
-                <p className="mt-2 text-sm text-gray-700 font-sans drop-shadow-lg">contact@info.com</p>
+                <h2 className="mt-4 text-base font-medium " style={{ color: "#B8D941",fontSize: "18px" }}>How Can we Help?</h2>
+                <p className="mt-2 text-sm text-gray-700 font-sans ">Our friendly team is here to help.</p>
+                <p className="mt-2 text-sm text-gray-700 font-sans ">contact@info.com</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -68,9 +68,9 @@ function page() {
                 <SlLocationPin size={30} color='#B8D941' />
               </div>
               <div>
-                <h2 className="mt-4 text-base font-medium drop-shadow-lg" style={{ color: "#B8D941",fontSize: "18px" }}>Our Location</h2>
-                <p className="mt-2 text-sm text-gray-700 font-sans drop-shadow-lg">401 Broadway, 24th floor</p>
-                <p className="mt-2 text-sm text-gray-700 font-sans drop-shadow-lg">Orchard Road, London</p>
+                <h2 className="mt-4 text-base font-medium " style={{ color: "#B8D941",fontSize: "18px" }}>Our Location</h2>
+                <p className="mt-2 text-sm text-gray-700 font-sans ">401 Broadway, 24th floor</p>
+                <p className="mt-2 text-sm text-gray-700 font-sans ">Orchard Road, London</p>
               </div>
             </div>
           </div>
