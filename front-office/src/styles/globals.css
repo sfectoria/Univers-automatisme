@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -10,7 +10,7 @@
     --card-foreground: 240 19% 16%;
     --popover: 0 0% 100%;
     --popover-foreground: 20 14.3% 4.1%;
-    --primary: 8 99% 67%;
+    --primary: 75 60% 56%;
     --primary-foreground: 300 0% 100%;
     --secondary: 240 19% 16%;
     --secondary-foreground: 300 0% 100%;
@@ -23,7 +23,7 @@
     --destructive-foreground: 60 9.1% 97.8%;
     --border: 8 82% 92%;
     --input: 8 82% 92%;
-    --ring: 9 99% 67%;
+    --ring: 75 60% 56%;
     --radius: 0.5rem;
   }
 
@@ -34,7 +34,7 @@
     --card-foreground: 300 0% 100%;
     --popover: 20 14.3% 4.1%;
     --popover-foreground: 60 9.1% 97.8%;
-    --primary: 8 99% 67%;
+    --primary: 75 60% 56%;
     --primary-foreground: 300 0% 100%;
     --secondary: 240 19% 16%;
     --secondary-foreground: 300 0% 100%;
@@ -47,8 +47,10 @@
     --destructive-foreground: 60 9.1% 97.8%;
     --border: 237 22% 23%;
     --input: 237 22% 23%;
-    --ring: 8 99% 67%;
+    --ring: 75 60% 56%;
   }
+
+
 }
 
 @layer base {
