@@ -35,10 +35,10 @@ function Router() {
 
             </Route>
           ) : (
-            <>
+            <Route>
               <Route path="/" element={<LogIn />} />
               <Route path="signUp" element={<SignUp />} />
-            </>
+            </Route>
           )}
         </Routes>
       </BrowserRouter>

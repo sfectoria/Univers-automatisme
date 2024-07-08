@@ -1,13 +1,13 @@
 import React from 'react';
 import "./App.css";
-import Sidebar from "./layout/Sidebar";
+import Main from "./layout/Main";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [open, setOpen] = React.useState(false);
   return (
     <div className="App">
-      <Sidebar  />
+      <Main/>
     </div>
   );
 }
