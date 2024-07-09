@@ -264,7 +264,7 @@ export default function Sidebar() {
               sx={{
                 "&:hover": {
                   backgroundColor: "rgba(0, 0, 0, 0.08)",
-                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                  boxShadow: "20px 4px 10px rgba(0, 0, 0, 0.1)",
                 },
               }}
               expandIcon={<ExpandMoreIcon />}
@@ -291,7 +291,7 @@ export default function Sidebar() {
                 sx={{
                   "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
                   alignItems: "center", // Aligner verticalement le contenu
@@ -313,7 +313,7 @@ export default function Sidebar() {
                 sx={{
                   "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
                   alignItems: "center", // Aligner verticalement le contenu
@@ -335,7 +335,7 @@ export default function Sidebar() {
                 sx={{
                   "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
                   alignItems: "center", // Aligner verticalement le contenu
@@ -357,7 +357,7 @@ export default function Sidebar() {
                 sx={{
                   "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
                   alignItems: "center", // Aligner verticalement le contenu
@@ -379,7 +379,7 @@ export default function Sidebar() {
                 sx={{
                   "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
                   alignItems: "center", // Aligner verticalement le contenu
@@ -396,6 +396,7 @@ export default function Sidebar() {
             )} */}
           </Accordion>
 
+
           <Accordion
             expanded={accordionState.acc2}
             onChange={handleAccordionChange("acc2")}
@@ -410,8 +411,8 @@ export default function Sidebar() {
               sx={{
                 "&:hover": {
                   backgroundColor: "rgba(0, 0, 0, 0.08)",
-                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                },
+                  boxShadow: "20px 0px 8px rgba(0, 0, 0, 0.1)",
+                }, 
               }}
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
@@ -424,7 +425,7 @@ export default function Sidebar() {
                   justifyContent: "center",
                 }}
               >
-                <InfoIcon style={{color:"black"}} />
+                <InfoIcon  style={{color:"black"}} />
               </ListItemIcon>
               {open && <Typography>Qui sommes-nous</Typography>}
             </AccordionSummary>
@@ -438,7 +439,7 @@ export default function Sidebar() {
                 sx={{
                   "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
                   alignItems: "center", // Aligner verticalement le contenu
@@ -460,7 +461,7 @@ export default function Sidebar() {
                 sx={{
                   "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
                   alignItems: "center", // Aligner verticalement le contenu
@@ -482,7 +483,7 @@ export default function Sidebar() {
                 sx={{
                   "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
                   alignItems: "center", // Aligner verticalement le contenu
