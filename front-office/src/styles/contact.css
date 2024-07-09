@@ -33,3 +33,36 @@
   color: #B8D941;
   /* -webkit-text-stroke: 1px #fff; */
 
+ 
+  .realistic-marker-highlight{
+    position:relative;
+    color:#B8D941;
+    top: 12px;
+  }
+  .realistic-marker-highlight:before{
+    content:"";
+    background-color:#fff;
+    width:280px;
+    height:1.35em;
+    position:absolute;
+    z-index:-1;
+    filter:url(#marker-shape);
+    left:-0.25em;
+    top:0.1em;
+    padding:0 0.25em;
+  }
+  .responsive-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  @media (max-width: 1080px) {
+    .responsive-container {
+      flex: column;
+      align-items: flex-start;
+    }
+  
+    .realistic-marker-highlight {
+      margin-bottom: 10px;
+    }
+  }
