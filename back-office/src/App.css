@@ -233,3 +233,15 @@ input {
 
 
 
+@media (max-width: 768px) {
+	.overlay-container {
+	  width: 50%; /* Réduit la largeur du conteneur overlay */
+	}
+  
+	.overlay-panel button.ghost, .form-container button.btn  {
+	  padding: 8px 16px; /* Réduit la taille des boutons */
+	  font-size: 14px; /* Réduit la taille de la police des boutons */
+	}
+  
+	
+  }
