@@ -51,7 +51,7 @@ function Footer() {
                 <label htmlFor="UserEmail" className="sr-only"> Email </label>
 
                 <div
-                  className="border p-2 focus-within:ring sm:flex sm:items-center sm:gap-4 rounded-full "
+                  className="border p-2 focus-within:ring flex flex-col sm:flex-row sm:items-center sm:gap-4 rounded-full"
                   style={{
                     borderColor: "white",
                   }}
@@ -60,13 +60,12 @@ function Footer() {
                     type="email"
                     id="UserEmail"
                     placeholder="john@rhcp.com"
-                    className="w-full placeholder-white px-4 border-none focus:border-transparent focus:ring-transparent sm:text-sm text-white "
+                     className="w-full placeholder-white px-4 border-none focus:border-transparent focus:ring-transparent text-sm text-white"
                     style={{ background: "#B8D941", }}
                   />
 
                   <button
-                   className="btnnn mt-1 w-auto  px-6 py-3 text-sm font-bold
-                   uppercase tracking-wide rounded-full transition-none hover:bg-teal-600 sm:mt-0 sm:w-auto sm:shrink-0"
+                   className="btnnn mt-1 w-1/2 sm:w-auto px-6 py-3 text-sm font-bold uppercase tracking-wide rounded-full transition-none hover:bg-teal-600 sm:mt-0 sm:shrink-0 sm:mx-10"
                 style={{background:"white",color:"#B8D941"}}
                   >
                     Subscribe
