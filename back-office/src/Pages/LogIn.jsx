@@ -41,7 +41,8 @@ function App() {
           className={`container ${
             isRightPanelActive ? "right-panel-active" : ""
           }`}
-          id="container"
+          id="container" 
+          style={{display:"flex", flexWrap :"wrap"}}
         >
           <div className="form-container sign-up-container">
             <form action="#">

@@ -294,7 +294,8 @@ export default function Sidebar() {
                     boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
-                  alignItems: "center", // Aligner verticalement le contenu
+                  alignItems: "center", 
+                  paddingLeft:5,// Aligner verticalement le contenu
                 }}
               >
                 <BusinessOutlinedIcon sx={{ marginRight: 1 }} />{" "}
@@ -316,7 +317,8 @@ export default function Sidebar() {
                     boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
-                  alignItems: "center", // Aligner verticalement le contenu
+                  alignItems: "center",
+                  paddingLeft:5, // Aligner verticalement le contenu
                 }}
               >
                 <CategoryIcon sx={{ marginRight: 1 }} />{" "}
@@ -338,7 +340,8 @@ export default function Sidebar() {
                     boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
-                  alignItems: "center", // Aligner verticalement le contenu
+                  alignItems: "center",
+                  paddingLeft:5, // Aligner verticalement le contenu
                 }}
               >
                 <HandshakeIcon sx={{ marginRight: 1 }} />{" "}
@@ -360,7 +363,8 @@ export default function Sidebar() {
                     boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
-                  alignItems: "center", // Aligner verticalement le contenu
+                  alignItems: "center", 
+                  paddingLeft:5,// Aligner verticalement le contenu
                 }}
               >
                 <WorkIcon sx={{ marginRight: 1 }} />{" "}
@@ -382,7 +386,8 @@ export default function Sidebar() {
                     boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
-                  alignItems: "center", // Aligner verticalement le contenu
+                  alignItems: "center",
+                  paddingLeft:5, // Aligner verticalement le contenu
                 }}
               >
                 <FeedbackIcon sx={{ marginRight: 1 }} />{" "}
@@ -411,7 +416,7 @@ export default function Sidebar() {
               sx={{
                 "&:hover": {
                   backgroundColor: "rgba(0, 0, 0, 0.08)",
-                  boxShadow: "20px 0px 8px rgba(0, 0, 0, 0.1)",
+                  boxShadow: "20px  rgba(0, 0, 0, 0.1)",
                 }, 
               }}
               expandIcon={<ExpandMoreIcon />}
@@ -442,7 +447,8 @@ export default function Sidebar() {
                     boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
-                  alignItems: "center", // Aligner verticalement le contenu
+                  alignItems: "center",
+                  paddingLeft:5, // Aligner verticalement le contenu
                 }}
               >
                 <SlideshowIcon sx={{ marginRight: 1 }} />{" "}
@@ -464,7 +470,8 @@ export default function Sidebar() {
                     boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
-                  alignItems: "center", // Aligner verticalement le contenu
+                  alignItems: "center", 
+                  paddingLeft:5,// Aligner verticalement le contenu
                 }}
               >
                 <PeopleOutlineIcon sx={{ marginRight: 1 }} />{" "}
@@ -486,7 +493,8 @@ export default function Sidebar() {
                     boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
-                  alignItems: "center", // Aligner verticalement le contenu
+                  alignItems: "center",
+                  paddingLeft:5, // Aligner verticalement le contenu
                 }}
               >
                 <SportsScoreIcon sx={{ marginRight: 1 }} />{" "}
