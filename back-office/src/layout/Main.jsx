@@ -291,7 +291,7 @@ export default function Sidebar() {
                 sx={{
                   "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
                   alignItems: "center", 
@@ -314,7 +314,7 @@ export default function Sidebar() {
                 sx={{
                   "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "10px 0px 0px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
                   alignItems: "center",
@@ -337,7 +337,7 @@ export default function Sidebar() {
                 sx={{
                   "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
                   alignItems: "center",
@@ -360,7 +360,7 @@ export default function Sidebar() {
                 sx={{
                   "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
                   alignItems: "center", 
@@ -383,7 +383,7 @@ export default function Sidebar() {
                 sx={{
                   "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
                   alignItems: "center",
@@ -444,7 +444,7 @@ export default function Sidebar() {
                 sx={{
                   "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
                   alignItems: "center",
@@ -467,7 +467,7 @@ export default function Sidebar() {
                 sx={{
                   "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
                   alignItems: "center", 
@@ -490,7 +490,7 @@ export default function Sidebar() {
                 sx={{
                   "&:hover": {
                     backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "20px 4px 8px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
                   alignItems: "center",
