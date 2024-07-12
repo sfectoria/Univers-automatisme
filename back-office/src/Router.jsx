@@ -14,7 +14,7 @@ import SignUp from "./Pages/SignUp";
 import App from "./App";
 
 function Router() {
-  const [user, setUser] = React.useState(false);
+  const [user, setUser] = React.useState(true);
   const [open, setOpen] = React.useState(false);
 
   return (
