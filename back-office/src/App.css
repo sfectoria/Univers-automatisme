@@ -354,3 +354,31 @@ input {
 	}
   }
    */
+
+   .custom-navbar {
+	display: flex;
+	justify-content: center;
+	background-color: #393d40; /* Couleur de fond verte */
+	margin-top: -20px;
+	margin-left: -30px;
+	margin-bottom:30px;
+  }
+  
+  .custom-navbar a {
+	margin: 0 20px; /* Espacement autour des liens */
+	color: white; /* Couleur de texte blanche par défaut */
+	text-decoration: none;
+	focus-family: Caveat; /* Supprime le soulignement par défaut */
+	font-weight: bold; /* Optionnel : graisse du texte */
+	transition: color 0.3s ease; /* Transition fluide pour la couleur de texte */
+  }
+  
+  .custom-navbar a:hover {
+	text-decoration: underline; /* Soulignement au survol */
+	color: yellow; /* Changement de couleur au survol */
+  }
+  
+  .custom-navbar a:active {
+	color: red; /* Changement de couleur lorsqu'on clique */
+  }
+  

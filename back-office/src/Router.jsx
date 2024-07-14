@@ -10,7 +10,6 @@ import Equipe from "./Pages/Equipe";
 import Mission from "./Pages/Mission";
 import Contact from "./Pages/Contact";
 import LogIn from "./Pages/LogIn";
-import SignUp from "./Pages/SignUp";
 import App from "./App";
 
 function Router() {
@@ -37,7 +36,6 @@ function Router() {
           ) : (
             <Route>
               <Route path="/" element={<LogIn />} />
-              <Route path="signUp" element={<SignUp />} />
             </Route>
           )}
         </Routes>
