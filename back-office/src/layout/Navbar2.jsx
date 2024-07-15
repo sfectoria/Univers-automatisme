@@ -33,7 +33,15 @@ export default function Navbar2() {
         value={value}
         onChange={handleChange}
         textColor="secondary"
-        indicatorColor="secondary"
+        indicatorColor="primary"
+        sx={{
+          '& .MuiTabs-indicator': {
+            backgroundColor: 'green',
+          },
+          '& .MuiTab-root.Mui-selected': {
+            color: 'green',
+          },
+        }}
         aria-label="secondary tabs example"
       >
         <Tab value="/presentation" component={Link} to="/presentation" label="Presentation" />

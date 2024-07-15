@@ -5,6 +5,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import Button from "@mui/material/Button";
 import Navbar1 from "../layout/Navbar1";
+import DataGridComponent from "../components/DataGrid";
 
 const initialRows = [
   {
@@ -33,56 +34,18 @@ const initialRows = [
 export default function DataGridDemo() {
   const [rows, setRows] = React.useState(initialRows);
 
-  const handleEdit = (row) => {
-    const newDescription = prompt("Entrez la nouvelle description:", row.description);
-    if (newDescription) {
-      setRows((prevRows) =>
-        prevRows.map((r) =>
-          r.id === row.id ? { ...r, description: newDescription } : r
-        )
-      );
-    }
-  };
-
   const handleDelete = (id) => {
     setRows((prevRows) => prevRows.filter((row) => row.id !== id));
   };
 
-  const handleAdd = () => {
-    const newRow = {
-      id: rows.length + 1,
-      categorie: "Nouvelle Catégorie",
-      nom: "Nouveau Produit",
-      description: "Nouvelle Description",
-      specifications: "Nouvelles Spécifications",
-      prix: 0,
-      disponibilite: "Disponibilité",
-      image: "https://via.placeholder.com/150" // Default URL for new product image
-    };
-    setRows((prevRows) => [...prevRows, newRow]);
-  };
 
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
     { field: "categorie", headerName: "Catégorie", width: 150, editable: true },
     { field: "nom", headerName: "Nom du Produit", width: 150, editable: true },
     {
       field: "description",
       headerName: "Description",
       width: 350,
-      editable: true,
-    },
-    {
-      field: "specifications",
-      headerName: "Spécifications Techniques",
-      width: 200,
-      editable: true,
-    },
-    { field: "prix", headerName: "Prix", width: 100, editable: true, type: "number" },
-    {
-      field: "disponibilite",
-      headerName: "Disponibilité",
-      width: 150,
       editable: true,
     },
     {
@@ -99,10 +62,7 @@ export default function DataGridDemo() {
       width: 120,
       renderCell: (params) => (
         <>
-          <EditIcon
-            sx={{ cursor: "pointer", marginRight: 2 }}
-            onClick={() => handleEdit(params.row)}
-          />
+        
           <DeleteIcon
             sx={{ cursor: "pointer" }}
             onClick={() => handleDelete(params.row.id)}
@@ -114,29 +74,15 @@ export default function DataGridDemo() {
 
   return (
     <div>
-    <Navbar1 />
-      
+           <link rel="preconnect" href="https://fonts.googleapis.com"/>
+
+    <Navbar1 />  
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
-        <h3 style={{ marginLeft: 30 }}>Famille de Produits</h3>
-        <Button
-          sx={{ marginRight: 21 }}
-          variant="contained"
-          color="primary"
-          onClick={handleAdd}
-        >
-          Ajouter
-        </Button>
+        <h3 style={{ marginLeft: 30, fontWeight: 300, fontFamily: 'Roboto, sans-serif' }}>Famille de Produits</h3>
+       
       </Box>
-      <Box sx={{ height: 400, width: "100%" }}>
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          checkboxSelection
-          disableSelectionOnClick
-        />
-      </Box>
+      <DataGridComponent rows={rows} columns={columns} />
+
     </div>
   );
 }

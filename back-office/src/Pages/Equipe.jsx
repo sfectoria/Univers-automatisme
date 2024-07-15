@@ -5,6 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import Button from '@mui/material/Button';
 import Navbar2 from '../layout/Navbar2';
+import DataGridComponent from '../components/DataGrid';
 
 const initialRows = [
   {
@@ -31,36 +32,14 @@ const initialRows = [
 export default function TeamDataGrid() {
   const [rows, setRows] = React.useState(initialRows);
 
-  const handleEdit = (row) => {
-    const newDescription = prompt(
-      "Entrez la nouvelle description :",
-      row.description
-    );
-    if (newDescription) {
-      setRows((prevRows) =>
-        prevRows.map((r) =>
-          r.id === row.id ? { ...r, description: newDescription } : r
-        )
-      );
-    }
-  };
 
   const handleDelete = (id) => {
     setRows((prevRows) => prevRows.filter((row) => row.id !== id));
   };
 
-  const handleAdd = () => {
-    const newRow = {
-      id: rows.length + 1,
-      nom: "Nouveau Membre",
-      poste: "Nouveau Poste",
-      description: "Nouvelle Description",
-    };
-    setRows((prevRows) => [...prevRows, newRow]);
-  };
+ 
 
   const columns = [
-    { field: 'id', headerName: 'ID', width: 90 },
     { field: 'nom', headerName: 'Nom', width: 150, editable: true },
     { field: 'poste', headerName: 'Poste', width: 200, editable: true },
     {
@@ -75,10 +54,7 @@ export default function TeamDataGrid() {
       width: 120,
       renderCell: (params) => (
         <>
-          <EditIcon
-            sx={{ cursor: 'pointer', marginRight: 2 }}
-            onClick={() => handleEdit(params.row)}
-          />
+         
           <DeleteIcon
             sx={{ cursor: 'pointer' }}
             onClick={() => handleDelete(params.row.id)}
@@ -90,28 +66,15 @@ export default function TeamDataGrid() {
 
   return (
     <div>
+           <link rel="preconnect" href="https://fonts.googleapis.com"/>
+
    <Navbar2 />
 
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
-        <h3 style={{ marginLeft: 30 }}>Équipe</h3>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleAdd}
-        >
-          Ajouter
-        </Button>
+        <h3 style={{ marginLeft: 30, fontWeight: 300, fontFamily: 'Roboto, sans-serif' }}>Équipe</h3>
       </Box>
-      <Box sx={{ height: 400, width: '100%' }}>
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          checkboxSelection
-          disableSelectionOnClick
-        />
-      </Box>
+      <DataGridComponent rows={rows} columns={columns} />
+
     </div>
   );
 }

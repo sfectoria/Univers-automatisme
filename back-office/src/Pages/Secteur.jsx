@@ -1,12 +1,8 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { DataGrid } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
-import Button from "@mui/material/Button";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
 import Navbar1 from "../layout/Navbar1";
+import DataGridComponent from "../components/DataGrid";
 const initialRows = [
   {
     id: 1,
@@ -68,36 +64,12 @@ const initialRows = [
 export default function DataGridDemo() {
   const [rows, setRows] = React.useState(initialRows);
 
-  const handleEdit = (row) => {
-    const newDescription = prompt(
-      "Entrez la nouvelle description:",
-      row.description
-    );
-    if (newDescription) {
-      setRows((prevRows) =>
-        prevRows.map((r) =>
-          r.id === row.id ? { ...r, description: newDescription } : r
-        )
-      );
-    }
-  };
-
   const handleDelete = (id) => {
     setRows((prevRows) => prevRows.filter((row) => row.id !== id));
   };
 
-  const handleAdd = () => {
-    const newRow = {
-      id: rows.length + 1,
-      titre: "Nouveau Titre",
-      description: "Nouvelle Description",
-      image: "",
-    };
-    setRows((prevRows) => [...prevRows, newRow]);
-  };
 
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
     { field: "titre", headerName: "Titre", width: 150, editable: true },
     {
       field: "description",
@@ -118,10 +90,6 @@ export default function DataGridDemo() {
       width: 120,
       renderCell: (params) => (
         <>
-          <EditIcon
-            sx={{ cursor: "pointer", marginRight: 2 }}
-            onClick={() => handleEdit(params.row)}
-          />
           <DeleteIcon
             sx={{ cursor: "pointer" }}
             onClick={() => handleDelete(params.row.id)}
@@ -133,8 +101,9 @@ export default function DataGridDemo() {
 
   return (
     <div>
-    <Navbar1/>
+           <link rel="preconnect" href="https://fonts.googleapis.com"/>
 
+    <Navbar1/>
       <Box
         sx={{
           display: "flex",
@@ -143,26 +112,10 @@ export default function DataGridDemo() {
           marginBottom: 2,
         }}
       >
-        <h3 style={{ marginLeft: 30 }}>Secteur d'activité</h3>
-        <Button
-          sx={{ marginRight: 21 }}
-          variant="contained"
-          color="primary"
-          onClick={handleAdd}
-        >
-          Ajouter
-        </Button>
+        <h3 style={{ marginLeft: 30, fontWeight: 300, fontFamily: 'Roboto, sans-serif' }}>Secteur d'activité</h3>
       </Box>
-      <Box sx={{ height: 450, width: "100%" }}>
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          checkboxSelection
-          disableSelectionOnClick
-        />
-      </Box>
+
+      <DataGridComponent rows={rows} columns={columns} />
     </div>
   );
 }

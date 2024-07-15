@@ -4,6 +4,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import Button from '@mui/material/Button';
+import DataGridComponent from '../components/DataGrid';
 
 const initialRows = [
   {
@@ -26,35 +27,13 @@ const initialRows = [
 export default function ContactezNous() {
   const [rows, setRows] = React.useState(initialRows);
 
-  const handleEdit = (row) => {
-    const newDetail = prompt(
-      "Entrez le nouveau détail :",
-      row.detail
-    );
-    if (newDetail) {
-      setRows((prevRows) =>
-        prevRows.map((r) =>
-          r.id === row.id ? { ...r, detail: newDetail } : r
-        )
-      );
-    }
-  };
-
   const handleDelete = (id) => {
     setRows((prevRows) => prevRows.filter((row) => row.id !== id));
   };
 
-  const handleAdd = () => {
-    const newRow = {
-      id: rows.length + 1,
-      methode: "Nouvelle Méthode",
-      detail: "Nouveau Détail",
-    };
-    setRows((prevRows) => [...prevRows, newRow]);
-  };
+ 
 
   const columns = [
-    { field: 'id', headerName: 'ID', width: 90 },
     { field: 'methode', headerName: 'Méthode', width: 150, editable: true },
     {
       field: 'detail',
@@ -67,42 +46,25 @@ export default function ContactezNous() {
       headerName: 'Actions',
       width: 120,
       renderCell: (params) => (
-        <>
-          <EditIcon
-            sx={{ cursor: 'pointer', marginRight: 2 }}
-            onClick={() => handleEdit(params.row)}
-          />
+      
           <DeleteIcon
             sx={{ cursor: 'pointer' }}
             onClick={() => handleDelete(params.row.id)}
           />
-        </>
       ),
     },
   ];
 
   return (
     <div>
+           <link rel="preconnect" href="https://fonts.googleapis.com"/>
+
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
-        <h3 style={{ marginLeft: 30 }}>Contactez-nous</h3>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleAdd}
-        >
-          Ajouter
-        </Button>
+        <h3 style={{ marginLeft: 30, fontWeight: 300, fontFamily: 'Roboto, sans-serif' }}>Contactez-nous</h3>
+       
       </Box>
-      <Box sx={{ height: 400, width: '100%' }}>
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          checkboxSelection
-          disableSelectionOnClick
-        />
-      </Box>
+      <DataGridComponent rows={rows} columns={columns} />
+
     </div>
   );
 }
