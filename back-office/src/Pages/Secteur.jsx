@@ -6,6 +6,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import Button from "@mui/material/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
+import Navbar1 from "../layout/Navbar1";
 const initialRows = [
   {
     id: 1,
@@ -132,13 +133,7 @@ export default function DataGridDemo() {
 
   return (
     <div>
-      <nav class="custom-navbar">
-        <a href="/">Secteur d'activité</a>
-        <a href="/famille">Famille de Produits</a>
-        <a href="partenaires">Les Partenaires</a>
-        <a href="services">Services</a>
-        <a href="avis">Avis des clients</a>
-      </nav>
+    <Navbar1/>
 
       <Box
         sx={{

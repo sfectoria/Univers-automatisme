@@ -4,6 +4,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import Button from '@mui/material/Button';
+import Navbar2 from '../layout/Navbar2';
 
 const initialRows = [
   {
@@ -84,11 +85,7 @@ export default function MissionDataGrid() {
 
   return (
     <div>
-     <nav class="custom-navbar">
-        <a href="presentation">Présentation</a>
-        <a href="equipe">Equipe</a>
-        <a href="mission">Notre Mission</a>
-      </nav>
+     <Navbar2 />
 
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
         <h3 style={{ marginLeft: 30 }}>Notre Mission</h3>
