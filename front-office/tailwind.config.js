@@ -12,6 +12,7 @@ module.exports = {
     fontFamily: {
       inter: ['Inter', 'sans-serif'],
       caveat: ['Caveat', 'cursive'],
+     
     },
     container: {
       center: true,

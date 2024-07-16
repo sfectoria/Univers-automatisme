@@ -17,7 +17,7 @@ function Footer() {
   return (
 
 
-    <footer className=" dark:bg-gray-900 z-0 py-2" style={{ background: "#B8D941", position: "relative" }} >
+    <footer className=" dark:bg-gray-900 z-0 py-2" style={{ background: "#22c55e", position: "relative" }} >
       <div className="waves">
         <div className="wave" id='wave1'></div>
         <div className="wave" id='wave2'></div>
@@ -61,12 +61,12 @@ function Footer() {
                     id="UserEmail"
                     placeholder="john@rhcp.com"
                      className="w-full placeholder-white px-4 border-none focus:border-transparent focus:ring-transparent text-sm text-white"
-                    style={{ background: "#B8D941", }}
+                    style={{ background: "#22c55e", }}
                   />
 
                   <button
                    className="btnnn mt-1 w-1/2 sm:w-auto px-6 py-3 text-sm font-bold uppercase tracking-wide rounded-full transition-none hover:bg-teal-600 sm:mt-0 sm:shrink-0 sm:mx-10"
-                style={{background:"white",color:"#B8D941"}}
+                style={{background:"white",color:"#22c55e"}}
                   >
                     Subscribe
                   </button>
@@ -213,7 +213,7 @@ function Footer() {
                   rel="noreferrer"
                   target="_blank"
                   className="text-gray-700 transition hover:opacity-75"
-                  style={{color:"#B8D941"}}
+                  style={{color:"#22c55e"}}
                 >
                   <span className="sr-only">Facebook</span>
 
@@ -233,7 +233,7 @@ function Footer() {
                   rel="noreferrer"
                   target="_blank"
                   className="text-gray-700 transition hover:opacity-75"
-                  style={{color:"#B8D941"}}
+                  style={{color:"#22c55e"}}
                 >
                   <span className="sr-only">Instagram</span>
 
@@ -253,7 +253,7 @@ function Footer() {
                   rel="noreferrer"
                   target="_blank"
                   className="text-gray-700 transition hover:opacity-75"
-                  style={{color:"#B8D941"}}
+                  style={{color:"#22c55e"}}
                 >
                   <span className="sr-only">Twitter</span>
 
@@ -271,7 +271,7 @@ function Footer() {
                   rel="noreferrer"
                   target="_blank"
                   className="text-gray-700 transition hover:opacity-75"
-                  style={{color:"#B8D941"}}
+                  style={{color:"#22c55e"}}
                 >
                   <span className="sr-only">GitHub</span>
 
@@ -291,7 +291,7 @@ function Footer() {
                   rel="noreferrer"
                   target="_blank"
                   className="text-gray-700 transition hover:opacity-75"
-                  style={{color:"#B8D941"}}
+                  style={{color:"#22c55e"}}
                 >
                   <span className="sr-only">Dribbble</span>
 

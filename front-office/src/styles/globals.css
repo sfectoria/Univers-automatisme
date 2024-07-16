@@ -126,11 +126,28 @@
       transparent 80deg
     );
 
-    /* @apply absolute left-[-25%] top-[-25%] h-[180%] w-[180%] animate-border-spin content-[''] shadow-xl; */
+    @apply absolute left-[-25%] top-[-25%] h-[180%] w-[180%] animate-border-spin content-[''];
   }
 
   /* Body */
   .Article__content {
-    @apply absolute left-[1px] top-[1px] h-[calc(100%-4px)] w-[calc(100%-4px)] rounded-xl bg-white ;
+    @apply absolute left-[1px] top-[1px] h-[calc(100%-3px)] w-[calc(100%-3px)] rounded-xl bg-white ;
   }
 }
+/* styles/globals.css */
+
+@property --num {
+  syntax: '<integer>';
+  initial-value: 0;
+  inherits: false;
+}
+
+@keyframes counter {
+  from {
+      --num: 0;
+  }
+  to {
+      --num: 40;
+  }
+}
+
