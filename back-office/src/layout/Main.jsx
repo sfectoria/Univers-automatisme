@@ -463,12 +463,12 @@ export default function Sidebar() {
 
             >
               <ListItemIcon
-                // sx={{
-                //   minWidth: 0,
-                //   mr: open ? 3 : "auto",
-                //   justifyContent: "center",
-                //   marginTop: -1,
-                // }}
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : "auto",
+                  justifyContent: "center",
+                  marginTop: -1,
+                }}
               >
                 {/* <InfoIcon style={{ color: "black" }} /> */}
                 <Player sx={{}}
