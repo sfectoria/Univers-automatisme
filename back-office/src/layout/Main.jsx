@@ -320,10 +320,10 @@ export default function Sidebar() {
             <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
               <AccordionDetails
                 sx={{
-                  // "&:hover": {
-                  //   backgroundColor: "rgba(0, 0, 0, 0.08)",
-                  //   boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                  // },
+                  "&:hover": {
+                    backgroundColor: "rgba(0, 0, 0, 0.08)",
+                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                  },
                   display: "flex",
                   alignItems: "center",
                   paddingLeft: 5, // Aligner verticalement le contenu
@@ -344,10 +344,10 @@ export default function Sidebar() {
             >
               <AccordionDetails
                 sx={{
-                  // "&:hover": {
-                  //   backgroundColor: "rgba(0, 0, 0, 0.08)",
-                  //   boxShadow: "10px 0px 0px rgba(0, 0, 0, 0.1)",
-                  // },
+                  "&:hover": {
+                    backgroundColor: "rgba(0, 0, 0, 0.08)",
+                    boxShadow: "10px 0px 0px rgba(0, 0, 0, 0.1)",
+                  },
                   display: "flex",
                   alignItems: "center",
                   paddingLeft: 5, // Aligner verticalement le contenu
@@ -448,14 +448,14 @@ export default function Sidebar() {
             }}
           >
             <AccordionSummary
-              sx={
-                {
-                  "&:hover": {
-                    backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "20px  rgba(0, 0, 0, 0.1)",
-                  },
-                }
-              }
+              // sx={
+              //   {
+              //     "&:hover": {
+              //       backgroundColor: "rgba(0, 0, 0, 0.08)",
+              //       boxShadow: "20px  rgba(0, 0, 0, 0.1)",
+              //     },
+              //   }
+              // }
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
