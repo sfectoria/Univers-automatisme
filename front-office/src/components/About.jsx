@@ -131,30 +131,29 @@ export default function About() {
           About me
         </h2>
 
-        <div className="flex flex-col xl:flex-row">
+        <div className="flex flex-col xl:flex-row ">
           {/* image */}
-          <div className="hidden xl:flex flex-1 relative">
+          <div className="hidden xl:flex flex-1 relative ">
             <DevImg
-              containerStyles="bg-about_shape_light dark:bg-about_shape_dark w-[505px] h-[505px] bg-no-repeat relative"
+              containerStyles="bg-about_shape_light dark:bg-about_shape_dark w-[505px] h-[505px] bg-no-repeat relative items-center"
               imgSrc="/about/developer.png"
             />
           </div>
           {/* tabs */}
           <div className="flex-1">
             <Tabs defaultValue="personal">
-              <TabsList className="w-full grid xl:grid-cols-3 xl:max-w-[520px] xl:border dark:border-none">
-                <TabsTrigger className="w-[162px] xl:w-auto" value="personal">
-                  Personal Info
+              <TabsList className="w-full grid xl:grid-cols-2 xl:max-w-[520px] xl:border dark:border-none">
+                <TabsTrigger className="w-[162px] xl:w-auto" value="journey">
+                Journey
+                 
                 </TabsTrigger>
                 <TabsTrigger
                   className="w-[162px] xl:w-auto"
                   value="qualifications"
                 >
-                   Journey
+                   Company Info
                 </TabsTrigger>
-                <TabsTrigger className="w-[162px] xl:w-auto" value="skills">
-                  Skills
-                </TabsTrigger>
+               
               </TabsList>
               {/* tabs content */}
               <div className="text-lg mt-12 xl:mt-8">
@@ -280,57 +279,8 @@ export default function About() {
                   
                   </div>
                 </TabsContent>
-                {/* skills */}
-                <TabsContent value="skills">
-                  <div className="text-center xl:text-left">
-                    <h3 className="h3 mb-8">What I Use Everyday</h3>
-                    {/* skills */}
-                    <div className="mb-16">
-                      <h4 className="text-xl font-semibold mb-2">Skills</h4>
-                      <div className="border-b border-border mb-4"></div>
-                      {/* skill list */}
-                      <div>
-                        {getData(skillData, "skills").data.map(
-                          (item, index) => {
-                            const { name } = item;
-                            return (
-                              <div
-                                className="w-2/4 text-center xl:text-left mx-auto xl:mx-0"
-                                key={index}
-                              >
-                                <div className="font-medium">{name}</div>
-                              </div>
-                            );
-                          }
-                        )}
-                      </div>
-                    </div>
-                    {/* tools */}
-                    <div>
-                      <h4 className="text-xl font-semibold mb-2 xl:text-left">
-                        Tools
-                      </h4>
-                      <div className="border-b border-border mb-4"></div>
-                      {/* tool list */}
-                      <div className="flex gap-x-8 justify-center xl:justify-start">
-                        {getData(skillData, "tools").data.map((item, index) => {
-                          const { imgPath } = item;
-                          return (
-                            <div key={index}>
-                              <Image
-                                src={imgPath}
-                                width={48}
-                                height={48}
-                                alt=""
-                                priority
-                              />
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </div>
-                </TabsContent>
+               
+               
               </div>
             </Tabs>
           </div>
