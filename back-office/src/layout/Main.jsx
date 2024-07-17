@@ -303,14 +303,13 @@ export default function Sidebar() {
                   minWidth: 0,
                   mr: open ? 3 : "auto",
                   justifyContent: "start",
-                  marginTop: -1,
                 }}
               >
-                {/* <HomeIcon style={{ width: 27, height: 27, color: 'black' }} /> */}
-                <Player sx={{marginTop: -40}}
+                <HomeIcon style={{ width: 27, height: 27, color: 'black' }} />
+                {/* <Player sx={{marginTop: -40}}
                   ref={playerRef} 
                   icon={ ICON }
-                />
+                /> */}
               </ListItemIcon>
               {open && <Typography style={{ width: 131 }}>Accueil</Typography>}
             </AccordionSummary>
@@ -467,14 +466,13 @@ export default function Sidebar() {
                   minWidth: 0,
                   mr: open ? 3 : "auto",
                   justifyContent: "center",
-                  marginTop: -1,
                 }}
               >
-                {/* <InfoIcon style={{ color: "black" }} /> */}
-                <Player sx={{}}
+                <InfoIcon style={{ color: "black" }} />
+                {/* <Player sx={{}}
                   ref={playerRef} 
                   icon={ INFO }
-                />
+                /> */}
               </ListItemIcon>
               {open && <Typography sx={{}}>Qui sommes-nous</Typography>}
             </AccordionSummary>
@@ -583,11 +581,11 @@ export default function Sidebar() {
                   
                   }}
                 >
-                  {/* <MailIcon style={{ color: "black" }} /> */}
-                  <Player sx={{width: "500px",}}
+                  <MailIcon style={{ color: "black" }} />
+                  {/* <Player sx={{width: "500px",}}
                   ref={playerRef} 
                   icon={ MSG }
-                />
+                /> */}
                 </ListItemIcon>
                 <ListItemText
                   primary="Contactez Nous"
