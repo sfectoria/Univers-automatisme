@@ -12,7 +12,8 @@ module.exports = {
     fontFamily: {
       inter: ['Inter', 'sans-serif'],
       caveat: ['Caveat', 'cursive'],
-  },
+     
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -24,6 +25,16 @@ module.exports = {
       xl: "1400px",
     },
     extend: {
+      keyframes: {
+        'border-spin': {
+          '100%': {
+            transform: 'rotate(-360deg)',
+          },
+        },
+      },
+      animation: {
+        'border-spin': 'border-spin 7s linear infinite',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -78,8 +89,8 @@ module.exports = {
           800: '#7b341e',
           900: '#652b19',
         }
-        
-       
+
+
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -120,6 +131,14 @@ module.exports = {
         contact_illustration_dark: "url(/contact/illustration-dark.svg)",
         customGreenGradient: 'linear-gradient(to right, #b8d941, #b0d24b, #b7d64c)'
       },
+      animation: {
+        'border': 'border 4s linear infinite',
+      },
+      keyframes: {
+        'border': {
+          to: { '--border-angle': '360deg' },
+        }
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],

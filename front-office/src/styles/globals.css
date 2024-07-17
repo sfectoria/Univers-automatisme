@@ -100,3 +100,54 @@
   .swiper-pagination-bullet {
   @apply bg-primary;
 }
+@layer utilities {
+  @keyframes border-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-border-spin {
+    animation: border-spin 3s linear infinite;
+  }
+  /* Act as a border */
+  .Article {
+    @apply relative overflow-hidden rounded-2xl bg-gradient-to-b from-[#B8D941] to-[#EAF2AE] ;
+  }
+
+  /* Gradient */
+  .Article::before {
+    background: conic-gradient(
+      #EAF2AE 0deg,
+      #B8D941 0deg,
+      transparent 80deg
+    );
+
+    @apply absolute left-[-25%] top-[-25%] h-[180%] w-[180%] animate-border-spin content-[''];
+  }
+
+  /* Body */
+  .Article__content {
+    @apply absolute left-[1px] top-[1px] h-[calc(100%-3px)] w-[calc(100%-3px)] rounded-xl bg-white ;
+  }
+}
+/* styles/globals.css */
+
+@property --num {
+  syntax: '<integer>';
+  initial-value: 0;
+  inherits: false;
+}
+
+@keyframes counter {
+  from {
+      --num: 0;
+  }
+  to {
+      --num: 40;
+  }
+}
+
