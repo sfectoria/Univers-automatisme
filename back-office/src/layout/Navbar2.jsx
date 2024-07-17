@@ -28,7 +28,7 @@ export default function Navbar2() {
   };
 
   return (
-    <Box sx={{ width: "100%", display: "flex", justifyContent: "center", marginTop: "-10px", marginBottom: "10px" }}>
+    <Box sx={{ width: "100%", display: "flex", justifyContent: "center", marginTop: "10px", marginBottom: "30px" }}>
       <Tabs
         value={value}
         onChange={handleChange}
@@ -36,10 +36,10 @@ export default function Navbar2() {
         indicatorColor="primary"
         sx={{
           '& .MuiTabs-indicator': {
-            backgroundColor: 'green',
+            backgroundColor: '#cbd95f',
           },
           '& .MuiTab-root.Mui-selected': {
-            color: 'green',
+            color: '#cbd95f',
           },
         }}
         aria-label="secondary tabs example"

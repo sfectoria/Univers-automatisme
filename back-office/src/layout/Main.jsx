@@ -32,11 +32,9 @@ import SlideshowIcon from "@mui/icons-material/Slideshow";
 import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
 import SportsScoreIcon from "@mui/icons-material/SportsScore";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
-import CategoryIcon from "@mui/icons-material/Category";
-import HandshakeIcon from "@mui/icons-material/Handshake";
-import WorkIcon from "@mui/icons-material/Work";
-import FeedbackIcon from "@mui/icons-material/Feedback";
-import { Link, Outlet } from "react-router-dom";
+import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';import FeedbackOutlinedIcon from '@mui/icons-material/FeedbackOutlined';import { Link, Outlet, useLocation } from "react-router-dom";
+import { Player } from '@lordicon/react';
+import { useEffect, useRef } from 'react';
 
 const drawerWidth = 240;
 
@@ -105,24 +103,23 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
+const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft:0,
+    marginLeft: 0,
     ...(open && {
-      transition: theme.transitions.create('margin', {
+      transition: theme.transitions.create("margin", {
         easing: theme.transitions.easing.easeOut,
         duration: theme.transitions.duration.enteringScreen,
       }),
       marginLeft: 0,
     }),
-  }),
+  })
 );
 
 const getIcon = (text, index) => {
@@ -131,9 +128,37 @@ const getIcon = (text, index) => {
 };
 
 export default function Sidebar() {
+  const location = useLocation();
+  const [activePath, setActivePath] = React.useState(location.pathname);
+  const ICON = require('../assets/home2.json');
+  const INFO = require('../assets/info.json');
+  const MSG = require('../assets/message.json');
+  const close = require('../assets/close.json');
+
+
+  const playerRef = useRef(null);
+  
+  useEffect(() => {
+      playerRef.current?.playFromBeginning();
+  }, [])
+
+
+  React.useEffect(() => {
+    setActivePath(location.pathname);
+  }, [location.pathname]);
+
+  const activeStyle = {
+    color: "white",
+    // textDecoration: "underline",
+    backgroundColor: "#b8d941",
+    borderRadius: "8px",
+    
+  };
+
   const handleAccordionChange = (accordion) => (event, isExpanded) => {
     setAccordionState({ ...accordionState, [accordion]: isExpanded });
   };
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -261,27 +286,33 @@ export default function Sidebar() {
             }}
           >
             <AccordionSummary
-              sx={{
-                "&:hover": {
-                  backgroundColor: "rgba(0, 0, 0, 0.08)",
-                  boxShadow: "20px 4px 10px rgba(0, 0, 0, 0.1)",
-                },
-              }}
+              // sx={{
+              //   "&:hover": {
+              //     backgroundColor: "rgba(0, 0, 0, 0.08)",
+              //     boxShadow: "20px 4px 10px rgba(0, 0, 0, 0.1)",
+              //   },
+              // }}
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
+              style={activePath === "/" || activePath === "/services" || activePath === "/avis" || activePath === "/partenaires" || activePath === "/famille"? activeStyle : {}}
+
             >
               <ListItemIcon
                 sx={{
                   minWidth: 0,
                   mr: open ? 3 : "auto",
                   justifyContent: "start",
-
+                  marginTop: -1,
                 }}
               >
-                <HomeIcon style={{width:27,height:27, color:"black"}}/>
+                {/* <HomeIcon style={{ width: 27, height: 27, color: 'black' }} /> */}
+                <Player sx={{marginTop: -40}}
+                  ref={playerRef} 
+                  icon={ ICON }
+                />
               </ListItemIcon>
-              {open && <Typography style={{width:131}} >Accueil</Typography>}
+              {open && <Typography style={{ width: 131 }}>Accueil</Typography>}
             </AccordionSummary>
 
             {/* {open && (
@@ -289,18 +320,19 @@ export default function Sidebar() {
             <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
               <AccordionDetails
                 sx={{
-                  "&:hover": {
-                    backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                  },
+                  // "&:hover": {
+                  //   backgroundColor: "rgba(0, 0, 0, 0.08)",
+                  //   boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                  // },
                   display: "flex",
-                  alignItems: "center", 
-                  paddingLeft:5,// Aligner verticalement le contenu
+                  alignItems: "center",
+                  paddingLeft: 5, // Aligner verticalement le contenu
                 }}
+                style={activePath === "/" ? activeStyle : {}}
               >
                 <BusinessOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{}}>
+                <Typography variant="body1" sx={{fontWeight:300}}>
                   Secteur d'activité
                 </Typography>
               </AccordionDetails>
@@ -312,18 +344,19 @@ export default function Sidebar() {
             >
               <AccordionDetails
                 sx={{
-                  "&:hover": {
-                    backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "10px 0px 0px rgba(0, 0, 0, 0.1)",
-                  },
+                  // "&:hover": {
+                  //   backgroundColor: "rgba(0, 0, 0, 0.08)",
+                  //   boxShadow: "10px 0px 0px rgba(0, 0, 0, 0.1)",
+                  // },
                   display: "flex",
                   alignItems: "center",
-                  paddingLeft:5, // Aligner verticalement le contenu
+                  paddingLeft: 5, // Aligner verticalement le contenu
                 }}
+                style={activePath === "/famille" ? activeStyle : {}}
               >
-                <CategoryIcon sx={{ marginRight: 1 }} />{" "}
+                <CategoryOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{}}>
+                <Typography variant="body1" sx={{fontWeight:300}}>
                   Famille de produits
                 </Typography>
               </AccordionDetails>
@@ -341,12 +374,13 @@ export default function Sidebar() {
                   },
                   display: "flex",
                   alignItems: "center",
-                  paddingLeft:5, // Aligner verticalement le contenu
+                  paddingLeft: 5, // Aligner verticalement le contenu
                 }}
+                style={activePath === "/partenaires" ? activeStyle : {}}
               >
-                <HandshakeIcon sx={{ marginRight: 1 }} />{" "}
+                <HandshakeOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{}}>
+                <Typography variant="body1" sx={{fontWeight:300}}>
                   Les partenaires
                 </Typography>
               </AccordionDetails>
@@ -363,13 +397,14 @@ export default function Sidebar() {
                     boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
-                  alignItems: "center", 
-                  paddingLeft:5,// Aligner verticalement le contenu
+                  alignItems: "center",
+                  paddingLeft: 5, // Aligner verticalement le contenu
                 }}
+                style={activePath === "/services" ? activeStyle : {}}
               >
-                <WorkIcon sx={{ marginRight: 1 }} />{" "}
+                <WorkOutlineOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{}}>
+                <Typography variant="body1" sx={{fontWeight:300}}>
                   Services
                 </Typography>
               </AccordionDetails>
@@ -387,12 +422,13 @@ export default function Sidebar() {
                   },
                   display: "flex",
                   alignItems: "center",
-                  paddingLeft:5, // Aligner verticalement le contenu
+                  paddingLeft: 5, // Aligner verticalement le contenu
                 }}
+                style={activePath === "/avis" ? activeStyle : {}}
               >
-                <FeedbackIcon sx={{ marginRight: 1 }} />{" "}
+                <FeedbackOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{}}>
+                <Typography variant="body1" sx={{fontWeight:300}}>
                   Avis des clients
                 </Typography>
               </AccordionDetails>
@@ -400,7 +436,6 @@ export default function Sidebar() {
             {/* </>
             )} */}
           </Accordion>
-
 
           <Accordion
             expanded={accordionState.acc2}
@@ -413,26 +448,35 @@ export default function Sidebar() {
             }}
           >
             <AccordionSummary
-              sx={{
-                "&:hover": {
-                  backgroundColor: "rgba(0, 0, 0, 0.08)",
-                  boxShadow: "20px  rgba(0, 0, 0, 0.1)",
-                }, 
-              }}
+              sx={
+                {
+                  "&:hover": {
+                    backgroundColor: "rgba(0, 0, 0, 0.08)",
+                    boxShadow: "20px  rgba(0, 0, 0, 0.1)",
+                  },
+                }
+              }
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
+              style={activePath === "/presentation" || activePath === "/equipe" || activePath === "/mission" ? activeStyle : {}}
+
             >
               <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                }}
+                // sx={{
+                //   minWidth: 0,
+                //   mr: open ? 3 : "auto",
+                //   justifyContent: "center",
+                //   marginTop: -1,
+                // }}
               >
-                <InfoIcon  style={{color:"black"}} />
+                {/* <InfoIcon style={{ color: "black" }} /> */}
+                <Player sx={{}}
+                  ref={playerRef} 
+                  icon={ INFO }
+                />
               </ListItemIcon>
-              {open && <Typography>Qui sommes-nous</Typography>}
+              {open && <Typography sx={{}}>Qui sommes-nous</Typography>}
             </AccordionSummary>
             {/* {open && (
               <> */}
@@ -448,12 +492,13 @@ export default function Sidebar() {
                   },
                   display: "flex",
                   alignItems: "center",
-                  paddingLeft:5, // Aligner verticalement le contenu
+                  paddingLeft: 5, // Aligner verticalement le contenu
                 }}
+                style={activePath === "/presentation" ? activeStyle : {}}
               >
                 <SlideshowIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{}}>
+                <Typography variant="body1" sx={{fontWeight:100}}>
                   Présentation
                 </Typography>
               </AccordionDetails>
@@ -470,13 +515,14 @@ export default function Sidebar() {
                     boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
-                  alignItems: "center", 
-                  paddingLeft:5,// Aligner verticalement le contenu
+                  alignItems: "center",
+                  paddingLeft: 5, // Aligner verticalement le contenu
                 }}
+                style={activePath === "/equipe" ? activeStyle : {}}
               >
                 <PeopleOutlineIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{}}>
+                <Typography variant="body1" sx={{fontWeight:100}}>
                   Equipe
                 </Typography>
               </AccordionDetails>
@@ -494,12 +540,13 @@ export default function Sidebar() {
                   },
                   display: "flex",
                   alignItems: "center",
-                  paddingLeft:5, // Aligner verticalement le contenu
+                  paddingLeft: 5, // Aligner verticalement le contenu
                 }}
+                style={activePath === "/mission" ? activeStyle : {}}
               >
                 <SportsScoreIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{}}>
+                <Typography variant="body1" sx={{fontWeight:100}}>
                   Notre mission
                 </Typography>
               </AccordionDetails>
@@ -522,16 +569,25 @@ export default function Sidebar() {
                   minHeight: 48,
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
+                  "&:active": {
+                    boxShadow: "none",
+                  },
                 }}
+                style={activePath === "/contact" ? activeStyle : {}}
               >
                 <ListItemIcon
                   sx={{
                     minWidth: 0,
                     mr: open ? 3 : "auto",
                     justifyContent: "center",
+                  
                   }}
                 >
-                  <MailIcon style={{color:"black"}}/>
+                  {/* <MailIcon style={{ color: "black" }} /> */}
+                  <Player sx={{width: "500px",}}
+                  ref={playerRef} 
+                  icon={ MSG }
+                />
                 </ListItemIcon>
                 <ListItemText
                   primary="Contactez Nous"

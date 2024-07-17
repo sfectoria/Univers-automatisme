@@ -3,6 +3,8 @@ import Box from "@mui/material/Box";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Navbar1 from "../layout/Navbar1";
 import DataGridComponent from "../components/DataGrid";
+import EditIcon from "@mui/icons-material/Edit";
+
 const initialRows = [
   {
     id: 1,
@@ -90,11 +92,14 @@ export default function DataGridDemo() {
       width: 120,
       renderCell: (params) => (
         <>
-          <DeleteIcon
-            sx={{ cursor: "pointer" }}
-            onClick={() => handleDelete(params.row.id)}
-          />
-        </>
+        <EditIcon
+          sx={{ cursor: 'pointer', marginRight: 2 }}
+        />
+        <DeleteIcon
+          sx={{ cursor: "pointer" }}
+          onClick={() => handleDelete(params.row.id)}
+        />
+      </>
       ),
     },
   ];
@@ -112,7 +117,7 @@ export default function DataGridDemo() {
           marginBottom: 2,
         }}
       >
-        <h3 style={{ marginLeft: 30, fontWeight: 300, fontFamily: 'Roboto, sans-serif' }}>Secteur d'activité</h3>
+        <div style={{  fontWeight: 10, fontFamily: 'Roboto, sans-serif' }}>Secteur d'activité</div>
       </Box>
 
       <DataGridComponent rows={rows} columns={columns} />
