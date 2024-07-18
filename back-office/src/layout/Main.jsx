@@ -32,8 +32,12 @@ import SlideshowIcon from "@mui/icons-material/Slideshow";
 import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
 import SportsScoreIcon from "@mui/icons-material/SportsScore";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
-import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';import FeedbackOutlinedIcon from '@mui/icons-material/FeedbackOutlined';import { Link, Outlet, useLocation } from "react-router-dom";
-import { useEffect, useRef } from 'react';
+import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
+import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
+import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
+import FeedbackOutlinedIcon from "@mui/icons-material/FeedbackOutlined";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 const drawerWidth = 240;
 
@@ -130,24 +134,28 @@ export default function Sidebar() {
   const location = useLocation();
   const [activePath, setActivePath] = React.useState(location.pathname);
 
+  React.useEffect(() => {
+    setActivePath(location.pathname);
+  }, [location.pathname]);
 
   const activeStyle = {
     color: "white",
     // textDecoration: "underline",
     backgroundColor: "#b8d941",
     borderRadius: "8px",
-    
   };
 
   const handleAccordionChange = (accordion) => (event, isExpanded) => {
     const newAccordionState = { ...accordionState, [accordion]: isExpanded };
     setAccordionState(newAccordionState);
-    localStorage.setItem('accordionState', JSON.stringify(newAccordionState));
+    localStorage.setItem("accordionState", JSON.stringify(newAccordionState));
   };
 
   const theme = useTheme();
   // const [open, setOpen] = React.useState(false);
-  const [open, setOpen] = React.useState(JSON.parse(localStorage.getItem('drawerOpen')) || false);
+  const [open, setOpen] = React.useState(
+    JSON.parse(localStorage.getItem("drawerOpen")) || false
+  );
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [accordionState, setAccordionState] = React.useState({
     acc1: false,
@@ -155,16 +163,18 @@ export default function Sidebar() {
   });
 
   useEffect(() => {
-    const savedAccordionState = JSON.parse(localStorage.getItem('accordionState'));
+    const savedAccordionState = JSON.parse(
+      localStorage.getItem("accordionState")
+    );
     if (savedAccordionState) {
       setAccordionState(savedAccordionState);
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('drawerOpen', JSON.stringify(open));
+    localStorage.setItem("drawerOpen", JSON.stringify(open));
   }, [open]);
-  
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -292,8 +302,15 @@ export default function Sidebar() {
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
-              style={activePath === "/" || activePath === "/services" || activePath === "/avis" || activePath === "/partenaires" || activePath === "/famille"? activeStyle : {}}
-
+              style={
+                activePath === "/" ||
+                activePath === "/services" ||
+                activePath === "/avis" ||
+                activePath === "/partenaires" ||
+                activePath === "/famille"
+                  ? activeStyle
+                  : {}
+              }
             >
               <ListItemIcon
                 sx={{
@@ -302,7 +319,7 @@ export default function Sidebar() {
                   justifyContent: "start",
                 }}
               >
-                <HomeIcon style={{ width: 27, height: 27, color: 'black' }} />
+                <HomeIcon style={{ width: 27, height: 27, color: "black" }} />
                 {/* <Player sx={{marginTop: -40}}
                   ref={playerRef} 
                   icon={ ICON }
@@ -328,7 +345,10 @@ export default function Sidebar() {
               >
                 <BusinessOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{fontWeight:300, fontSize: 15}}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 300, fontSize: 15 }}
+                >
                   Secteur d'activité
                 </Typography>
               </AccordionDetails>
@@ -352,7 +372,10 @@ export default function Sidebar() {
               >
                 <CategoryOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{fontWeight:300 , fontSize: 15}}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 300, fontSize: 15 }}
+                >
                   Famille de produits
                 </Typography>
               </AccordionDetails>
@@ -376,7 +399,10 @@ export default function Sidebar() {
               >
                 <HandshakeOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{fontWeight:300, fontSize: 15}}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 300, fontSize: 15 }}
+                >
                   Les partenaires
                 </Typography>
               </AccordionDetails>
@@ -400,7 +426,10 @@ export default function Sidebar() {
               >
                 <WorkOutlineOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{fontWeight:300, fontSize: 15}}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 300, fontSize: 15 }}
+                >
                   Services
                 </Typography>
               </AccordionDetails>
@@ -424,7 +453,10 @@ export default function Sidebar() {
               >
                 <FeedbackOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{fontWeight:300, fontSize: 15}}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 300, fontSize: 15 }}
+                >
                   Avis des clients
                 </Typography>
               </AccordionDetails>
@@ -455,8 +487,13 @@ export default function Sidebar() {
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
-              style={activePath === "/presentation" || activePath === "/equipe" || activePath === "/mission" ? activeStyle : {}}
-
+              style={
+                activePath === "/presentation" ||
+                activePath === "/equipe" ||
+                activePath === "/mission"
+                  ? activeStyle
+                  : {}
+              }
             >
               <ListItemIcon
                 sx={{
@@ -493,7 +530,10 @@ export default function Sidebar() {
               >
                 <SlideshowIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{fontWeight:100, fontSize: 15}}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 100, fontSize: 15 }}
+                >
                   Présentation
                 </Typography>
               </AccordionDetails>
@@ -517,7 +557,10 @@ export default function Sidebar() {
               >
                 <PeopleOutlineIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{fontWeight:100, fontSize: 15}}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 100, fontSize: 15 }}
+                >
                   Equipe
                 </Typography>
               </AccordionDetails>
@@ -541,7 +584,10 @@ export default function Sidebar() {
               >
                 <SportsScoreIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{fontWeight:100, fontSize: 15}}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 100, fontSize: 15 }}
+                >
                   Notre mission
                 </Typography>
               </AccordionDetails>
@@ -575,7 +621,6 @@ export default function Sidebar() {
                     minWidth: 0,
                     mr: open ? 3 : "auto",
                     justifyContent: "center",
-                  
                   }}
                 >
                   <MailIcon style={{ color: "black" }} />
