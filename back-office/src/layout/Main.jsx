@@ -247,7 +247,9 @@ export default function Sidebar() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
+              <MenuItem onClick={handleClose}>
+                <Link to="/profile">Profile</Link>
+              </MenuItem>
               <MenuItem onClick={handleClose}>My account</MenuItem>
               <MenuItem onClick={handleClose}>Logout</MenuItem>
             </Menu>
@@ -303,11 +305,13 @@ export default function Sidebar() {
               aria-controls="panel1a-content"
               id="panel1a-header"
               style={
+                !accordionState.acc1 && (
                 activePath === "/" ||
                 activePath === "/services" ||
                 activePath === "/avis" ||
                 activePath === "/partenaires" ||
                 activePath === "/famille"
+                )
                   ? activeStyle
                   : {}
               }
@@ -488,9 +492,11 @@ export default function Sidebar() {
               aria-controls="panel1a-content"
               id="panel1a-header"
               style={
+                !accordionState.acc2 && (
                 activePath === "/presentation" ||
                 activePath === "/equipe" ||
                 activePath === "/mission"
+                )
                   ? activeStyle
                   : {}
               }

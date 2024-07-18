@@ -11,6 +11,7 @@ import Mission from "./Pages/Mission";
 import Contact from "./Pages/Contact";
 import LogIn from "./Pages/LogIn";
 import App from "./App";
+import ProfilePage from "./Pages/Profile";
 
 function Router() {
   const [user, setUser] = React.useState(true);
@@ -31,6 +32,7 @@ function Router() {
               <Route path="equipe" element={<Equipe />} />
               <Route path="mission" element={<Mission />} />
               <Route path="contact" element={<Contact />} />
+              <Route path="profile" element={<ProfilePage />} />
 
             </Route>
           ) : (
