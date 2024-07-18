@@ -1,5 +1,53 @@
-@property --num {
-    syntax: '<integer>';
-    initial-value: 0;
-    inherits: false;
+
+@media  only screen and (max-width: 440px) {
+    .titr{
+        flex-direction: column;
+    }
+    .content{
+        text-align: center;
+        padding-bottom: 15px;
+    }
+    .head{
+        height: 50vh;
+    }
+    .conte{
+        align-items: center;
+    }
+}
+@media  only screen and (max-width: 500px) {
+    .content{
+        text-align: center;
+        padding-bottom: 15px;
+    }
+    .conte{
+        /* margin-left: 157px; */
+        align-items: center;
+        }
+}
+@media  only screen and (max-width: 760px) {
+    .content{
+        text-align: center;
+        padding-bottom: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .conte{
+    /* margin-left: 157px; */
+    align-items: center;
+    }
+}
+@media  only screen and (max-width: 860px) {
+    .content{
+        text-align: center;
+        padding-bottom: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .head{
+        height: 52vh;
+    }
+    .conte{
+        /* margin-left: 180px;
+         */
+        }
 }

@@ -61,3 +61,40 @@ footer .wave#wave3 {
 
 
 
+
+
+@media  only screen and (max-width: 440px) {
+    .titre{
+        margin-left: 25px;
+        margin-bottom: 15px;
+    }
+    .btnnn{
+        width:35%;
+        margin-left: 3.55rem;
+        
+    }
+    .inpt{
+        
+    }
+}
+@media screen and (max-width: 768px) {
+    .titre{
+        margin-left: 25px;
+        margin-bottom: 15px;
+    }
+    
+}
+@media screen and (max-width: 968px) {
+    .titre{
+        margin-left: 25px;
+        margin-bottom: 15px;
+    }
+    
+}
+@media screen and (max-width: 980px) {
+    .titre{
+        margin-left: 25px;
+        margin-bottom: 15px;
+    }
+    
+}
