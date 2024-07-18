@@ -306,11 +306,11 @@ export default function Sidebar() {
               id="panel1a-header"
               style={
                 !accordionState.acc1 && (
-                activePath === "/" ||
-                activePath === "/services" ||
-                activePath === "/avis" ||
-                activePath === "/partenaires" ||
-                activePath === "/famille"
+                activePath === "/Accueil/" ||
+                activePath === "/Accueil/services" ||
+                activePath === "/Accueil/avis" ||
+                activePath === "/Accueil/partenaires" ||
+                activePath === "/Accueil/famille"
                 )
                   ? activeStyle
                   : {}
@@ -334,7 +334,7 @@ export default function Sidebar() {
 
             {/* {open && (
               <> */}
-            <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+            <Link to="/Accueil" style={{ textDecoration: "none", color: "inherit" }}>
               <AccordionDetails
                 sx={{
                   "&:hover": {
@@ -345,7 +345,7 @@ export default function Sidebar() {
                   alignItems: "center",
                   paddingLeft: 5, // Aligner verticalement le contenu
                 }}
-                style={activePath === "/" ? activeStyle : {}}
+                style={activePath === "/Accueil" ? activeStyle : {}}
               >
                 <BusinessOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
@@ -359,7 +359,7 @@ export default function Sidebar() {
             </Link>
 
             <Link
-              to="/famille"
+              to="/Accueil/famille"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <AccordionDetails
@@ -372,7 +372,7 @@ export default function Sidebar() {
                   alignItems: "center",
                   paddingLeft: 5, // Aligner verticalement le contenu
                 }}
-                style={activePath === "/famille" ? activeStyle : {}}
+                style={activePath === "/Accueil/famille" ? activeStyle : {}}
               >
                 <CategoryOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
@@ -386,7 +386,7 @@ export default function Sidebar() {
             </Link>
 
             <Link
-              to="/partenaires"
+              to="/Accueil/partenaires"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <AccordionDetails
@@ -399,7 +399,7 @@ export default function Sidebar() {
                   alignItems: "center",
                   paddingLeft: 5, // Aligner verticalement le contenu
                 }}
-                style={activePath === "/partenaires" ? activeStyle : {}}
+                style={activePath === "/Accueil/partenaires" ? activeStyle : {}}
               >
                 <HandshakeOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
@@ -413,7 +413,7 @@ export default function Sidebar() {
             </Link>
 
             <Link
-              to="/services"
+              to="/Accueil/services"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <AccordionDetails
@@ -426,7 +426,7 @@ export default function Sidebar() {
                   alignItems: "center",
                   paddingLeft: 5, // Aligner verticalement le contenu
                 }}
-                style={activePath === "/services" ? activeStyle : {}}
+                style={activePath === "/Accueil/services" ? activeStyle : {}}
               >
                 <WorkOutlineOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
@@ -440,7 +440,7 @@ export default function Sidebar() {
             </Link>
 
             <Link
-              to="/avis"
+              to="/Accueil/avis"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <AccordionDetails
@@ -453,7 +453,7 @@ export default function Sidebar() {
                   alignItems: "center",
                   paddingLeft: 5, // Aligner verticalement le contenu
                 }}
-                style={activePath === "/avis" ? activeStyle : {}}
+                style={activePath === "/Accueil/avis" ? activeStyle : {}}
               >
                 <FeedbackOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
@@ -493,9 +493,9 @@ export default function Sidebar() {
               id="panel1a-header"
               style={
                 !accordionState.acc2 && (
-                activePath === "/presentation" ||
-                activePath === "/equipe" ||
-                activePath === "/mission"
+                activePath === "/qui-sommes-nous/presentation" ||
+                activePath === "/qui-sommes-nous/equipe" ||
+                activePath === "/qui-sommes-nous/mission"
                 )
                   ? activeStyle
                   : {}
@@ -519,7 +519,7 @@ export default function Sidebar() {
             {/* {open && (
               <> */}
             <Link
-              to="/presentation"
+              to="/qui-sommes-nous/presentation"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <AccordionDetails
@@ -532,7 +532,7 @@ export default function Sidebar() {
                   alignItems: "center",
                   paddingLeft: 5, // Aligner verticalement le contenu
                 }}
-                style={activePath === "/presentation" ? activeStyle : {}}
+                style={activePath === "/qui-sommes-nous/presentation" ? activeStyle : {}}
               >
                 <SlideshowIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
@@ -546,7 +546,7 @@ export default function Sidebar() {
             </Link>
 
             <Link
-              to="/equipe"
+              to="/qui-sommes-nous/equipe"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <AccordionDetails
@@ -559,7 +559,7 @@ export default function Sidebar() {
                   alignItems: "center",
                   paddingLeft: 5, // Aligner verticalement le contenu
                 }}
-                style={activePath === "/equipe" ? activeStyle : {}}
+                style={activePath === "/qui-sommes-nous/equipe" ? activeStyle : {}}
               >
                 <PeopleOutlineIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
@@ -573,7 +573,7 @@ export default function Sidebar() {
             </Link>
 
             <Link
-              to="/mission"
+              to="/qui-sommes-nous/mission"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <AccordionDetails
@@ -586,7 +586,7 @@ export default function Sidebar() {
                   alignItems: "center",
                   paddingLeft: 5, // Aligner verticalement le contenu
                 }}
-                style={activePath === "/mission" ? activeStyle : {}}
+                style={activePath === "/qui-sommes-nous/mission" ? activeStyle : {}}
               >
                 <SportsScoreIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}

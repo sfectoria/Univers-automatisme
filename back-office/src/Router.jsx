@@ -12,6 +12,7 @@ import Contact from "./Pages/Contact";
 import LogIn from "./Pages/LogIn";
 import App from "./App";
 import ProfilePage from "./Pages/Profile";
+import QuiSommesNous from "./Pages/Qui";
 
 function Router() {
   const [user, setUser] = React.useState(true);
@@ -22,23 +23,39 @@ function Router() {
       <BrowserRouter>
         <Routes>
           {user ? (
-            <Route path="/" element={<App user={user} open={open}/>}>
-              <Route index element={<Secteur open={open} />} />
-              <Route path="famille" element={<Famille />} />
-              <Route path="partenaires" element={<Partenaires />} />
-              <Route path="services" element={<Services />} />
-              <Route path="avis" element={<Avis />} />
-              <Route path="presentation" element={<Presentation />} />
-              <Route path="equipe" element={<Equipe />} />
-              <Route path="mission" element={<Mission />} />
-              <Route path="contact" element={<Contact />} />
-              <Route path="profile" element={<ProfilePage />} />
+            <>
+              <Route path="Accueil" element={<App user={user} open={open} />}>
+                {/* Pages appartenant à la page "Accueil" */}
+                <Route index element={<Secteur open={open} />} />
+                <Route path="famille" element={<Famille />} />
+                <Route path="partenaires" element={<Partenaires />} />
+                <Route path="services" element={<Services />} />
+                <Route path="avis" element={<Avis />} />
+              </Route>
 
-            </Route>
+              {/* Pages appartenant à la page "Qui sommes nous" */}
+              <Route
+                path="qui-sommes-nous"
+                element={<App user={user} open={open} />}
+              >
+                <Route index element={<QuiSommesNous />} />
+                <Route path="presentation" element={<Presentation />} />
+                <Route path="equipe" element={<Equipe />} />
+                <Route path="mission" element={<Mission />} />
+              </Route>
+
+              {/* Page "Contact" */}
+              <Route path="/" element={<App user={user} open={open} />}>
+                <Route path="contact" element={<Contact />} />
+              </Route>
+
+              {/* Page "Profile" */}
+              <Route path="/" element={<App user={user} open={open} />}>
+                <Route path="profile" element={<ProfilePage />} />
+              </Route>
+            </>
           ) : (
-            <Route>
-              <Route path="/" element={<LogIn />} />
-            </Route>
+            <Route path="/" element={<LogIn />} />
           )}
         </Routes>
       </BrowserRouter>
