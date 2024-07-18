@@ -54,12 +54,14 @@ export default function TeamDataGrid() {
       width: 120,
       renderCell: (params) => (
         <>
-         
-          <DeleteIcon
-            sx={{ cursor: 'pointer' }}
-            onClick={() => handleDelete(params.row.id)}
-          />
-        </>
+        <EditIcon
+          sx={{ cursor: 'pointer', marginRight: 2 }}
+        />
+        <DeleteIcon
+          sx={{ cursor: "pointer" }}
+          onClick={() => handleDelete(params.row.id)}
+        />
+      </>
       ),
     },
   ];
@@ -71,7 +73,7 @@ export default function TeamDataGrid() {
    <Navbar2 />
 
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
-        <h3 style={{ marginLeft: 30, fontWeight: 300, fontFamily: 'Roboto, sans-serif' }}>Équipe</h3>
+        <div style={{ fontWeight: 10, fontFamily: 'Roboto, sans-serif' }}>Équipe</div>
       </Box>
       <DataGridComponent rows={rows} columns={columns} />
 

@@ -382,3 +382,23 @@ input {
 	color: red; /* Changement de couleur lorsqu'on clique */
   }
   
+  .css-1ihumad-MuiPaper-root-MuiAccordion-root {
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.87);
+    -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 4px;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    position: relative;
+    -webkit-transition: margin 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: margin 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    overflow-anchor: none;
+    border-radius: 0;
+    min-height: 48px;
+    -webkit-box-pack: initial;
+    -ms-flex-pack: initial;
+    -webkit-justify-content: initial;
+    justify-content: initial;
+    padding-left: 0px   !important;
+    padding-right: 0px !important; 
+}
