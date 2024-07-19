@@ -1,32 +1,27 @@
 'use client';
 import React from 'react';
 import { Button } from '@/components/ui/button';
-// import { Label } from '@/components/ui/label';
 import "../../../styles/contact.css";
 import Image from 'next/image';
-import hero from '../../../images/hero.png'
 import picture from '../../../images/picture.png'
 import "../../../styles/about.css";
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Download, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 import { motion } from "framer-motion";
-
-import {
-  RiBriefcase4Fill,
-  RiTeamFill,
-  RiTodoFill,
-  RiArrowDownSLine,
-} from 'react-icons/ri';
-import DevImg from '@/components/DevImg';
-import Socials from '@/components/Socials';
-import Badge from '@/components/Badge';
 import CountUp from 'react-countup';
 import light from "../../../images/light.jpg"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
+import SwiperCore, { Navigation, Pagination } from 'swiper';
+SwiperCore.use([Navigation, Pagination]);
+import { FaDribbble, FaTwitter } from 'react-icons/fa';
+import about from '../../../images/about.jpg'
 
 
 function page() {
+
 
   const hero_content = {
     title: ["Univers", "Automatisme"],
@@ -122,7 +117,7 @@ function page() {
           {/* Content */}
 
           <div className=" z-10 mx-auto flex w-full max-w-[1080px] flex-col space-y-8">
-           
+
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -180,6 +175,68 @@ function page() {
             </motion.div>
           </div>
         </section>
+
+
+        <section className='pb-[3rem] pt-[3rem] md:pt-[8rem]'>
+          <h2 className="titr font-PlayfairDisplay section-title mb-13 xl:mb-16 text-center mx-auto lg:text-center mt-4">
+            About Us
+          </h2>
+          <div className='grid grid-cols-1 md:grid-cols-2 w-[80%] mx-auto gap-[7rem] items-center'>
+            <div className="photo relative flex items-center justify-center min-h-full w-full bg-gradient-to-l from-[#EAF2AE] to-primary lg:flex">
+              <div className=" absolute h-full w-full overflow-clip">
+                <div className="animation-delay-4000 absolute -right-1/4 top-1/4 h-16 w-[40rem] animate-blob overflow-clip bg-purple-400 opacity-40 blur-[80px]"></div>
+                <div className="animation-delay-2000 absolute -right-1/4 top-1/4 h-16 w-[40rem] rotate-45 animate-plug overflow-clip bg-[#b7ebbf] opacity-40 blur-[80px]"></div>
+              </div>
+              <div className="relative aspect-square h-[26rem] rounded-full bg-[#EAF2AE]">
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.6 }}
+                  variants={{
+                    hidden: { opacity: 0, x: -50 },
+                    visible: { opacity: 1, x: 0 },
+                  }}>
+                </motion.div>
+                <div className="h-full w-full overflow-hidden rounded-full">
+                  <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.6 }}
+                    variants={{
+                      hidden: { opacity: 0, x: -50 },
+                      visible: { opacity: 1, x: 0 },
+                    }}>
+                    <Image
+                      src={picture}
+                      alt="Picture of the lady with book"
+                      className="scale-[.70]"
+                      loading="eager"
+                    />
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+            <div className='relative md:static'>
+              <h1 className='text-[20px] font-caveat uppercase text-primary mb-[1rem]'>About Us</h1>
+              <h2 className='text-[25px] md:text-35px lg:text-[45px] md:leading-[3rem] leading-[2rem] capitalize mb-[3rem] font-bold text-primary'>
+                Transforming <span className='text-[#EAF2AE]'>Visions</span>
+              </h2>
+              <div className='mb-[3rem] flex items-center md:space-x-10'>
+                <span className='w-[200px] hidden md:block h-[5px] bg-primary rounded-sm'></span>
+                <p className='text-[19px] text-gray-800'>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem corrupti id nesciunt minima inventore quas, repudiandae, quo quasi ea corporis, odio iure! Numquam illum laboriosam nulla consequatur quam? Nam, exercitationem!
+                </p>
+              </div>
+              <Button className='gap-x-2'>
+                Contact us <Send size={18} />
+              </Button>
+            </div>
+          </div>
+        </section>
+
+
 
 
         <section className='relative  mx-auto  flex flex-col justify-center  overflow-hidden'>
@@ -390,68 +447,176 @@ function page() {
                     excel in our industry.
                   </p>
                 </div>
-                <ul role="list" className="grid gap-8 lg:grid-cols-2 lg:col-span-2">
-                  <li>
+                <Swiper
+                  slidesPerView={1}
+                  breakpoints={{
+                    640: {
+                      slidesPerView: 2,
+                    },
+                  }}
+                  spaceBetween={30}
+
+                  // module={[Pagination]}
+                  pagination={{ clickable: true }}
+                  className="mySwiper h-[480px]"
+                >
+                  <SwiperSlide className='swiper-slide'>
                     <div className="space-y-4">
                       <div className="aspect-[3/2] p-2 overflow-hidden border rounded-3xl border-[#B8D941]">
-                        <Image className="object-cover w-full h-full rounded-2xl" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80" alt="" width={200} height={200} />
+                        <Image
+                          className="object-cover w-full h-full rounded-2xl"
+                          src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80"
+                          alt=""
+                          width={200}
+                          height={200}
+                        />
                       </div>
                       <div className="inline-flex items-start justify-between w-full">
                         <div className="space-y-1">
                           <h3 className=" font-caveat leading-6 text-[#B8D941]" style={{ fontSize: '1.3rem' }}>
                             Michael Andreuzza
                           </h3>
-                          <p className=" text-gray-800" style={{ fontSize: '0.8rem' }}>Creator of Windstatic.com</p>
+                          <p className="text-gray-800" style={{ fontSize: '0.8rem' }}>
+                            Creator of Windstatic.com
+                          </p>
                         </div>
                         <div>
-                          <ul role="list" className="flex space-x-5">
+                          <ul role="list" className="flex space-x-4">
                             <li>
                               <a href="#_" className="text-gray-400 hover:text-gray-500">
-                                <ion-icon name="logo-dribbble" role="img" className="md hydrated" aria-label="logo dribbble"></ion-icon>
+                                <FaDribbble name="logo-dribbble" role="img" className="md hydrated" aria-label="logo dribbble" color='#B8D947' />
                               </a>
                             </li>
                             <li>
                               <a href="#_" className="text-gray-400 hover:text-gray-500">
                                 <span className="sr-only"> Twitter </span>
-                                <ion-icon name="logo-twitter" role="img" className="md hydrated" aria-label="logo twitter"></ion-icon>
+                                <FaTwitter name="logo-twitter" role="img" className="md hydrated" aria-label="logo twitter" color='#B8D947'></FaTwitter>
                               </a>
                             </li>
                           </ul>
                         </div>
                       </div>
                     </div>
-                  </li>
-                  <li>
+                  </SwiperSlide>
+                  <SwiperSlide>
                     <div className="space-y-4">
                       <div className="aspect-[3/2] p-2 overflow-hidden border rounded-3xl border-[#B8D941]">
-                        <Image className="object-cover w-full h-full rounded-2xl" src="https://images.unsplash.com/photo-1602434228300-a645bce6891b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1639&amp;q=80" alt="" width={500} height={500} />
+                        <Image
+                          className="object-cover w-full h-full rounded-2xl"
+                          src="https://images.unsplash.com/photo-1602434228300-a645bce6891b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1639&amp;q=80"
+                          alt=""
+                          width={500}
+                          height={500}
+                        />
                       </div>
                       <div className="inline-flex items-start justify-between w-full">
                         <div className="space-y-1">
                           <h3 className="font-caveat leading-6 text-[#B8D941]" style={{ fontSize: '1.3rem' }}>
                             Melonia Tusk
                           </h3>
-                          <p className=" text-gray-800" style={{ fontSize: '0.8rem' }}>Founder of Fesla</p>
+                          <p className="text-gray-800" style={{ fontSize: '0.8rem' }}>
+                            Founder of Fesla
+                          </p>
                         </div>
-                        <div>
-                          <ul role="list" className="flex space-x-5">
+                        <div className='mx-4'>
+                          <ul role="list" className="flex  space-x-4">
                             <li>
                               <a href="#_" className="text-gray-400 hover:text-gray-500">
-                                <ion-icon name="logo-dribbble" role="img" className="md hydrated" aria-label="logo dribbble"></ion-icon>
+                                <FaDribbble name="logo-dribbble" role="img" className="md hydrated" aria-label="logo dribbble" color='#B8D947' />
                               </a>
                             </li>
                             <li>
                               <a href="#_" className="text-gray-400 hover:text-gray-500">
                                 <span className="sr-only"> Twitter </span>
-                                <ion-icon name="logo-twitter" role="img" className="md hydrated" aria-label="logo twitter"></ion-icon>
+                                <FaTwitter name="logo-twitter" role="img" className="md hydrated" aria-label="logo twitter" color='#B8D947'></FaTwitter>
                               </a>
                             </li>
                           </ul>
                         </div>
                       </div>
                     </div>
-                  </li>
-                </ul>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="space-y-4">
+                      <div className="aspect-[3/2] p-2 overflow-hidden border rounded-3xl border-[#B8D941]">
+                        <Image
+                          className="object-cover w-full h-full rounded-2xl"
+                          src="https://images.unsplash.com/photo-1602434228300-a645bce6891b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1639&amp;q=80"
+                          alt=""
+                          width={500}
+                          height={500}
+                        />
+                      </div>
+                      <div className="inline-flex items-start justify-between w-full">
+                        <div className="space-y-1">
+                          <h3 className="font-caveat leading-6 text-[#B8D941]" style={{ fontSize: '1.3rem' }}>
+                            Melonia Tusk
+                          </h3>
+                          <p className="text-gray-800" style={{ fontSize: '0.8rem' }}>
+                            Founder of Fesla
+                          </p>
+                        </div>
+                        <div className='mx-4'>
+                          <ul role="list" className="flex  space-x-4">
+                            <li>
+                              <a href="#_" className="text-gray-400 hover:text-gray-500">
+                                <FaDribbble name="logo-dribbble" role="img" className="md hydrated" aria-label="logo dribbble" color='#B8D947' />
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#_" className="text-gray-400 hover:text-gray-500">
+                                <span className="sr-only"> Twitter </span>
+                                <FaTwitter name="logo-twitter" role="img" className="md hydrated" aria-label="logo twitter" color='#B8D947'></FaTwitter>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="space-y-4">
+                      <div className="aspect-[3/2] p-2 overflow-hidden border rounded-3xl border-[#B8D941]">
+                        <Image
+                          className="object-cover w-full h-full rounded-2xl"
+                          src="https://images.unsplash.com/photo-1602434228300-a645bce6891b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1639&amp;q=80"
+                          alt=""
+                          width={500}
+                          height={500}
+                        />
+                      </div>
+                      <div className="inline-flex items-start justify-between w-full">
+                        <div className="space-y-1">
+                          <h3 className="font-caveat leading-6 text-[#B8D941]" style={{ fontSize: '1.3rem' }}>
+                            Melonia Tusk
+                          </h3>
+                          <p className="text-gray-800" style={{ fontSize: '0.8rem' }}>
+                            Founder of Fesla
+                          </p>
+                        </div>
+                        <div className='mx-4'>
+                          <ul role="list" className="flex  space-x-4">
+                            <li>
+                              <a href="#_" className="text-gray-400 hover:text-gray-500">
+                                <FaDribbble name="logo-dribbble" role="img" className="md hydrated" aria-label="logo dribbble" color='#B8D947' />
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#_" className="text-gray-400 hover:text-gray-500">
+                                <span className="sr-only"> Twitter </span>
+                                <FaTwitter name="logo-twitter" role="img" className="md hydrated" aria-label="logo twitter" color='#B8D947'></FaTwitter>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+
+
+
+                  {/* Ajoutez d'autres SwiperSlide ici si nécessaire */}
+                </Swiper>
               </div>
             </div>
           </section>

@@ -51,3 +51,36 @@
          */
         }
 }
+
+
+.mySwiper {
+    width: 650px;
+    height: 650px;
+    padding: 50px;
+  }
+  
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+  
+  }
+  
+  .swiper-slide Image {
+    display: block;
+    width: 100%;
+  }
+  .swiper-pagination-bullet {
+    background: #B8D941;
+    opacity: 1;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: #4CAF50;
+  }
+  .photo{
+    border-top-right-radius: 70px 70px;
+    border-bottom-left-radius: 70px 70px;
+
+  }
+  
+  
