@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@baskvava/react-video-modal": "^0.1.0-alpha",
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.3",
     "@radix-ui/react-dialog": "^1.1.1",

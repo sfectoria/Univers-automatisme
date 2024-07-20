@@ -18,15 +18,15 @@ import SwiperCore, { Navigation, Pagination } from 'swiper';
 SwiperCore.use([Navigation, Pagination]);
 import { FaDribbble, FaTwitter } from 'react-icons/fa';
 import about from '../../../images/about.jpg'
-
+import { ModalVideo, useToggle } from '@baskvava/react-video-modal';
 
 function page() {
-
+  const { isOpen, toggle, close } = useToggle();
 
   const hero_content = {
     title: ["Univers", "Automatisme"],
     description:
-      "Organizes work so teams know what to do, why it matters, and how to get it done.",
+      "Univers Automatisme est votre partenaire d'excellence pour l'intégration des nouvelles technologies.",
     button: "Get Started",
     play_button: "View Demo",
   };
@@ -77,7 +77,7 @@ function page() {
                   <span className="text-base text-[#fff]">Clients</span>
                 </div>
               </motion.div>
-              <div className="absolute bottom-4 -left-1/4 z-10 flex cursor-pointer flex-row items-center space-x-4 rounded-xl bg-white px-4 py-2 text-center shadow transition hover:-translate-y-1 hover:shadow-md">
+              <div className="absolute bottom-4 -left-[34%] z-9 flex cursor-pointer flex-row items-center space-x-4 rounded-xl bg-white px-4 py-2 text-center shadow transition hover:-translate-y-1 hover:shadow-md">
                 <span className="aspect-square h-8 overflow-clip rounded-full bg-gray-200">
                   <Image src={light} alt="Idea" loading="eager" />
                 </span>
@@ -91,7 +91,7 @@ function page() {
               </div>
 
               {/* Image */}
-              <div className="h-full w-full overflow-hidden rounded-full">
+              <div className="h-full w-full overflow-hidden rounded-full ">
                 <motion.div
                   initial="hidden"
                   whileInView="visible"
@@ -104,9 +104,10 @@ function page() {
 
 
                   <Image
+
                     src={picture}
                     alt="Picture of the lady with book"
-                    className="scale-[.70]"
+                    className="scale-[.70] z-8"
                     loading="eager"
                   />
                 </motion.div>
@@ -116,7 +117,7 @@ function page() {
 
           {/* Content */}
 
-          <div className=" z-10 mx-auto flex w-full max-w-[1080px] flex-col space-y-8">
+          <div className=" z-8 mx-auto flex w-full max-w-[1080px] flex-col space-y-8">
 
             <motion.div
               initial="hidden"
@@ -133,7 +134,7 @@ function page() {
                 {hero_content?.title &&
                   hero_content?.title.map((item, i) => <span key={i}>{item}</span>)}
               </h1>
-              <p className="content max-w-lg text-lg text-gray-600 xl:max-w-2xl xl:text-xl">
+              <p className="content max-w-lg text-lg text-gray-600 xl:max-w-2xl xl:text-xl mt-4">
                 {hero_content?.description}
               </p>
             </motion.div>
@@ -154,27 +155,42 @@ function page() {
                 <Button className=' gap-x-2'>
                   Contact us <Send size={18} />
                 </Button>
-                <button className=" group flex flex-row items-center space-x-4">
-                  <div className="rounded-full bg-primary  p-4 group-hover:bg-primary/80">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="h-5 w-5 text-white"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <span className="font-bold text-primary">{hero_content?.play_button}</span>
-                </button>
+                <div >
+                  <button className=" group flex flex-row items-center space-x-4" onClick={toggle}>
+                    <div className="rounded-full bg-primary  p-4 group-hover:bg-primary/80">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="h-5 w-5 text-white"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <span className="font-bold text-primary">{hero_content?.play_button}</span>
+
+                  </button>
+
+                </div>
+
               </div>
             </motion.div>
           </div>
         </section>
+          <ModalVideo
+          className="modal-video" 
+            title="video"
+            header="About univers automatisme"
+            controls="default"
+            width={800}
+            isOpen={isOpen}
+            onClosed={close}
+            url="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+          />
 
 
         <section className='pb-[3rem] pt-[3rem] md:pt-[8rem]'>
@@ -182,7 +198,7 @@ function page() {
             About Us
           </h2>
           <div className='grid grid-cols-1 md:grid-cols-2 w-[80%] mx-auto gap-[7rem] items-center'>
-            <div className="photo relative flex items-center justify-center min-h-full w-full bg-gradient-to-l from-[#EAF2AE] to-primary lg:flex">
+            <div className=" hidden md:block photo relative flex items-center justify-center min-h-full w-full bg-gradient-to-l from-[#EAF2AE] to-primary lg:flex">
               <div className=" absolute h-full w-full overflow-clip">
                 <div className="animation-delay-4000 absolute -right-1/4 top-1/4 h-16 w-[40rem] animate-blob overflow-clip bg-purple-400 opacity-40 blur-[80px]"></div>
                 <div className="animation-delay-2000 absolute -right-1/4 top-1/4 h-16 w-[40rem] rotate-45 animate-plug overflow-clip bg-[#b7ebbf] opacity-40 blur-[80px]"></div>
@@ -211,22 +227,23 @@ function page() {
                     <Image
                       src={picture}
                       alt="Picture of the lady with book"
-                      className="scale-[.70]"
+                      className="scale-[.70] hidden md:block h-full w-full object-cover"
                       loading="eager"
+                     
                     />
                   </motion.div>
                 </div>
               </div>
             </div>
             <div className='relative md:static'>
-              <h1 className='text-[20px] font-caveat uppercase text-primary mb-[1rem]'>About Us</h1>
+              <h1 className='text-[20px] font-caveat uppercase text-primary'>Know about Us</h1>
               <h2 className='text-[25px] md:text-35px lg:text-[45px] md:leading-[3rem] leading-[2rem] capitalize mb-[3rem] font-bold text-primary'>
-                Transforming <span className='text-[#EAF2AE]'>Visions</span>
+                Univers <span className='text-[#EAF2AE]'>Automatisme</span>
               </h2>
               <div className='mb-[3rem] flex items-center md:space-x-10'>
                 <span className='w-[200px] hidden md:block h-[5px] bg-primary rounded-sm'></span>
                 <p className='text-[19px] text-gray-800'>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem corrupti id nesciunt minima inventore quas, repudiandae, quo quasi ea corporis, odio iure! Numquam illum laboriosam nulla consequatur quam? Nam, exercitationem!
+                  Univers Automatisme est une société tunisienne spécialisée dans l'importation ,la distribution et l'installation des composants pneumatiques,électriques,Hydraulique et d'Automatismes pour l'industrie .
                 </p>
               </div>
               <Button className='gap-x-2'>
