@@ -14,6 +14,7 @@
     .conte{
         align-items: center;
     }
+   
 }
 @media  only screen and (max-width: 500px) {
     .content{
@@ -50,10 +51,32 @@
         height: 52vh;
     }
     .conte{
-        /* padding-left: 130px; */
-        
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+       
 }
+@media  only screen and (min-width: 440px) {
+  
+        .vision{
+            /* margin-left: 60px; */
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+            
+           
+        }
+       
+       
+}
+/* @media  only screen and (min-width: 500px) {
+  
+        .vision{
+            margin-left: 105px;
+        }
+       
+} */
 
 
 .mySwiper {
@@ -72,14 +95,7 @@
     display: block;
     width: 100%;
   }
-  .swiper-pagination-bullet {
-    background: #B8D941;
-    /* opacity: 1; */
-  }
   
-  .swiper-pagination-bullet-active {
-    background: #4CAF50;
-  }
   .photo{
     border-top-right-radius: 70px 70px;
     border-bottom-left-radius: 70px 70px;

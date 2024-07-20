@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import "../../../styles/contact.css";
 import Image from 'next/image';
@@ -19,8 +19,20 @@ SwiperCore.use([Navigation, Pagination]);
 import { FaDribbble, FaTwitter } from 'react-icons/fa';
 import about from '../../../images/about.jpg'
 import { ModalVideo, useToggle } from '@baskvava/react-video-modal';
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 function page() {
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 800,
+      easing: "ease-in-sine",
+      delay: 100,
+
+    });
+    AOS.refresh();
+  }, []);
   const { isOpen, toggle, close } = useToggle();
 
   const hero_content = {
@@ -35,7 +47,7 @@ function page() {
 
     <>
 
-      <section className=" w-full min-h-screen mb-20">
+      <section className=" w-full min-h-full mb-20 ">
         <section className="head py-12 xl:py-24 h-[84vh] relative flex min-h-full w-full flex-col  place-content-center px-4">
           {/* Patterns */}
           <div className="absolute right-0 hidden min-h-full w-1/4 flex-col justify-center bg-gradient-to-l from-[#EAF2AE] to-primary lg:flex">
@@ -181,24 +193,24 @@ function page() {
             </motion.div>
           </div>
         </section>
-          <ModalVideo
-          className="modal-video" 
-            title="video"
-            header="About univers automatisme"
-            controls="default"
-            width={800}
-            isOpen={isOpen}
-            onClosed={close}
-            url="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-          />
+        <ModalVideo
+          className="modal-video"
+          title="video"
+          header="About univers automatisme"
+          controls="default"
+          width={800}
+          isOpen={isOpen}
+          onClosed={close}
+          url="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        />
 
 
         <section className='pb-[3rem] pt-[3rem] md:pt-[8rem]'>
-          <h2 className="titr font-PlayfairDisplay section-title mb-13 xl:mb-16 text-center mx-auto lg:text-center mt-4">
+          <h2 className="titr font-PlayfairDisplay section-title mb-13 xl:mb-16 text-center mx-auto lg:text-center mt-4 "  data-aos="fade-up">
             About Us
           </h2>
           <div className='grid grid-cols-1 md:grid-cols-2 w-[80%] mx-auto gap-[7rem] items-center'>
-            <div className=" hidden md:block photo relative flex items-center justify-center min-h-full w-full bg-gradient-to-l from-[#EAF2AE] to-primary lg:flex">
+            <div className=" hidden md:block photo relative flex items-center justify-center min-h-full w-full bg-gradient-to-l from-[#EAF2AE] to-primary lg:flex" data-aos="fade-right">
               <div className=" absolute h-full w-full overflow-clip">
                 <div className="animation-delay-4000 absolute -right-1/4 top-1/4 h-16 w-[40rem] animate-blob overflow-clip bg-purple-400 opacity-40 blur-[80px]"></div>
                 <div className="animation-delay-2000 absolute -right-1/4 top-1/4 h-16 w-[40rem] rotate-45 animate-plug overflow-clip bg-[#b7ebbf] opacity-40 blur-[80px]"></div>
@@ -229,24 +241,25 @@ function page() {
                       alt="Picture of the lady with book"
                       className="scale-[.70] hidden md:block h-full w-full object-cover"
                       loading="eager"
-                     
+
                     />
                   </motion.div>
                 </div>
               </div>
             </div>
-            <div className='relative md:static'>
-              <h1 className='text-[20px] font-caveat uppercase text-primary'>Know about Us</h1>
-              <h2 className='text-[25px] md:text-35px lg:text-[45px] md:leading-[3rem] leading-[2rem] capitalize mb-[3rem] font-bold text-primary'>
-                Univers <span className='text-[#EAF2AE]'>Automatisme</span>
+            <div className='relative md:static' >
+              <h1
+                className='text-[20px] font-caveat uppercase text-primary ' data-aos="fade-left">Know about Us</h1>
+              <h2 className='text-[25px] md:text-35px lg:text-[45px] md:leading-[3rem] leading-[2rem] capitalize mb-[3rem] font-bold text-primary' data-aos="fade-left">
+                Univers <span className='text-[#EAF2AE]' data-aos="fade-left">Automatisme</span>
               </h2>
               <div className='mb-[3rem] flex items-center md:space-x-10'>
-                <span className='w-[200px] hidden md:block h-[5px] bg-primary rounded-sm'></span>
-                <p className='text-[19px] text-gray-800'>
+                <span className='w-[200px] hidden md:block h-[5px] bg-primary rounded-sm'  data-aos="fade-right"></span>
+                <p className='text-[19px] text-gray-800' data-aos="fade-left">
                   Univers Automatisme est une société tunisienne spécialisée dans l'importation ,la distribution et l'installation des composants pneumatiques,électriques,Hydraulique et d'Automatismes pour l'industrie .
                 </p>
               </div>
-              <Button className='gap-x-2'>
+              <Button className='gap-x-2' data-aos="fade-left">
                 Contact us <Send size={18} />
               </Button>
             </div>
@@ -258,14 +271,14 @@ function page() {
 
         <section className='relative  mx-auto  flex flex-col justify-center  overflow-hidden'>
           <div className=" max-w-5xl mx-auto px-4 md:px-6 pt-16 lg:pt-24 w-full">
-            <h2 className="titr font-PlayfairDisplay section-title mb-10 xl:mb-16 text-center mx-auto lg:text-center">
+            <h2 className="titr font-PlayfairDisplay section-title mb-10 xl:mb-16 text-center mx-auto lg:text-center" data-aos="fade-down">
               Our mission and vision
             </h2>
-            <div className='grid md:grid-cols-2 z-10 md:gap-10 gap-10'>
+            <div className='vision  grid md:grid-cols-2 z-10 md:gap-10 gap-10'>
               <div className='relative h-auto  max-w-[32rem]'> {/* Ajoutez md:ml-auto et max-w-[32rem] ici */}
-                <div className='w-full md:w-[83%] 5md:h-auto absolute z-10 inset-0 bg-gradient-to-r from-primary to-[#EAF2AE] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-lg'>
+                <div className='w-full md:w-[81%] 5md:h-auto absolute z-10 inset-0 bg-gradient-to-r from-primary to-[#EAF2AE] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-lg' >
                 </div>
-                <div className='w-full md:w-[83%] md:h-auto relative z-20 p-6 bg-white md:flex justify-between shadow-lg rounded-lg'>
+                <div className='w-full md:w-[81%] md:h-auto relative z-20 p-6 bg-white md:flex justify-between shadow-lg rounded-lg' data-aos="fade-up-right">
                   <div className='sm:flex flex-col justify-between space-y-4 py-4 md:pr-6'>
                     <div className='flex justify-between'>
                       <div>
@@ -292,7 +305,7 @@ function page() {
               <div className='relative h-auto md:ml-auto max-w-[32rem]'> {/* Ajoutez md:ml-auto et max-w-[32rem] ici */}
                 <div className='w-full md:w-[95%] md:h-auto absolute z-10 inset-0 bg-gradient-to-r from-primary to-[#EAF2AE] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-lg'>
                 </div>
-                <div className='w-full md:w-[95%] md:h-auto relative z-20 p-6 bg-white md:flex justify-between shadow-lg rounded-lg'>
+                <div className='w-full md:w-[95%] md:h-auto relative z-20 p-6 bg-white md:flex justify-between shadow-lg rounded-lg' data-aos="fade-up-left">
                   <div className='sm:flex flex-col justify-between space-y-4 py-4 md:pr-6'>
                     <div className='flex justify-between'>
                       <div>
@@ -322,12 +335,12 @@ function page() {
 
           <section className="relative  flex flex-col justify-center  overflow-hidden">
             <div className="w-full max-w-5xl mx-auto px-4 md:px-6 py-24">
-              <h2 className="font-PlayfairDisplay section-title mb-8 xl:mb-16 text-center mx-auto">
+              <h2 className="font-PlayfairDisplay section-title mb-8 xl:mb-16 text-center mx-auto" data-aos="fade-up">
                 Our Values
               </h2>
               <section className="grid gap-20 md:grid-cols-3 md:gap-20">
 
-                <article className='shadow-xl  rounded-2xl p-6 bg-gradient-to-tr from-[#B8D941] to-[#EAF2AE]'>
+                <article className='shadow-xl  rounded-2xl p-6 bg-gradient-to-tr from-[#B8D941] to-[#EAF2AE]' data-aos="fade-up-right">
                   <div>
                     <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
                       <svg xmlns="http://www.w3.org/2000/svg" width="31" height="20">
@@ -369,7 +382,7 @@ function page() {
 
                 </article>
 
-                <article className=' rounded-2xl p-6 shadow-xl  '>
+                <article className=' rounded-2xl p-6 shadow-xl  ' data-aos="fade-up">
 
                   <div className="w-14 h-14 rounded shadow-md bg-[#B8D941] flex justify-center items-center -rotate-3 mb-6">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="19">
@@ -407,7 +420,7 @@ function page() {
 
                 </article>
 
-                <article className='shadow-xl  rounded-2xl p-6 bg-gradient-to-tr from-[#B8D941] to-[#EAF2AE]'>
+                <article className='shadow-xl  rounded-2xl p-6 bg-gradient-to-tr from-[#B8D941] to-[#EAF2AE]' data-aos="fade-up-left">
                   <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
                       <defs>
@@ -448,18 +461,19 @@ function page() {
 
 
           <section>
-            <h2 className="font-PlayfairDisplay section-title  text-center mx-auto">
+            <h2 className="font-PlayfairDisplay section-title  text-center mx-auto" data-aos="fade-up">
               Meet the team
             </h2>
 
             <div className="px-8  py-16 mx-auto md:px-12 lg:px-32 max-w-7xl">
               <div className="grid gap-12 lg:grid-cols-3">
                 <div>
-                  <h1 className="text-4xl font-semibold tracking-tighter text-[#B8D941] lg:text-5xl">
+                  <h1 data-aos="fade-right"
+                    className="text-4xl font-semibold tracking-tighter text-[#B8D941] lg:text-5xl">
                     Meet Our Team
-                    <span className="block text-[#EAF2AE]">Diverse. Skilled. United.</span>
+                    <span className="block text-[#EAF2AE]"  data-aos="fade-right">Diverse. Skilled. United.</span>
                   </h1>
-                  <p className="mt-4  text-gray-800">
+                  <p className="mt-4  text-gray-800"  data-aos="fade-right">
                     A group of passionate individuals working together to innovate and
                     excel in our industry.
                   </p>
@@ -478,7 +492,7 @@ function page() {
                   className="mySwiper h-[480px]"
                 >
                   <SwiperSlide className='swiper-slide'>
-                    <div className="space-y-4">
+                    <div className="space-y-4" data-aos="zoom-in">
                       <div className="aspect-[3/2] p-2 overflow-hidden border rounded-3xl border-[#B8D941]">
                         <Image
                           className="object-cover w-full h-full rounded-2xl"
@@ -516,7 +530,7 @@ function page() {
                     </div>
                   </SwiperSlide>
                   <SwiperSlide>
-                    <div className="space-y-4">
+                    <div className="space-y-4" data-aos="zoom-in">
                       <div className="aspect-[3/2] p-2 overflow-hidden border rounded-3xl border-[#B8D941]">
                         <Image
                           className="object-cover w-full h-full rounded-2xl"
@@ -554,7 +568,7 @@ function page() {
                     </div>
                   </SwiperSlide>
                   <SwiperSlide>
-                    <div className="space-y-4">
+                    <div className="space-y-4" data-aos="zoom-in">
                       <div className="aspect-[3/2] p-2 overflow-hidden border rounded-3xl border-[#B8D941]">
                         <Image
                           className="object-cover w-full h-full rounded-2xl"
@@ -592,7 +606,7 @@ function page() {
                     </div>
                   </SwiperSlide>
                   <SwiperSlide>
-                    <div className="space-y-4">
+                    <div className="space-y-4" data-aos="zoom-in">
                       <div className="aspect-[3/2] p-2 overflow-hidden border rounded-3xl border-[#B8D941]">
                         <Image
                           className="object-cover w-full h-full rounded-2xl"
