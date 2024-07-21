@@ -3,10 +3,9 @@ import React, { useEffect } from 'react';
 import { AiOutlineMail } from "react-icons/ai";
 import { SlLocationPin } from "react-icons/sl";
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+
 import { Send } from 'lucide-react';
-// import { Label } from '@/components/ui/label';
+
 import "../../../styles/contact.css";
 import AOS from "aos";
 import 'aos/dist/aos.css';
@@ -24,7 +23,7 @@ function page() {
   }, []);
   return (
 
-    <section className="w-full min-h-screen mb-20">
+    <section className="w-full min-h-screen mb-[10rem]">
       {/* Partie avec le fond #B8D941 */}
       <div className="first-section bg-primary p-6 lg:p-24 flex justify-center lg:justify-end relative">
         <div className="container mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between ">
@@ -34,7 +33,7 @@ function page() {
             </div>
             <h1 data-aos="fade-right" className=" title  font-bold mb-4 hidden md:block ms:block  
              text-white   md:ml-0 drop-shadow-lg leading-tight tracking-normal"  style={{fontSize:"3.5rem"  }} >
-              Let's talk about <br/> your <span className=" responsive-container mx-4 realistic-marker-highlight"> problem.</span>
+              Let's talk about <br/> your <span className=" responsive-container mx-4 realistic-marker-highlight text-primary"> problem.</span>
 
               <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style={{ display: 'none' }} className='svg-filters'>
                 <defs>

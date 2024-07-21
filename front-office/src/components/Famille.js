@@ -19,7 +19,19 @@ import SilderIcon03 from "../../public/ps-icon-03.svg";
 import SilderIcon04 from "../../public/ps-icon-04.svg";
 
 import Banner from "@/components/banner.jsx";
+import AOS from "aos";
+import 'aos/dist/aos.css';
 export default function ProgressSlider() {
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 800,
+      easing: "ease-in-sine",
+      delay: 100,
+
+    });
+    AOS.refresh();
+  }, []);
   const projectData = [
     {
       image: '/work/3.png',
@@ -164,7 +176,7 @@ export default function ProgressSlider() {
   return (
    
         <>
-        <main className="relative min-h-screen flex flex-col justify-center bg-slate-50 overflow-hidden">
+        <main className="relative min-h-screen flex flex-col justify-center bg-slate-50 overflow-hidden" data-aos="fade-left">
           <h2 className="section-title mt-12 mb-12 xl:my-12 text-center mx-auto">
          Product's Family
         </h2>

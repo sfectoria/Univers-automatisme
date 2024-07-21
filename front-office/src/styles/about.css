@@ -28,14 +28,13 @@
 }
 @media  only screen and (max-width: 760px) {
     .content{
-        text-align: center;
+        /* text-align: center; */
         padding-bottom: 15px;
-        margin-left: auto;
-        margin-right: auto;
+       
     }
     .conte{
        
-            padding-left: 7px;
+            padding-right: 110px;
             
    
     }
@@ -102,12 +101,3 @@
 
   }
   
-  .modal-video {
-    position: fixed !important; 
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    margin: auto !important; /* Centrez le modal */
-    z-index: 9999 !important;
-  }
