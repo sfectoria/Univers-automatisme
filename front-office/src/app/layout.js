@@ -1,9 +1,9 @@
+
 import Footer from "@/layouts/Footer";
 import Header from "@/layouts/Header";
 import "../styles/globals.css";
-import AOS from "aos";
-import 'aos/dist/aos.css';
-import { useEffect } from "react";
+
+
 
 export const metadata = {
   title: "Next.js",
@@ -11,16 +11,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 800,
-      easing: "ease-in-sine",
-      delay: 100,
-
-    });
-    AOS.refresh();
-  }, []);
+  
   return (
     <html lang="en">
       <head>

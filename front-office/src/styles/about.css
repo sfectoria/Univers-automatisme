@@ -1,6 +1,6 @@
 
 @media  only screen and (max-width: 440px) {
-    .titr{
+    /* .titr{
         flex-direction: column;
         margin-bottom: 40px;
     }
@@ -13,36 +13,36 @@
     }
     .conte{
         align-items: center;
-    }
+    } */
    
 }
 @media  only screen and (max-width: 500px) {
-    .content{
+    /* .content{
         text-align: center;
         padding-bottom: 15px;
     }
     .conte{
         padding-left: 130px;
         
-        }
+        } */
 }
-@media  only screen and (max-width: 760px) {
-    .content{
+/* @media  only screen and (max-width: 760px) { */
+    /* .content{
         /* text-align: center; */
-        padding-bottom: 15px;
+        /* padding-bottom: 15px; */
        
-    }
+    /* }
     .conte{
        
             padding-right: 110px;
             
-   
-    }
-}
-@media  only screen and (max-width: 860px) {
-    .content{
-        text-align: center;
-        padding-bottom: 15px;
+    */
+    /* } */ */
+/* }
+@media  only screen and (max-width: 860px) { */
+    /* .content{
+        text-align: center; */
+        /* padding-bottom: 15px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -53,22 +53,20 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    }
+    } */
        
-}
-@media  only screen and (min-width: 440px) {
+/* } */
+/* @media  only screen and (min-width: 440px) { */
   
         .vision{
             /* margin-left: 60px; */
-            /* display: flex;
-            justify-content: center;
-            align-items: center; */
+           
             
            
         }
        
-       
-}
+/*        
+} */
 /* @media  only screen and (min-width: 500px) {
   
         .vision{
@@ -80,8 +78,8 @@
 
 .mySwiper {
     width: 650px;
-    height: 380px;
-    padding: 50px;
+    height: 330px;
+  
   }
   
   .swiper-slide {
