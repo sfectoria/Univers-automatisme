@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -62,6 +63,8 @@
   .border-border {
     border-color: var(--border);
   }
+    
+
 }
 
 /* Heading styles */
@@ -148,13 +151,4 @@
   to {
       --num: 40;
   }
-}
-/* Hide scrollbar for specific elements */
-.no-scrollbar::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
-  scrollbar-width: none; /* Hide scrollbar for Firefox */
 }

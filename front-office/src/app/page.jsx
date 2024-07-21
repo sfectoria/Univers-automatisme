@@ -1,3 +1,5 @@
+
+"use client";
 import React from "react";
 import "../styles/globals.css";
 import Hero from "@/components/Hero";
@@ -11,7 +13,7 @@ import ProgressSlider from "@/components/Famille";
 
 const page = () => {
   return (
-    <div className="no-scrollbar " style={{overflow:"hidden"}}>
+    <div className=" no-scrollbar overflow-y-scroll ">
       <Hero />
       <About />
       <Services />

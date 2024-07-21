@@ -68,7 +68,7 @@ const Reviews = () => {
   return (
     <section className='mb-12 xl:mb-32'>
       <div className='container mx-auto'>
-        <h2 className='section-title mb-12 text-center mx-auto'>Reviews</h2>
+        <h2 className='section-title mb-12 text-center mx-auto'> Customers <span className=' font-caveat '>Reviews</span> </h2>
         {/* slider */}
         <Swiper
           slidesPerView={1}
