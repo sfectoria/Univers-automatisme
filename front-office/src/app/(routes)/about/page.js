@@ -1,4 +1,6 @@
 'use client';
+ 
+import { useRouter } from 'next/navigation'
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import "../../../styles/contact.css";
@@ -23,6 +25,7 @@ import AOS from "aos";
 import 'aos/dist/aos.css';
 
 function page() {
+  const router = useRouter()
   useEffect(() => {
     AOS.init({
       offset: 100,
@@ -144,7 +147,7 @@ function page() {
             >
               <h1 className="content flex max-w-2xl flex-col space-y-1 text-4xl font-bold sm:text-5xl xl:text-7xl text-primary">
                 {hero_content?.title &&
-                  hero_content?.title.map((item, i) => <span key={i}>{item}</span>)}
+                  hero_content?.title.map((item, i) => <span key={i} >{item}</span>)}
               </h1>
               <p className="content max-w-lg text-lg text-gray-600 xl:max-w-2xl xl:text-xl mt-4">
                 {hero_content?.description}
@@ -164,7 +167,7 @@ function page() {
               <div className="conte flex flex-row items-center space-x-10 transition">
 
 
-                <Button className=' gap-x-2'>
+                <Button className=' gap-x-2' onClick={() => router.push('/contact')}>
                   Contact us <Send size={18} />
                 </Button>
                 <div >
@@ -207,7 +210,7 @@ function page() {
 
         <section className='pb-[3rem] pt-[3rem] md:pt-[8rem]'>
           <h2 className="titr font-PlayfairDisplay section-title mb-13 xl:mb-16 text-center mx-auto lg:text-center mt-4 "  data-aos="fade-up">
-            About Us
+            About  <span className=' font-caveat '>Us</span> 
           </h2>
           <div className='grid grid-cols-1 md:grid-cols-2 w-[80%] mx-auto gap-[7rem] items-center'>
             <div className=" hidden md:block photo relative flex items-center justify-center min-h-full w-full bg-gradient-to-l from-[#EAF2AE] to-primary lg:flex" data-aos="fade-right">
@@ -251,7 +254,7 @@ function page() {
               <h1
                 className='text-[20px] font-caveat uppercase text-primary ' data-aos="fade-left">Know about Us</h1>
               <h2 className='text-[25px] md:text-35px lg:text-[45px] md:leading-[3rem] leading-[2rem] capitalize mb-[3rem] font-bold text-primary' data-aos="fade-left">
-                Univers <span className='text-[#EAF2AE]' data-aos="fade-left">Automatisme</span>
+                Univers <span className='text-[#EAF2AE] font-caveat' data-aos="fade-left">Automatisme</span>
               </h2>
               <div className='mb-[3rem] flex items-center md:space-x-10'>
                 <span className='w-[200px] hidden md:block h-[5px] bg-primary rounded-sm'  data-aos="fade-right"></span>
@@ -272,7 +275,7 @@ function page() {
         <section className='relative  mx-auto  flex flex-col justify-center  overflow-hidden'>
           <div className=" max-w-5xl mx-auto px-4 md:px-6 pt-16 lg:pt-24 w-full">
             <h2 className="titr font-PlayfairDisplay section-title mb-10 xl:mb-16 text-center mx-auto lg:text-center" data-aos="fade-down">
-              Our mission and vision
+            mission <span className=' font-caveat '>&</span>  vision
             </h2>
             <div className='vision  grid md:grid-cols-2 z-10 md:gap-10 gap-10'>
               <div className='relative h-auto  max-w-[32rem]'> {/* Ajoutez md:ml-auto et max-w-[32rem] ici */}
@@ -336,7 +339,7 @@ function page() {
           <section className="relative  flex flex-col justify-center  overflow-hidden">
             <div className="w-full max-w-5xl mx-auto px-4 md:px-6 py-24">
               <h2 className="font-PlayfairDisplay section-title mb-8 xl:mb-16 text-center mx-auto" data-aos="fade-up">
-                Our Values
+              <span className=' font-caveat '>Our</span> Values
               </h2>
               <section className="grid gap-20 md:grid-cols-3 md:gap-20">
 
@@ -462,7 +465,7 @@ function page() {
 
           <section>
             <h2 className="font-PlayfairDisplay section-title  text-center mx-auto" data-aos="fade-up">
-              Meet the team
+              Meet  <span className=' font-caveat '>The Team</span>
             </h2>
 
             <div className="px-8  py-16 mx-auto md:px-12 lg:px-32 max-w-7xl">
