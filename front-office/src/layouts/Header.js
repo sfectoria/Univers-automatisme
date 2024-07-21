@@ -27,7 +27,7 @@ const Header = () => {
           ? 'py-4 bg-white shadow-lg dark:bg-accent backdrop-blur-lg'
           : 'py-6 dark:bg-transparent backdrop-blur-lg'
       } sticky top-0 z-30 transition-all ${pathname === '/' && 'bg-[#F7FBE9] backdrop-blur-lg'} `}>
-      <div className='container mx-auto'>
+      <div className='mx-auto max-w-[86rem] px-4'>
         <div className='flex justify-between items-center'>
           <Logo />
           <div className='flex items-center gap-x-6'>

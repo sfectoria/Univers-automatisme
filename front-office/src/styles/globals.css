@@ -10,8 +10,7 @@
     --card-foreground: 240 19% 16%;
     --popover: 0 0% 100%;
     --popover-foreground: 20 14.3% 4.1%;
-    --primary: 75 60% 56%;
-    --primary-foreground: 300 0% 100%;
+    --primary: #B8D947;
     --secondary: 240 19% 16%;
     --secondary-foreground: 300 0% 100%;
     --tertiary: 27 82% 98%;
@@ -150,4 +149,12 @@
       --num: 40;
   }
 }
+/* Hide scrollbar for specific elements */
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+}
 
+.no-scrollbar {
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}

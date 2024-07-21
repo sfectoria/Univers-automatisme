@@ -17,7 +17,7 @@ function Footer() {
   return (
 
 
-    <footer className=" dark:bg-gray-900 z-0 py-2" style={{ background: "#22c55e", position: "relative" }} >
+    <footer className=" dark:bg-gray-900 z-0 py-2 mt-30" style={{ background: "#22c55e", position: "relative" }} >
       <div className="waves">
         <div className="wave" id='wave1'></div>
         <div className="wave" id='wave2'></div>
@@ -327,7 +327,17 @@ function Footer() {
           </div>
         </div>
       </div>
-
+  {/* Big text */}
+  {/* <div className="relative -mt-16 h-60 w-full" aria-hidden="true">
+        <div className="pointer-events-none absolute left-1/2 -z-10 -translate-x-1/2 text-center text-[348px] font-bold leading-none before:bg-gradient-to-b before:from-gray-200 before:to-gray-100/30 before:to-80% before:bg-clip-text before:text-transparent before:content-['Simple'] after:absolute after:inset-0 after:bg-gray-300/70 after:bg-clip-text after:text-transparent after:mix-blend-darken after:content-['Simple'] after:[text-shadow:0_1px_0_white]"></div>
+  
+        <div
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-2/3"
+          aria-hidden="true"
+        >
+          <div className="h-56 w-56 rounded-full border-[20px] border-blue-700 blur-[80px]"></div>
+        </div>
+      </div> */}
     </footer>
 
 

@@ -11,7 +11,7 @@ import ProgressSlider from "@/components/Famille";
 
 const page = () => {
   return (
-    <div className="">
+    <div className="no-scrollbar " style={{overflow:"hidden"}}>
       <Hero />
       <About />
       <Services />
@@ -21,7 +21,7 @@ const page = () => {
       {/* <Stars/> */}
       <Partnaires />
 
-      <Cta />
+      {/* <Cta /> */}
     </div>
   );
 };
