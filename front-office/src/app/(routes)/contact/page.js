@@ -23,7 +23,7 @@ function page() {
   }, []);
   return (
 
-    <section className="w-full min-h-screen mb-[10rem]">
+    <section className="w-full min-h-screen mb-[]">
       {/* Partie avec le fond #B8D941 */}
       <div className="first-section bg-primary p-6 lg:p-24 flex justify-center lg:justify-end relative">
         <div className="container mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between ">

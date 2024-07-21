@@ -141,124 +141,112 @@ export default function About() {
     <section className="xl:h-[860px] pb-12 xl:py-24" data-aos="fade-left">
       <div className="container mx-auto">
         <h2 className="font-PlayfairDisplay section-title mb-8 xl:mb-16 text-center mx-auto">
-          About me
+          About  <span className=' font-caveat '>Us</span> 
         </h2>
 
         <div className="flex flex-col xl:flex-row ">
           {/* image */}
           <div className="hidden xl:flex flex-1 relative ">
+          
             <DevImg
               containerStyles="bg-about_shape_light dark:bg-about_shape_dark w-[505px] h-[505px] bg-no-repeat relative items-center"
               imgSrc="/about/developer.png"
             />
+            
           </div>
           {/* tabs */}
           <div className="flex-1">
-            <Tabs defaultValue="personal">
+            <Tabs defaultValue="company-info">
               <TabsList className="w-full grid xl:grid-cols-2 xl:max-w-[520px] xl:border dark:border-none">
                 <TabsTrigger className="w-[162px] xl:w-auto" value="journey">
-                Journey
-                 
+                  Journey
                 </TabsTrigger>
                 <TabsTrigger
                   className="w-[162px] xl:w-auto"
-                  value="qualifications"
+                  value="company-info"
                 >
-                   Company Info
+                  Company Info
                 </TabsTrigger>
-               
               </TabsList>
               {/* tabs content */}
               <div className="text-lg mt-12 xl:mt-8">
                 {/* personal */}
                 <TabsContent value="personal">
-                  
-                <div class="relative font-inter antialiased">
+                  <div class="relative font-inter antialiased">
                     <main class="  flex flex-col justify-center bg-slate-50 overflow-hidden">
-                      <div class="w-full max-w-6xl mx-auto px-4 md:px-6 py-5">
-                        
-                          
-
-                          
-
-                         
-                       
-                      </div>
+                      <div class="w-full max-w-6xl mx-auto px-4 md:px-6 py-5"></div>
                     </main>
-
-                  
                   </div>
                 </TabsContent>
                 {/* qualifications */}
-                <TabsContent value="qualifications">
+                <TabsContent value="company-info">
                   <div class="relative font-inter antialiased">
                     <main class="  flex flex-col justify-center bg-slate-50 overflow-hidden">
                       <div class="w-full max-w-6xl mx-auto px-4 md:px-6 py-5">
-                        
-                          <div class="w-full max-w-3xl mx-auto">
-                            <div class="-my-6">
-                              <div class="relative pl-8 sm:pl-32 py-6 group">
-                                <div class="font-caveat font-medium text-2xl text-indigo-500 mb-1 sm:mb-0">
-                                  The origin
-                                </div>
+                        <div class="w-full max-w-3xl mx-auto">
+                          <div class="-my-6">
+                            <div class="relative pl-8 sm:pl-32 py-6 group">
+                              <div class="font-caveat font-medium text-2xl text-indigo-500 mb-1 sm:mb-0">
+                                The origin
+                              </div>
 
-                                <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
-                                  <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full">
+                              <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
+                                <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full">
                                   JAN, 2000
-                                  </time>
-                                  <div class="text-xl font-bold text-slate-900">
-                                  Univers Automatisme was founded in Tunis, Tunisia.
-                                  </div>
-                                </div>
-
-                                <div class="text-slate-500">
-                                We specialize in importing and installing pneumatic, electric, and hydraulic components.
-                                 
+                                </time>
+                                <div class="text-xl font-bold text-slate-900">
+                                  Univers Automatisme was founded in Tunis,
+                                  Tunisia.
                                 </div>
                               </div>
 
-                              <div class="relative pl-8 sm:pl-32 py-6 group">
-                                <div class="font-caveat font-medium text-2xl text-indigo-500 mb-1 sm:mb-0">
-                                  The milestone
-                                </div>
+                              <div class="text-slate-500">
+                                We specialize in importing and installing
+                                pneumatic, electric, and hydraulic components.
+                              </div>
+                            </div>
 
-                                <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
-                                  <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full">
-                                    May, 2021
-                                  </time>
-                                  <div class="text-xl font-bold text-slate-900">
-                                    Reached 1k customers.
-                                  </div>
-                                </div>
+                            <div class="relative pl-8 sm:pl-32 py-6 group">
+                              <div class="font-caveat font-medium text-2xl text-indigo-500 mb-1 sm:mb-0">
+                                The milestone
+                              </div>
 
-                                <div class="text-slate-500">
-                                Our focus on quality products and service has built a strong reputation.
-                                
+                              <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
+                                <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full">
+                                  May, 2021
+                                </time>
+                                <div class="text-xl font-bold text-slate-900">
+                                  Reached 1k customers.
                                 </div>
                               </div>
 
-                              <div class="relative pl-8 sm:pl-32 py-6 group">
-                                <div class="font-caveat font-medium text-2xl text-indigo-500 mb-1 sm:mb-0">
-                                  The acquisitions
-                                </div>
+                              <div class="text-slate-500">
+                                Our focus on quality products and service has
+                                built a strong reputation.
+                              </div>
+                            </div>
 
-                                <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
-                                  <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full">
+                            <div class="relative pl-8 sm:pl-32 py-6 group">
+                              <div class="font-caveat font-medium text-2xl text-indigo-500 mb-1 sm:mb-0">
+                                The acquisitions
+                              </div>
+
+                              <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-indigo-600 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
+                                <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-emerald-600 bg-emerald-100 rounded-full">
                                   MAY, 2015
-                                  </time>
-                                  <div class="text-xl font-bold text-slate-900">
-                                    Acquired several local automation companies.
-                                  
-                                  </div>
-                                </div>
-
-                                <div class="text-slate-500">
-                                This expansion increased our market share and product range.
-                                 
+                                </time>
+                                <div class="text-xl font-bold text-slate-900">
+                                  Acquired several local automation companies.
                                 </div>
                               </div>
 
-                              {/* <div class="relative pl-8 sm:pl-32 py-6 group">
+                              <div class="text-slate-500">
+                                This expansion increased our market share and
+                                product range.
+                              </div>
+                            </div>
+
+                            {/* <div class="relative pl-8 sm:pl-32 py-6 group">
                                 <div class="font-caveat font-medium text-2xl text-indigo-500 mb-1 sm:mb-0">
                                   The IPO
                                 </div>
@@ -279,21 +267,12 @@ export default function About() {
                                   aliquam vestibulum morbi blandit cursus risus.
                                 </div>
                               </div> */}
-                            </div>
                           </div>
-
-                          
-
-                         
-                       
+                        </div>
                       </div>
                     </main>
-
-                  
                   </div>
                 </TabsContent>
-               
-               
               </div>
             </Tabs>
           </div>

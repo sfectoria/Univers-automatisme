@@ -9,10 +9,10 @@ import smc from "../../public/partnaires/smc.png";
 
 const Partnaires = () => {
   return (
-    <section className='mb-12 xl:mb-32'>
+    <section className='mb-24 pb-24 xl:mb-32'>
       <div className=' relative font-inter antialiased'>
-      <h2 className='section-title mb-12 text-center mx-auto'>Partnaires</h2>
-        <main className="relative  flex flex-col justify-center bg-green-500 overflow-hidden">
+      <h2 className='section-title mb-12 text-center mx-auto'>  <span className=' font-caveat '>Our</span> Partnaires</h2>
+        <main className="relative  flex flex-col justify-center bg-primary overflow-hidden">
           <div className="w-full mx-auto py-20">
             <div className="text-center">
               <div
