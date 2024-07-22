@@ -1,5 +1,6 @@
-import React from "react";
-import DevImg from "./DevImg";
+'use client';
+import React, { useEffect } from "react";
+import DevImg from "../DevImg";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -39,55 +40,56 @@ const infoData = [
     text: "321 Blue Avenue, NY, USA",
   },
 ];
+import { 
+  Wind, 
+  Droplet, 
+  Settings, 
+  Disc 
+} from "lucide-react";
 
 const sectors = [
   {
     name: "Pneumatic",
     description: "Specializing in systems and components that use.",
-    svg: `
-      <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" fill="currentColor"/>
-      </svg>
-    `
+    icon: <Wind size={40} className="text-gray-600 transition-all duration-300 group-hover:text-white/90" />
   },
   {
     name: "Hydraulic",
-    description: "Providing solutions that utilize fluid power .",
-    svg: `
-      <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M21 13.5c-1.1 0-2 .9-2 2v4c0 .55-.45 1-1 1h-2.5v-4h-2v4H7c-.55 0-1-.45-1-1v-4c0-1.1-.9-2-2-2H3v-1h.5c1.1 0 2-.9 2-2V9c0-1.1.9-2 2-2h2V6h2v1h2c1.1 0 2 .9 2 2v1c1.1 0 2 .9 2 2h.5v1h-1.5zM14 7v2H9V7h5zm-1 8v-2h-4v2h4z" fill="currentColor"/>
-      </svg>
-    `
+    description: "Providing solutions that utilize fluid power.",
+    icon: <Droplet size={40} className="text-gray-600 transition-all duration-300 group-hover:text-white/90" />
   },
   {
     name: "Instrumentation & Control",
     description: "Focusing on the measurement, monitoring.",
-    svg: `
-      <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M11 15.07v4.25c0 .41-.34.75-.75.75H5.75c-.41 0-.75-.34-.75-.75v-4.25c-1.47-.48-2.5-1.85-2.5-3.42 0-2.01 1.62-3.63 3.63-3.63 1.54 0 2.88.98 3.37 2.4h.13c.5-1.42 1.84-2.4 3.38-2.4 2.01 0 3.63 1.62 3.63 3.63 0 1.57-1.03 2.94-2.5 3.42zM16.38 8.95c-.55 0-1 .45-1 1s.45 1 1 1h.87c-.09 2.31-1.89 4.19-4.13 4.36v1.24h2v1h-2v1.51h-1V17.55H11v-1h2v-1.51c-2.24-.18-4.04-2.05-4.13-4.36h.87c.55 0 1-.45 1-1s-.45-1-1-1H7.62c-.5 0-.88-.39-.88-.88V7.5c0-.5.39-.88.88-.88h1.75c.5 0 .88.39.88.88v.57h3.5v-.57c0-.5.39-.88.88-.88h1.75c.5 0 .88.39.88.88v1.57c0 .49-.39.88-.88.88zM14.25 2c-.41 0-.75.34-.75.75v2.5c0 .41.34.75.75.75h.75V5h-.75V2zm-4.5 0c-.41 0-.75.34-.75.75v2.5c0 .41.34.75.75.75h.75V5h-.75V2zM12 9.88l.69-.73c.29-.29.76-.29 1.05 0l2.49 2.5c.29.29.29.76 0 1.05-.29.29-.76.29-1.05 0L13.12 12H10.88l-.06.08-.79.81c-.29.29-.76.29-1.05 0-.29-.29-.29-.76 0-1.05l.78-.8-.71-.74c-.29-.29-.29-.76 0-1.05s.76-.29 1.05 0L12 9.88z" fill="currentColor"/>
-      </svg>
-    `
+    icon: <Settings size={40} className="text-gray-600 transition-all duration-300 group-hover:text-white/90" />
   },
   {
     name: "Vacuum Technology",
     description: "Expertise in creating and maintaining low-pressure environments.",
-    svg: `
-      <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M21 10.27V6c0-2.21-1.79-4-4-4H7C4.79 2 3 3.79 3 6v12c0 2.21 1.79 4 4 4h10c2.21 0 4-1.79 4-4v-4.27l-2.23-.23L21 10.27zm-3.9-4.23H6.9V6c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v.04zm-8 3.22l1.17 1.5-1.17 1.5V8.26zm3.79 2.76L12 9.5l-1.88 2.52h3.75zM7 17.7c-1.1 0-2-.9-2-2v-1.18h2v1.17c0 .55.45 1 1 1 .55 0 1-.45 1-1V8h1v7.7h.5v-4.2h1v4.2h1.5V8h1v7.7h1v-3.19h2V15.7c0 1.1-.9 2-2 2H7zm7-3.2h-1V8h1v6.5z" fill="currentColor"/>
-      </svg>
-    `
+    icon: <Disc size={40} className="text-gray-600 transition-all duration-300 group-hover:text-white/90" />
   }
 ];
 
 
-
+import AOS from "aos";
+import 'aos/dist/aos.css';
 
 export default function About() {
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 800,
+      easing: "ease-in-sine",
+      delay: 100,
+
+    });
+    AOS.refresh();
+  }, []);
   const getData = (arr, title) => {
     return arr.find((item) => item.title === title);
   };
   return (
-    <section className="xl:h-[860px] pb-12 xl:py-24">
+    <section className="xl:h-[860px] pb-12 xl:py-24" data-aos="fade-left">
       <div className="container mx-auto">
         <h2 className="font-PlayfairDisplay section-title mb-8 xl:mb-16 text-center mx-auto">
           About <span className=" font-caveat ">Us</span>
@@ -123,13 +125,13 @@ export default function About() {
                     <main class="  flex flex-col justify-center bg-slate-50 overflow-hidden">
                       <div class="w-full grid max-w-6xl mx-auto px-4 md:px-6 py-1 sm:grid-cols-2 gap-4">
                       {sectors.map((sector, index) => (
-                          <div key={index} className="group  relative cursor-pointer overflow-hidden bg-white px-3 pt-5 pb-10 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl  sm:max-w-sm rounded-bl-[20%]  rounded-tr-[20%]  mb-4">
+                          <div key={index} className="group relative cursor-pointer overflow-hidden bg-white px-3 pt-5 pb-10 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:max-w-sm rounded-bl-[20%] rounded-tr-[20%] mb-4">
                             <span className="absolute top-5 z-0 h-20 w-20 rounded-full bg-primary transition-all duration-300 group-hover:scale-[10]"></span>
                             <div className="relative z-10 mx-auto max-w-md">
-                              <span className="grid h-20 w-20  place-items-center rounded-full bg-primary transition-all duration-300 group-hover:primary">
-                                <div dangerouslySetInnerHTML={{ __html: sector.svg }} />
+                              <span className="grid pt-5 h-10 w-20 place-items-center rounded-full  transition-all duration-300 group-hover:primary">
+                                {sector.icon}
                               </span>
-                              <div className=" pt-5 text-base leading-7 text-gray-600 transition-all duration-300 group-hover:text-white/90">
+                              <div className="pt-14 text-base leading-7 text-gray-600 transition-all duration-300 group-hover:text-white/90">
                                 <p className="font-semibold">{sector.name}</p>
                                 <p>{sector.description}</p>
                               </div>

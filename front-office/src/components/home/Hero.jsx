@@ -1,5 +1,7 @@
+
+'use client';
 import Link from 'next/link';
-import { Button } from './ui/button';
+import { Button } from '../ui/button';
 import { Download, Send } from 'lucide-react';
 
 import {
@@ -10,36 +12,52 @@ import {
 } from 'react-icons/ri';
 
 // components
-import DevImg from './DevImg';
-import Badge from './Badge';
-import Socials from './Socials';
+import DevImg from '../DevImg';
+import Badge from '../Badge';
+import Socials from '../Socials';
+import AOS from "aos";
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const Hero = () => {
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 800,
+      easing: "ease-in-sine",
+      delay: 100,
+
+    });
+    AOS.refresh();
+  }, []);
   return (
-    <section className='py-12 xl:py-24 h-[84vh] xl:pt-28 bg-hero bg-no-repeat bg-bottom bg-cover dark:bg-none'>
+    <section className='py-12 xl:py-24 h-[84vh] xl:pt-28 bg-hero bg-no-repeat bg-bottom bg-cover dark:bg-none' data-aos="fade-right">
       <div className='container mx-auto'>
         <div className='flex justify-between gap-x-8'>
           {/* text */}
           <div className='flex max-w-[600px] flex-col justify-center mx-auto xl:mx-0 text-center xl:text-left'>
             <div className='text-sm uppercase font-semibold mb-4 text-primary tracking-[4px]'>
-              Web Developer
+            More Than a Supplier
             </div>
-            <h1 className='h1 mb-4'>Hello, my name is Ryan Davis</h1>
+            <h1 className='h1 mb-4'>Univers Automatisme</h1>
             <p className='subtitle max-w-[490px] mx-auto xl:mx-0'>
-              Brief description with insights into myself, my vocational
-              journey, and what I engage in professionally.
+            We offer repair, diagnostics, commissioning, design, and realization services in the fields of pneumatics, hydraulic.
+
             </p>
             {/* buttons */}
             <div className='flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto xl:mx-0 mb-12'>
               <Link href='/contact'>
                 <Button className='gap-x-2'>
-                  Contact me <Send size={18} />
+                  Contact Us <Send size={18} />
                 </Button>
               </Link>
+              <Link href='/about'>
+
               <Button variant='secondary' className='gap-x-2'>
-                Download CV
+                About Us
                 <Download size={18} />
               </Button>
+              </Link>
             </div>
             {/* socials */}
             <Socials

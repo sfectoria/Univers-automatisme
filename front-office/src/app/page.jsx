@@ -1,16 +1,13 @@
 "use client";
 import React from "react";
 import "../styles/globals.css";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import Work from "@/components/Work";
-import Reviews from "@/components/Reviews";
-import Cta from "@/components/Cta";
-import Partnaires from "@/components/Partnaires";
-import ProgressSlider from "@/components/Famille";
-import Stars from "@/components/Stars";
-
+import Hero from "@/components/home/Hero";
+import About from "@/components/home/About";
+import Services from "@/components/home/Services";
+import ProgressSlider from "@/components/home/Famille";
+import Work from "@/components/home/Work";
+import Reviews from "@/components/home/Reviews";
+import Partnaires from "@/components/home/Partnaires";
 
 const page = () => {
   return (

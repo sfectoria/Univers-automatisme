@@ -1,11 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import vuo from "../../public/partnaires/vuo.png";
-import aidro from "../../public/partnaires/aidro.png";
-import burket from "../../public/partnaires/burket.png";
-import pixsys from "../../public/partnaires/pixsys.png";
-import smc from "../../public/partnaires/smc.png";
+import vuo from "../../../public/partnaires/vuo.png";
+import aidro from "../../../public/partnaires/aidro.png";
+import burket from "../../../public/partnaires/burket.png";
+import pixsys from "../../../public/partnaires/pixsys.png";
+import smc from "../../../public/partnaires/smc.png";
 
 const Partnaires = () => {
   return (
