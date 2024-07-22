@@ -1,88 +1,8 @@
 
-@media  only screen and (max-width: 440px) {
-    .titr{
-        flex-direction: column;
-        margin-bottom: 40px;
-    }
-    .content{
-        text-align: center;
-        padding-bottom: 15px;
-    }
-    .head{
-        height: 50vh;
-    }
-    .conte{
-        align-items: center;
-    }
-   
-}
-@media  only screen and (max-width: 500px) {
-    .content{
-        text-align: center;
-        padding-bottom: 15px;
-    }
-    .conte{
-        padding-left: 130px;
-        
-        }
-}
-@media  only screen and (max-width: 760px) {
-    .content{
-        text-align: center;
-        padding-bottom: 15px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .conte{
-       
-            padding-left: 7px;
-            
-   
-    }
-}
-@media  only screen and (max-width: 860px) {
-    .content{
-        text-align: center;
-        padding-bottom: 15px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .head{
-        height: 52vh;
-    }
-    .conte{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-       
-}
-@media  only screen and (min-width: 440px) {
-  
-        .vision{
-            /* margin-left: 60px; */
-            /* display: flex;
-            justify-content: center;
-            align-items: center; */
-            
-           
-        }
-       
-       
-}
-/* @media  only screen and (min-width: 500px) {
-  
-        .vision{
-            margin-left: 105px;
-        }
-       
-} */
-
-
 .mySwiper {
     width: 650px;
-    height: 380px;
-    padding: 50px;
+    height: 330px;
+  
   }
   
   .swiper-slide {
@@ -102,12 +22,3 @@
 
   }
   
-  .modal-video {
-    position: fixed !important; 
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    margin: auto !important; /* Centrez le modal */
-    z-index: 9999 !important;
-  }

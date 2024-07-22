@@ -3,10 +3,9 @@ import React, { useEffect } from 'react';
 import { AiOutlineMail } from "react-icons/ai";
 import { SlLocationPin } from "react-icons/sl";
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+
 import { Send } from 'lucide-react';
-// import { Label } from '@/components/ui/label';
+
 import "../../../styles/contact.css";
 import AOS from "aos";
 import 'aos/dist/aos.css';
@@ -24,7 +23,8 @@ function page() {
   }, []);
   return (
 
-    <section className="w-full min-h-screen mb-20">
+    <section className="w-full min-h-screen mb-[10rem]">
+
       {/* Partie avec le fond #B8D941 */}
       <div className="first-section bg-primary p-6 lg:p-24 flex justify-center lg:justify-end relative">
         <div className="container mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between ">
@@ -34,7 +34,7 @@ function page() {
             </div>
             <h1 data-aos="fade-right" className=" title  font-bold mb-4 hidden md:block ms:block  
              text-white   md:ml-0 drop-shadow-lg leading-tight tracking-normal"  style={{fontSize:"3.5rem"  }} >
-              Let's talk about <br/> your <span className=" responsive-container mx-4 realistic-marker-highlight"> problem.</span>
+              Let's talk about <br/> your <span className=" responsive-container mx-4 realistic-marker-highlight text-primary"> problem.</span>
 
               <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style={{ display: 'none' }} className='svg-filters'>
                 <defs>
@@ -79,12 +79,14 @@ function page() {
 
 
       </div>
+
+
       <div className="hidden md:block ms:block lg:w-1/2 lg:mx-6">
         <div className="mt-6 space-y-8 md:mt-8">
           <div className="icon grid grid-cols-1 gap-12 md:grid-cols-2 mt-8 ml-24 mx-2">
             <div className="flex gap-4" data-aos="fade-right">
-              <div className="mt-4 drop-shadow-lg">
-                <AiOutlineMail size={24} color='#B8D941' />
+              <div className="mt-4 drop-shadow-lg text-primary">
+                <AiOutlineMail size={24}  />
               </div>
               <div>
                 <h2 className="mt-4  font-caveat tracking-[2px] text-primary" style={{ fontSize: "18px" }}>How Can we Help?</h2>
@@ -93,8 +95,8 @@ function page() {
               </div>
             </div>
             <div className="flex gap-3" data-aos="fade-left">
-              <div className="mt-4 drop-shadow-lg">
-                <SlLocationPin size={24} color='#B8D941' />
+              <div className="mt-4 drop-shadow-lg text-primary">
+                <SlLocationPin size={24}  />
               </div>
               <div>
                 <h2 className="mt-4  font-caveat tracking-[2px] text-primary" style={{ fontSize: "18px" }}>Our Location</h2>
@@ -106,9 +108,6 @@ function page() {
         </div>
 
       </div>
-
-
-
 
 
       {/* Partie restante avec le fond blanc */}

@@ -63,10 +63,23 @@ const reviewsData = [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quos quo voluptas tempora delectus dicta.',
   },
 ];
+import AOS from "aos";
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const Reviews = () => {
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 800,
+      easing: "ease-in-sine",
+      delay: 100,
+
+    });
+    AOS.refresh();
+  }, []);
   return (
-    <section className='mb-12 xl:mb-32'>
+    <section className='mb-12 xl:mb-32' data-aos="fade-left">
       <div className='container mx-auto'>
         <h2 className='section-title mb-12 text-center mx-auto'> Customers <span className=' font-caveat '>Reviews</span> </h2>
         {/* slider */}
