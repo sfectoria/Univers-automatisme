@@ -341,7 +341,7 @@ function page() {
               <h2 className="font-PlayfairDisplay section-title mb-8 xl:mb-16 text-center mx-auto" data-aos="fade-up">
               <span className=' font-caveat '>Our</span> Values
               </h2>
-              <section className="grid gap-20 md:grid-cols-3 md:gap-20">
+              <section className="grid gap-20 md:grid-cols-3 w-full md:gap-20">
 
                 <article className='shadow-xl  rounded-2xl p-6 bg-gradient-to-tr from-[#B8D941] to-[#EAF2AE]' data-aos="fade-up-right">
                   <div>
