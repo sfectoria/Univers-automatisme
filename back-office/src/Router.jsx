@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Secteur from "./Pages/Secteur";
 import Famille from "./Pages/Famille";
 import Partenaires from "./Pages/Partenaires";
@@ -13,10 +13,36 @@ import LogIn from "./Pages/LogIn";
 import App from "./App";
 import ProfilePage from "./Pages/Profile";
 import QuiSommesNous from "./Pages/Qui";
+import axios from "axios";
+import AccueilPage from "./Pages/AccueilPage";
 
 function Router() {
-  const [user, setUser] = React.useState(true);
+  const [user, setUser] = React.useState(null);
   const [open, setOpen] = React.useState(false);
+
+  const [token, setToken] = React.useState(JSON.parse(localStorage.getItem("token")));
+  useEffect(() => {
+    const validateToken = async () => {
+      if (localStorage.getItem("token")) {
+        try {
+          const response = await axios.get("http://localhost:4000/auth/getme", {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+
+          if (!response.error) {
+            setUser(response.data);
+          }
+        } catch (error) {
+          console.error("Token validation failed:", error);
+          
+        }
+        console.log("user",user);
+      }
+    };
+
+    validateToken(); // Valider le token au chargement
+  }, []);
+  console.log(token,"this is token");
 
   return (
     <div>
@@ -24,16 +50,20 @@ function Router() {
         <Routes>
           {user ? (
             <>
-              <Route path="Accueil" element={<App user={user} open={open} />}>
-                {/* Pages appartenant à la page "Accueil" */}
+              <Route
+                path="/"
+                element={<App user={user} setUser={setUser} open={open} setToken={setToken} />}
+              >
                 <Route index element={<Secteur open={open} />} />
-                <Route path="famille" element={<Famille />} />
-                <Route path="partenaires" element={<Partenaires />} />
-                <Route path="services" element={<Services />} />
-                <Route path="avis" element={<Avis />} />
+                <Route path="Accueil" element={<AccueilPage />}>
+                  <Route index element={<Secteur open={open} />} />
+                  <Route path="famille" element={<Famille />} />
+                  <Route path="partenaires" element={<Partenaires />} />
+                  <Route path="services" element={<Services />} />
+                  <Route path="avis" element={<Avis />} />
+                </Route>
               </Route>
 
-              {/* Pages appartenant à la page "Qui sommes nous" */}
               <Route
                 path="qui-sommes-nous"
                 element={<App user={user} open={open} />}
@@ -44,18 +74,20 @@ function Router() {
                 <Route path="mission" element={<Mission />} />
               </Route>
 
-              {/* Page "Contact" */}
-              <Route path="/" element={<App user={user} open={open} />}>
-                <Route path="contact" element={<Contact />} />
+              {/* <Route path="/" element={<Navigate to="/Accueil" />} /> */}
+
+              <Route path="contact" element={<App user={user} open={open} />}>
+                <Route index element={<Contact />} />
               </Route>
 
-              {/* Page "Profile" */}
-              <Route path="/" element={<App user={user} open={open} />}>
-                <Route path="profile" element={<ProfilePage />} />
+              <Route path="profile" element={<App user={user} open={open} />}>
+                <Route index element={<ProfilePage />} />
               </Route>
+
+              {/* <Route path="*" element={<Navigate to="/Accueil" />} /> */}
             </>
           ) : (
-            <Route path="/" element={<LogIn />} />
+            <Route index element={<LogIn />} />
           )}
         </Routes>
       </BrowserRouter>

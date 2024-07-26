@@ -11,16 +11,16 @@ export default function Navbar1() {
       case '/':
         setValue('/');
         break;
-      case '/famille':
+      case '/Accueil/famille':
         setValue('/famille');
         break;
-      case '/partenaires':
+      case '/Accueil/partenaires':
         setValue('/partenaires');
         break;
-      case '/services':
+      case '/Accueil/services':
         setValue('/services');
         break;
-      case '/avis':
+      case '/Accueil/avis':
         setValue('/avis');
         break;
       default:
@@ -50,11 +50,11 @@ export default function Navbar1() {
         }}
         aria-label="secondary tabs example"
       >
-        <Tab value="/" component={Link} to="/" label="Secteur d'activité" />
-        <Tab value="/famille" component={Link} to="/famille" label="Famille de Produits" />
-        <Tab value="/partenaires" component={Link} to="/partenaires" label="Les Partenaires" />
-        <Tab value="/services" component={Link} to="/services" label="Services" />
-        <Tab value="/avis" component={Link} to="/avis" label="Avis des clients" />
+        <Tab value="/" component={Link} to="/Accueil" label="Secteur d'activité" />
+        <Tab value="/famille" component={Link} to="/Accueil/famille" label="Famille de Produits" />
+        <Tab value="/partenaires" component={Link} to="/Accueil/partenaires" label="Les Partenaires" />
+        <Tab value="/services" component={Link} to="/Accueil/services" label="Services" />
+        <Tab value="/avis" component={Link} to="/Accueil/avis" label="Avis des clients" />
       </Tabs>
     </Box>
   );

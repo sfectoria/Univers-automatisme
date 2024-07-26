@@ -1,31 +1,61 @@
 import React, { useState } from "react";
 import "../App.css"; // Import your CSS file
+import axios from "axios"; // Import axios
 
 function App() {
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [signInError, setSignInError] = useState("");
+  const [signUpError, setSignUpError] = useState("");
 
   const handleSignUpClick = () => {
     setIsRightPanelActive(true);
   };
+
   const handleSignInClick = () => {
     setIsRightPanelActive(false);
   };
 
-  const handleSignInClickk = () => {
+  const handleSignInClickk = async (e) => {
+    e.preventDefault();
     if (email.trim() === "" || password.trim() === "") {
-      alert("Please fill in all fields before signing in.");
-      return;
+      setSignInError("Please fill in all fields before signing in.");
+    } else {
+      setSignInError("");
+      try {
+        const response = await axios.post("http://localhost:4000/auth/login", {
+          email,
+          password
+        });
+        localStorage.setItem("token", JSON.stringify(response?.data));
+        window.location.reload();
+        console.log("Signed in successfully:", response.data);
+        // Handle successful sign-in here (e.g., store token, redirect, etc.)
+      } catch (error) {
+        setSignInError(error.response?.data?.message || "Something went wrong!");
+      }
     }
   };
 
-  const handleSignUpClickk = () => {
-    if (email.trim() === "" || password.trim() === "" || name.trim() === "") {
-      alert("Please fill in all fields before signing up.");
-      return;
+  const handleSignUpClickk = async (e) => {
+    e.preventDefault();
+    if (email.trim() === "" || password.trim() === "" || username.trim() === "") {
+      setSignUpError("Please fill in all fields before signing up.");
+    } else {
+      setSignUpError("");
+      try {
+        const response = await axios.post("http://localhost:4000/users/signUp", {
+          email,
+          password,
+          username,
+        });
+        console.log("Signed up successfully:", response.data);
+        // Handle successful sign-up here (e.g., redirect to sign-in page)
+      } catch (error) {
+        setSignUpError(error.response?.data?.message || "Something went wrong!");
+      }
     }
   };
 
@@ -38,30 +68,35 @@ function App() {
       <div>
         <div className="space"></div>
         <div
-          className={`container ${
-            isRightPanelActive ? "right-panel-active" : ""
-          }`}
-          id="container" 
-          style={{display:"flex", flexWrap :"wrap"}}
+          className={`container ${isRightPanelActive ? "right-panel-active" : ""}`}
+          id="container"
+          style={{ display: "flex", flexWrap: "wrap" }}
         >
-          <div className="form-container sign-up-container">
+          {/* <div className="form-container sign-up-container">
             <form action="#">
               <h1 style={{ fontFamily: "Caveat, cursive" }}>Create Account</h1>
               <input
                 type="text"
                 placeholder="Name"
                 style={{ marginBottom: "10px" }}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
               <input
                 type="email"
                 placeholder="Email"
                 style={{ marginBottom: "10px" }}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 type="password"
                 placeholder="Password"
                 style={{ marginBottom: "10px" }}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
+              {signUpError && <p style={{ color: "red" }}>{signUpError}</p>}
               <button
                 className="btn"
                 onClick={handleSignUpClickk}
@@ -70,7 +105,7 @@ function App() {
                 Sign Up
               </button>
             </form>
-          </div>
+          </div> */}
 
           <div className="form-container sign-in-container">
             <form action="#">
@@ -88,6 +123,7 @@ function App() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              {signInError && <p style={{ color: "red" }}>{signInError}</p>}
               <a href="#">Forgot your password?</a>
               <button
                 className="btn"
@@ -101,7 +137,7 @@ function App() {
 
           <div className="overlay-container">
             <div className="overlay">
-              <div className="overlay-panel overlay-left">
+              {/* <div className="overlay-panel overlay-left">
                 <h1 style={{ fontFamily: "Caveat, cursive" }}>Welcome Back!</h1>
                 <p style={{ fontFamily: "Caveat, cursive" }}>
                   To keep connected with us please login with your personal info
@@ -113,7 +149,7 @@ function App() {
                 >
                   Sign In
                 </button>
-              </div>
+              </div> */}
               <div className="overlay-panel overlay-right">
                 <h1 style={{ fontFamily: "Caveat, cursive" }}>
                   Hello, Friend!
@@ -121,13 +157,13 @@ function App() {
                 <p style={{ fontFamily: "Caveat, cursive" }}>
                   Enter your personal details and start journey with us
                 </p>
-                <button
+                {/* <button
                   className="ghost"
                   onClick={handleSignUpClick}
                   id="signUp"
                 >
                   Sign Up
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

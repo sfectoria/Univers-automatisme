@@ -8,13 +8,13 @@ export default function Navbar2() {
 
   useEffect(() => {
     switch (location.pathname) {
-      case '/presentation':
+      case '/qui-sommes-nous/presentation':
         setValue('/presentation');
         break;
-      case '/equipe':
+      case '/qui-sommes-nous/equipe':
         setValue('/equipe');
         break;
-      case '/mission':
+      case '/qui-sommes-nous/mission':
         setValue('/mission');
         break;
       default:
@@ -44,9 +44,9 @@ export default function Navbar2() {
         }}
         aria-label="secondary tabs example"
       >
-        <Tab value="/presentation" component={Link} to="/presentation" label="Presentation" />
-        <Tab value="/equipe" component={Link} to="/equipe" label="Equipe" />
-        <Tab value="/mission" component={Link} to="/mission" label="Notre Mission" />
+        <Tab value="/presentation" component={Link} to="/qui-sommes-nous/presentation" label="Presentation" />
+        <Tab value="/equipe" component={Link} to="/qui-sommes-nous/equipe" label="Equipe" />
+        <Tab value="/mission" component={Link} to="/qui-sommes-nous/mission" label="Notre Mission" />
       </Tabs>
     </Box>
   );

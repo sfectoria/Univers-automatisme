@@ -36,7 +36,7 @@ import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
 import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import FeedbackOutlinedIcon from "@mui/icons-material/FeedbackOutlined";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useHistory, unstable_HistoryRouter, useNavigate } from "react-router-dom";
 import { useEffect, useRef } from "react";
 
 const drawerWidth = 240;
@@ -130,7 +130,15 @@ const getIcon = (text, index) => {
   return icons[index % icons.length];
 };
 
-export default function Sidebar() {
+export default function Sidebar( ) {
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+   window.location.reload()
+
+
+    // No need to navigate with <a>, use Link for internal routing
+  };
   const location = useLocation();
   const [activePath, setActivePath] = React.useState(location.pathname);
 
@@ -154,7 +162,7 @@ export default function Sidebar() {
   const theme = useTheme();
   // const [open, setOpen] = React.useState(false);
   const [open, setOpen] = React.useState(
-    JSON.parse(localStorage.getItem("drawerOpen")) || false
+    JSON.parse(localStorage.getItem("drawerOpen")) || true
   );
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [accordionState, setAccordionState] = React.useState({
@@ -251,7 +259,7 @@ export default function Sidebar() {
                 <Link to="/profile">Profile</Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>My account</MenuItem>
-              <MenuItem onClick={handleClose}>Logout</MenuItem>
+              <MenuItem onClick={handleLogout} > <Link to="/">Logout</Link></MenuItem>
             </Menu>
           </div>
         </Toolbar>
