@@ -136,7 +136,7 @@ export default function ProgressSlider() {
 
   return (
     <>
-      <main className="relative min-h-screen flex flex-col justify-center bg-slate-50 overflow-hidden " data-aos="fade-left">
+      <main className="relative min-h-screen flex flex-col justify-center bg-slate-50 overflow-hidden " >
         <h2 className="section-title mt-12 mb-12 xl:my-12 text-center mx-auto">
           Product's <span className=' font-caveat '>Family </span> 
         </h2>

@@ -3,29 +3,32 @@ import React, { useEffect } from 'react'
 
 import { Send } from 'lucide-react'
 import Image from 'next/image'
+import man from "../../images/man.png"
 import picture from "../../images/picture.png"
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import { Button } from '../ui/button'
+import '../../styles/about.css'
 function AboutCompany() {
-    useEffect(() => {
-        AOS.init({
-          offset: 100,
-          duration: 800,
-          easing: "ease-in-sine",
-          delay: 100,
-    
-        });
-        AOS.refresh();
-      }, []);
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 800,
+      easing: "ease-in-sine",
+      delay: 100,
+
+    });
+    AOS.refresh();
+  }, []);
   return (
     <>
-     <section className='pb-[3rem] pt-[3rem] md:pt-[8rem]' data-aos="fade-left">
+
+      <section className='pb-[3rem] pt-[3rem] md:pt-[8rem]' data-aos="fade-left">
           <h2 className="bottom-10 lg:bottom-0 font-PlayfairDisplay section-title mb-13 xl:mb-16 text-center mx-auto lg:text-center mt-4 ">
             About  <span className=' font-caveat '>Us</span> 
           </h2>
           <div className='grid grid-cols-1 md:grid-cols-2 w-[80%] mx-auto lg:gap-[7rem] gap-16 items-center'>
-            <div className="   photo relative flex items-center justify-center min-h-full w-full bg-gradient-to-l from-[#EAF2AE] to-primary lg:flex">
+            <div className=" photo relative flex items-center justify-center min-h-full w-full bg-gradient-to-l from-[#EAF2AE] to-primary lg:flex">
               <div className=" absolute h-full w-full overflow-clip">
                 <div className="animation-delay-4000 absolute -right-1/4 top-1/4 h-16 w-[40rem] animate-blob overflow-clip bg-purple-400 opacity-40 blur-[80px]"></div>
                 <div className="animation-delay-2000 absolute -right-1/4 top-1/4 h-16 w-[40rem] rotate-45 animate-plug overflow-clip bg-[#b7ebbf] opacity-40 blur-[80px]"></div>
@@ -64,8 +67,8 @@ function AboutCompany() {
           </div>
         </section>
     
-    
-    
+
+
     </>
   )
 }
