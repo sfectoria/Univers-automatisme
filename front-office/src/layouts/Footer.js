@@ -1,17 +1,23 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import "../styles/footer.css"
 
 
 function Footer() {
+ 
+  const [primaryColor, setPrimaryColor] = useState('#B8D947'); 
+
+    
+
 
   return (
 
 
-    <footer className=" dark:bg-gray-900 z-0 py-2 bg-primary relative"  >
+    <footer className={` dark:bg-gray-900 z-0 py-2 bg-primary relative `}  >
       <div className="waves">
-        <div className="wave" id='wave1'></div>
-        <div className="wave" id='wave2'></div>
-        <div className="wave" id='wave3'></div>
+        <div className={`wave ${primaryColor === '#B8D947' ? 'primaryImage' : 'secondaryImage'}`} id='wave1'  ></div>
+        <div className={`wave ${primaryColor === '#B8D947' ? 'primaryImage' : 'secondaryImage'}`} id='wave2' ></div>
+        <div className={`wave ${primaryColor === '#B8D947' ? 'primaryImage' : 'secondaryImage'}`} id='wave3' ></div>
       </div>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8" >
         <div className="lg:flex lg:items-start lg:gap-8">
