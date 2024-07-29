@@ -89,7 +89,7 @@ function Head() {
                             </span>
                         </div>
                     
-                        <div className="absolute bottom-1/4 -right-16 z-10 flex cursor-pointer flex-col rounded-xl bg-white px-10 py-4 text-center transition hover:-translate-y-1 hover:shadow-md xl:-right-1/4">
+                        <div className="absolute bottom-1/4 -right-16 z-5 flex cursor-pointer flex-col rounded-xl bg-white px-10 py-4 text-center transition hover:-translate-y-1 hover:shadow-md xl:-right-1/4">
                             <span className="text-5xl font-bold text-primary">40%</span>
                             <span className="text-base text-primary">Market</span>
                         </div>
