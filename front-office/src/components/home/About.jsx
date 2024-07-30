@@ -49,23 +49,23 @@ import {
 
 const sectors = [
   {
-    name: "Pneumatic",
-    description: "Specializing in systems and components that use.",
+    name: "Pneumatique",
+    description: "Spécialisé dans les systèmes et les composants qui utilisent.",
     icon: <Wind size={40} className="text-gray-600 transition-all duration-300 group-hover:text-white/90" />
   },
   {
-    name: "Hydraulic",
-    description: "Providing solutions that utilize fluid power.",
+    name: "Hydraulique",
+    description: "Fournir des solutions utilisant la puissance des fluides.",
     icon: <Droplet size={40} className="text-gray-600 transition-all duration-300 group-hover:text-white/90" />
   },
   {
-    name: "Instrumentation & Control",
-    description: "Focusing on the measurement, monitoring.",
+    name: "Instrumentation et Contrôle",
+    description: "Se concentrant sur la mesure et la surveillance.",
     icon: <Settings size={40} className="text-gray-600 transition-all duration-300 group-hover:text-white/90" />
   },
   {
-    name: "Vacuum Technology",
-    description: "Expertise in creating and maintaining low-pressure environments.",
+    name: "Technologie du vide",
+    description: "Expertise dans la création et le maintien d'environnements à basse pression.",
     icon: <Disc size={40} className="text-gray-600 transition-all duration-300 group-hover:text-white/90" />
   }
 ];
@@ -89,10 +89,10 @@ export default function About() {
     return arr.find((item) => item.title === title);
   };
   return (
-    <section className="xl:h-[860px] pb-12 xl:py-24" data-aos="fade-left">
+    <section className="xl:max-h-[860px] pb-12 xl:py-24" data-aos="fade-left">
       <div className="container mx-auto">
         <h2 className="font-PlayfairDisplay section-title mb-8 xl:mb-16 text-center mx-auto">
-          About <span className=" font-caveat ">Us</span>
+           A propos<span className=" font-caveat ">nous</span>
         </h2>
 
         <div className="flex flex-col xl:flex-row ">
@@ -114,7 +114,7 @@ export default function About() {
                   className="w-[162px] xl:w-auto"
                   value="company-info"
                 >
-                  Company Info
+                informations sur l'entreprise
                 </TabsTrigger>
               </TabsList>
               {/* tabs content */}

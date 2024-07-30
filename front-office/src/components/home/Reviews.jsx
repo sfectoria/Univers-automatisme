@@ -79,9 +79,9 @@ const Reviews = () => {
     AOS.refresh();
   }, []);
   return (
-    <section className='mb-12 xl:mb-32' data-aos="fade-left">
+    <section className='mb-12 xl:mb-32 ' data-aos="fade-left">
       <div className='container mx-auto'>
-        <h2 className='section-title mb-12 text-center mx-auto'> Customers <span className=' font-caveat '>Reviews</span> </h2>
+        <h2 className='section-title mb-12 text-center mx-auto'> Avis <span className=' font-caveat '>Clients</span> </h2>
         {/* slider */}
         <Swiper
           slidesPerView={1}

@@ -4,16 +4,16 @@ import "../styles/footer.css"
 
 
 function Footer() {
- 
-  const [primaryColor, setPrimaryColor] = useState('#B8D947'); 
 
-    
+  const [primaryColor, setPrimaryColor] = useState('#B8D947');
+
+
 
 
   return (
 
 
-    <footer className={` dark:bg-gray-900 z-0 py-2 bg-primary relative `}  >
+    <footer className={` dark:bg-gray-900 z-0 py-2 bg-primary relative`}  >
       <div className="waves">
         <div className={`wave ${primaryColor === '#B8D947' ? 'primaryImage' : 'secondaryImage'}`} id='wave1'  ></div>
         <div className={`wave ${primaryColor === '#B8D947' ? 'primaryImage' : 'secondaryImage'}`} id='wave2' ></div>
@@ -22,13 +22,20 @@ function Footer() {
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8" >
         <div className="lg:flex lg:items-start lg:gap-8">
           <div className="text-teal-600">
-         
+
           </div>
 
           <div className="mt-8 grid grid-cols-2 xl:gap-7 lg:gap-7 lg:mt-0 lg:grid-cols-5 ">
             <div className="col-span-2">
               <div className='titre'>
-                <h2 className="text-4xl font-bold  text-white drop-shadow-lg font-caveat -ml-6">Get the latest news!</h2>
+                <h2 className="text-4xl font-bold  text-white drop-shadow-lg font-caveat -ml-6">Recevez les dernières nouvelles !
+
+
+
+
+
+
+                </h2>
 
                 <p className="mt-4 text-gray-100  -ml-6" style={{ fontFamily: "Segoe UI Emoji" }}>
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non cupiditate quae nam
@@ -52,13 +59,13 @@ function Footer() {
                     id="UserEmail"
                     placeholder="john@rhcp.com"
                     className="bg-primary inpt w-full placeholder-white px-4 border-none focus:border-transparent focus:ring-transparent text-sm text-white"
-                    
+
                   />
 
                   <button
                     className="bg-white text-primary btnnn mt-1  sm:w-auto px-6 py-3 text-sm font-bold uppercase tracking-wide rounded-full transition-none hover:bg-teal-600 sm:mt-0 sm:shrink-0 sm:ml-10 sm:mr-2"
-                    >
-                    Subscribe
+                  >
+                    S'abonner
                   </button>
 
                 </div>
@@ -100,7 +107,7 @@ function Footer() {
 
 
               <ul className="mt-6 space-y-4 text-sm">
-             
+
               </ul>
             </div>
 
@@ -178,13 +185,13 @@ function Footer() {
           <div className="sm:flex sm:justify-between ">
             <ul className='flex flex-wrap justify-start gap-4 '>
               <li>
-                <p className="text-white transition hover:opacity-75 drop-shadow-lg">Home</p>
+                <p className="text-white transition hover:opacity-75 drop-shadow-lg">Accueil</p>
               </li>
               <li>
                 <p className="text-white transition hover:opacity-75 drop-shadow-lg">Contact</p>
               </li>
               <li>
-                <p className="text-white transition hover:opacity-75 drop-shadow-lg">About</p>
+                <p className="text-white transition hover:opacity-75 drop-shadow-lg">A propos</p>
               </li>
             </ul>
 
@@ -197,7 +204,7 @@ function Footer() {
                   rel="noreferrer"
                   target="_blank"
                   className=" transition hover:opacity-75 text-primary"
-                
+
                 >
                   <span className="sr-only">Facebook</span>
 
@@ -217,7 +224,7 @@ function Footer() {
                   rel="noreferrer"
                   target="_blank"
                   className="text-primary transition hover:opacity-75"
-                  
+
                 >
                   <span className="sr-only">Instagram</span>
 
@@ -237,7 +244,7 @@ function Footer() {
                   rel="noreferrer"
                   target="_blank"
                   className="text-primary transition hover:opacity-75"
-                
+
                 >
                   <span className="sr-only">Twitter</span>
 
@@ -255,7 +262,7 @@ function Footer() {
                   rel="noreferrer"
                   target="_blank"
                   className="text-primary transition hover:opacity-75"
-                  
+
                 >
                   <span className="sr-only">GitHub</span>
 
@@ -275,7 +282,7 @@ function Footer() {
                   rel="noreferrer"
                   target="_blank"
                   className="text-primary transition hover:opacity-75"
-                 
+
                 >
                   <span className="sr-only">Dribbble</span>
 
@@ -311,8 +318,8 @@ function Footer() {
           </div>
         </div>
       </div>
-  {/* Big text */}
-  {/* <div className="relative -mt-16 h-60 w-full" aria-hidden="true">
+      {/* Big text */}
+      {/* <div className="relative -mt-16 h-60 w-full" aria-hidden="true">
         <div className="pointer-events-none absolute left-1/2 -z-10 -translate-x-1/2 text-center text-[348px] font-bold leading-none before:bg-gradient-to-b before:from-gray-200 before:to-gray-100/30 before:to-80% before:bg-clip-text before:text-transparent before:content-['Simple'] after:absolute after:inset-0 after:bg-gray-300/70 after:bg-clip-text after:text-transparent after:mix-blend-darken after:content-['Simple'] after:[text-shadow:0_1px_0_white]"></div>
   
         <div
