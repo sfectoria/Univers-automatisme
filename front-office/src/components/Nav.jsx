@@ -8,9 +8,9 @@ import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
 const links = [
-  { path: '/', name: 'home' },
-  { path: '/about', name: 'About' },
-  { path: '/contact', name: 'contact' },
+  { path: '/', name: 'Accueil' },
+  { path: '/propos', name: 'A propos' },
+  { path: '/contact', name: 'Contact' },
 ];
 
 const Nav = ({ containerStyles, linkStyles, underlineStyles ,closeSheet }) => {
@@ -22,7 +22,7 @@ const Nav = ({ containerStyles, linkStyles, underlineStyles ,closeSheet }) => {
           <Link
             href={link.path}
             key={index}
-            className={`capitalize ${linkStyles}`}
+            className={` ${linkStyles}`}
             onClick={closeSheet}
           >
             {link.path === path && (

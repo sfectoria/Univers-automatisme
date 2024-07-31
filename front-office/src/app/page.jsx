@@ -17,9 +17,9 @@ const page = () => {
       <div className="mt-20">
         <Services />
       </div>
+
       <ProgressSlider />
       <Work />
-
       <Reviews />
       {/* <Stars/> */}
       <Partnaires />

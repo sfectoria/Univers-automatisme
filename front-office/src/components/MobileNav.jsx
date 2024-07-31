@@ -13,6 +13,7 @@ const MobileNav = () => {
     setIsOpen(false);
   };
   return (
+    
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <AlignJustify className='cursor-pointer' onClick={() => setIsOpen(true)}/>

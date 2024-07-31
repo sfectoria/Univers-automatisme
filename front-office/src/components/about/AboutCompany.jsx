@@ -25,7 +25,7 @@ function AboutCompany() {
 
       <section className='pb-[3rem] pt-[3rem] md:pt-[8rem]' data-aos="fade-left">
           <h2 className="bottom-10 lg:bottom-0 font-PlayfairDisplay section-title mb-13 xl:mb-16 text-center mx-auto lg:text-center mt-4 ">
-            About  <span className=' font-caveat '>Us</span> 
+            A propos  <span className=' font-caveat '>nous</span> 
           </h2>
           <div className='grid grid-cols-1 md:grid-cols-2 w-[80%] mx-auto lg:gap-[7rem] gap-16 items-center'>
             <div className=" photo relative flex items-center justify-center min-h-full w-full bg-gradient-to-l from-[#EAF2AE] to-primary lg:flex">
@@ -50,7 +50,7 @@ function AboutCompany() {
             </div>
             <div className='relative md:static' >
               <h1
-                className='text-[20px] font-caveat uppercase text-primary '>Know about Us</h1>
+                className='text-[20px] font-caveat uppercase text-primary '>À propos de Nous</h1>
               <h2 className='text-[25px] md:text-35px lg:text-[45px] md:leading-[3rem] leading-[2rem] capitalize lg:mb-[3rem] mb-[1rem] font-bold text-primary'>
                 Univers <span className='text-[#EAF2AE] font-caveat'>Automatisme</span>
               </h2>
@@ -61,7 +61,7 @@ function AboutCompany() {
                 </p>
               </div>
               <Button className='gap-x-2'>
-                Contact us <Send size={18} />
+                Contact nous <Send size={18} />
               </Button>
             </div>
           </div>

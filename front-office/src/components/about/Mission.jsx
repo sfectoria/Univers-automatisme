@@ -27,8 +27,8 @@ function Mission() {
                             <div className='sm:flex flex-col justify-between space-y-4 py-4 md:pr-6'>
                                 <div className='flex justify-between'>
                                     <div>
-                                        <h2 className='text-lg text-[#EAF2AE]'>Our mission</h2>
-                                        <h1 className='pt-1 text-5xl font-caveat text-primary'>Our mission</h1>
+                                        <h2 className='text-lg text-[#EAF2AE]'>Notre mission</h2>
+                                        <h1 className='pt-1 text-4xl font-caveat text-primary'>Notre mission</h1>
                                     </div>
                                     <div className='ml-[8rem] text-primary'>
                                         <svg version="1.1" viewBox="0 0 2048 2048" width="70" height="70" xmlns="http://www.w3.org/2000/svg" >
@@ -54,8 +54,8 @@ function Mission() {
                             <div className='sm:flex flex-col justify-between space-y-4 py-4 md:pr-6'>
                                 <div className='flex justify-between'>
                                     <div>
-                                        <h2 className='text-lg text-[#EAF2AE]'>Our vision</h2>
-                                        <h1 className='pt-1 text-5xl font-caveat text-primary'>Our vision</h1>
+                                        <h2 className='text-lg text-[#EAF2AE]'>Notre vision</h2>
+                                        <h1 className='pt-1 text-4xl font-caveat text-primary'>Notre vision</h1>
                                     </div>
                                     <div className='ml-[8rem] text-primary'>
                                         <svg version="1.1" viewBox="0 0 2048 1148" width="70" height="70" xmlns="http://www.w3.org/2000/svg">

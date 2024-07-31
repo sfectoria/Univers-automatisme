@@ -19,7 +19,7 @@ function Values() {
      {/* <section className="relative  flex flex-col justify-center  overflow-hidden" data-aos="fade-left"> */}
             <div className="w-full flex flex-col items-center  py-24" data-aos="fade-left">
               <h2 className="font-PlayfairDisplay section-title mb-8 xl:mb-16 text-center mx-auto" >
-              <span className=' font-caveat '>Our</span> Values
+              <span className=' font-caveat '>Nos</span> Valeurs
               </h2>
               <section className="flex flex-wrap justify-center  lg:gap-10 gap-10  m-[20px] lg:m-0 ">
 

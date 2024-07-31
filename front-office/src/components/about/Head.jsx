@@ -34,7 +34,7 @@ function Head() {
         description:
             "Univers Automatisme est votre partenaire d'excellence pour l'intégration des nouvelles technologies.",
         button: "Get Started",
-        play_button: "View Demo",
+        play_button: "Voir Démo",
     };
     const { isOpen, toggle, close } = useToggle();
 
@@ -91,13 +91,13 @@ function Head() {
                                 <Image src={light} alt="Idea" loading="eager" />
                             </span>
                             <span className="text-sm font-bold text-primary">
-                                Bring your Ideas to life
+                                Donnez vie à vos idées
                             </span>
                         </div>
 
                         <div className="absolute bottom-1/4 -right-16 z-9 flex cursor-pointer flex-col rounded-xl bg-white px-10 py-4 text-center transition hover:-translate-y-1 hover:shadow-md xl:-right-1/4">
                             <span className="text-5xl font-bold text-primary">40%</span>
-                            <span className="text-base text-primary">Market</span>
+                            <span className="text-base text-primary"> Marché</span>
                         </div>
 
                         {/* Image */}
@@ -165,7 +165,7 @@ function Head() {
 
 
                             <Button className=' gap-x-2 lg:min-w-[166px]' onClick={() => router.push('/contact')}>
-                                Contact us <Send size={18} />
+                                Contacter nous <Send size={18} />
                             </Button>
                             <div>
                                 <button className=" mr-3 group flex flex-row items-center  space-x-4" onClick={toggle}>
@@ -186,21 +186,21 @@ function Head() {
                                     <span className="font-bold text-primary">{hero_content?.play_button}</span>
 
                                 </button>
-                                
+
                                 <ModalVideo
-                                 
-                                 title="video"
-                                 header="About univers automatisme"
-                                 controls="default"
-                                 max-width={800}
-                           
-                                 isOpen={isOpen}
-                                 onClosed={close}
-                                 url="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
 
-                            
+                                    title="video"
+                                    header="About univers automatisme"
+                                    controls="default"
+                                    max-width={800}
 
-                            
+                                    isOpen={isOpen}
+                                    onClosed={close}
+                                    url="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
+
+
+
+
                             </div>
 
                         </div>
