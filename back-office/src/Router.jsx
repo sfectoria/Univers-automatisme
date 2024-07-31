@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Secteur from "./Pages/Secteur";
 import Famille from "./Pages/Famille";
@@ -15,34 +15,52 @@ import ProfilePage from "./Pages/Profile";
 import QuiSommesNous from "./Pages/Qui";
 import axios from "axios";
 import AccueilPage from "./Pages/AccueilPage";
+import { getMe } from "./store/authSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function Router() {
-  const [user, setUser] = React.useState(null);
+  // const [user, setUser] = React.useState(null);
   const [open, setOpen] = React.useState(false);
 
-  const [token, setToken] = React.useState(JSON.parse(localStorage.getItem("token")));
-  useEffect(() => {
-    const validateToken = async () => {
-      if (localStorage.getItem("token")) {
-        try {
-          const response = await axios.get("http://localhost:4000/auth/getme", {
-            headers: { Authorization: `Bearer ${token}` },
-          });
+  // const [token, setToken] = React.useState(JSON.parse(localStorage.getItem("token")));
+  // useEffect(() => {
+  //   const validateToken = async () => {
+  //     if (localStorage.getItem("token")) {
+  //       try {
+  //         const response = await axios.get("http://localhost:4000/auth/getme", {
+  //           headers: { Authorization: `Bearer ${token}` },
+  //         });
 
-          if (!response.error) {
-            setUser(response.data);
-          }
-        } catch (error) {
-          console.error("Token validation failed:", error);
+  //         if (!response.error) {
+  //           setUser(response.data);
+  //         }
+  //       } catch (error) {
+  //         console.error("Token validation failed:", error);
           
-        }
-        console.log("user",user);
-      }
-    };
+  //       }
+  //       console.log("user",user);
+  //     }
+  //   };
 
-    validateToken(); // Valider le token au chargement
-  }, []);
-  console.log(token,"this is token");
+  //   validateToken(); // Valider le token au chargement
+  // }, []);
+
+  const user = useSelector((store) => store.auth.me);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (token)
+      dispatch(getMe()).then((res) => {
+        setIsLoading(false);
+      });
+    else {
+      setIsLoading(false);
+    }
+  }, [dispatch]);
+
+  // console.log(token,"this is token");
 
   return (
     <div>
@@ -52,7 +70,7 @@ function Router() {
             <>
               <Route
                 path="/"
-                element={<App user={user} setUser={setUser} open={open} setToken={setToken} />}
+                element={<App  />}
               >
                 <Route index element={<Secteur open={open} />} />
                 <Route path="Accueil" element={<AccueilPage />}>

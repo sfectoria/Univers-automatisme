@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import "../App.css"; // Import your CSS file
 import axios from "axios"; // Import axios
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../store/authSlice";
 
 function App() {
+  const dispatch = useDispatch();
+  const { token, error, loading } = useSelector((state) => state.auth);
+
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [signInError, setSignInError] = useState("");
-  const [signUpError, setSignUpError] = useState("");
 
-  const handleSignUpClick = () => {
-    setIsRightPanelActive(true);
-  };
 
-  const handleSignInClick = () => {
-    setIsRightPanelActive(false);
-  };
+  // const handleSignInClick = () => {
+  //   setIsRightPanelActive(false);
+  // };
 
   const handleSignInClickk = async (e) => {
     e.preventDefault();
@@ -25,39 +25,45 @@ function App() {
     } else {
       setSignInError("");
       try {
-        const response = await axios.post("http://localhost:4000/auth/login", {
-          email,
-          password
-        });
-        localStorage.setItem("token", JSON.stringify(response?.data));
-        window.location.reload();
-        console.log("Signed in successfully:", response.data);
+        // const response = await axios.post("http://localhost:4000/auth/login", {
+        //   email,
+        //   password
+        // });
+        // localStorage.setItem("token", JSON.stringify(response?.data));
+        // window.location.reload();
+        // console.log("Signed in successfully:", response.data);
         // Handle successful sign-in here (e.g., store token, redirect, etc.)
-      } catch (error) {
-        setSignInError(error.response?.data?.message || "Something went wrong!");
+        await dispatch(login({ email, password })).unwrap()
+        .then((payload) => console.log('fulfilled', payload))
+        .catch((error) => console.error('rejected', error))
+        
+      }
+       catch (error) {
+        console.log("error")
+        setSignInError(error.response?.data?.message);
       }
     }
   };
 
-  const handleSignUpClickk = async (e) => {
-    e.preventDefault();
-    if (email.trim() === "" || password.trim() === "" || username.trim() === "") {
-      setSignUpError("Please fill in all fields before signing up.");
-    } else {
-      setSignUpError("");
-      try {
-        const response = await axios.post("http://localhost:4000/users/signUp", {
-          email,
-          password,
-          username,
-        });
-        console.log("Signed up successfully:", response.data);
-        // Handle successful sign-up here (e.g., redirect to sign-in page)
-      } catch (error) {
-        setSignUpError(error.response?.data?.message || "Something went wrong!");
-      }
-    }
-  };
+  // const handleSignUpClickk = async (e) => {
+  //   e.preventDefault();
+  //   if (email.trim() === "" || password.trim() === "" || username.trim() === "") {
+  //     setSignUpError("Please fill in all fields before signing up.");
+  //   } else {
+  //     setSignUpError("");
+  //     try {
+  //       const response = await axios.post("http://localhost:4000/users/signUp", {
+  //         email,
+  //         password,
+  //         username,
+  //       });
+  //       console.log("Signed up successfully:", response.data);
+  //       // Handle successful sign-up here (e.g., redirect to sign-in page)
+  //     } catch (error) {
+  //       setSignUpError(error.response?.data?.message || "Something went wrong!");
+  //     }
+  //   }
+  // };
 
   return (
     <>
