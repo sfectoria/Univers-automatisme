@@ -42,7 +42,7 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#B8D947",
+          DEFAULT: "#22C55E",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -94,7 +94,8 @@ module.exports = {
         },
 
         secondGreen: {
-          500:'#22c55e'
+          500:'#22c55e',
+          600:'#b7ebbf'
             
         }
 
@@ -195,7 +196,9 @@ module.exports = {
         work_project_bg_dark: "url(/work/project-bg-dark.png)",
         contact_illustration_light: "url(/contact/illustration-light.svg)",
         contact_illustration_dark: "url(/contact/illustration-dark.svg)",
-        customGreenGradient: 'linear-gradient(to right, #b8d941, #b0d24b, #b7d64c)'
+        customGreenGradient: 'linear-gradient(to right, #b8d941, #b0d24b, #b7d64c)',
+        primaryImage: "url('/images/wave_colored.png')",
+        secondaryImage: "url('/images/waves.png')",
       },
      
       

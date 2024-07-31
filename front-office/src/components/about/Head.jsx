@@ -9,6 +9,12 @@ import { Send } from 'lucide-react';
 import Image from 'next/image';
 import AOS from "aos";
 import 'aos/dist/aos.css';
+import {
+    RiBriefcase4Fill,
+    RiTeamFill,
+    RiTodoFill,
+    RiArrowDownSLine,
+} from 'react-icons/ri';
 function Head() {
     useEffect(() => {
         AOS.init({
@@ -34,7 +40,7 @@ function Head() {
 
     return (
         <>
-            <section className="head py-12 xl:py-24 lg:h-[84vh]   relative flex min-h-full w-full flex-col sm:place-content-center  px-4" >
+            <section className="head py-12 xl:py-24 lg:h-[84vh]   relative flex min-h-full w-full flex-col sm:place-content-center  px-4 bg-hero bg-no-repeat bg-bottom bg-cover dark:bg-none" >
                 {/* Patterns */}
                 <div className="absolute right-0 hidden min-h-full w-1/4 flex-col justify-center bg-gradient-to-l from-[#EAF2AE] to-primary lg:flex">
                     {/* right patterns */}
@@ -79,7 +85,7 @@ function Head() {
                             </div>
                         </motion.div>
 
-                     
+
                         <div className="absolute bottom-4 -left-[34%] z-9 flex cursor-pointer flex-row items-center space-x-4 rounded-xl bg-white px-4 py-2 text-center shadow transition hover:-translate-y-1 hover:shadow-md">
                             <span className="aspect-square h-8 overflow-clip rounded-full bg-gray-200">
                                 <Image src={light} alt="Idea" loading="eager" />
@@ -88,8 +94,8 @@ function Head() {
                                 Bring your Ideas to life
                             </span>
                         </div>
-                    
-                        <div className="absolute bottom-1/4 -right-16 z-5 flex cursor-pointer flex-col rounded-xl bg-white px-10 py-4 text-center transition hover:-translate-y-1 hover:shadow-md xl:-right-1/4">
+
+                        <div className="absolute bottom-1/4 -right-16 z-9 flex cursor-pointer flex-col rounded-xl bg-white px-10 py-4 text-center transition hover:-translate-y-1 hover:shadow-md xl:-right-1/4">
                             <span className="text-5xl font-bold text-primary">40%</span>
                             <span className="text-base text-primary">Market</span>
                         </div>
@@ -122,7 +128,7 @@ function Head() {
 
                 {/* Content */}
 
-                <div className=" z-8 mx-11 flex w-full max-w-[1080px] flex-col space-y-8">
+                <div className=" flex max-w-[600px] flex-col justify-center lg:mx-11 mx-auto  text-center xl:text-left">
 
                     <motion.div
                         initial="hidden"
@@ -135,11 +141,11 @@ function Head() {
                         }}>
 
 
-                        <h1 className="content flex  flex-col space-y-1 text-4xl font-bold sm:text-5xl xl:text-7xl text-primary">
+                        <h1 className=" flex  flex-col space-y-1 text-4xl font-bold sm:text-5xl xl:text-7xl text-primary">
                             {hero_content?.title &&
                                 hero_content?.title.map((item, i) => <span key={i} >{item}</span>)}
                         </h1>
-                        <p className="content  subtitle text-[14px]  text-gray-600 xl:max-w-lg xl:text-xl mt-4 ">
+                        <p className="  subtitle text-[14px]  text-gray-600 xl:max-w-lg xl:text-xl mt-4 ">
                             {hero_content?.description}
                         </p>
                     </motion.div>
@@ -155,20 +161,20 @@ function Head() {
                             hidden: { opacity: 0, x: -50 },
                             visible: { opacity: 1, x: 0 },
                         }}>
-                        <div className="  flex flex-col  mx-auto gap-y-3 md:flex-row gap-x-8  xl:mx-0 mb-12  ">
+                        <div className="  flex flex-col items-center gap-y-3 sm:flex-row gap-x-3  sm:mx-left xl:pl-0  sm:pl-[130px] mb-12 ">
 
 
-                            <Button className=' gap-x-2 lg:min-w-[166px] w-[140px]' onClick={() => router.push('/contact')}>
+                            <Button className=' gap-x-2 lg:min-w-[166px]' onClick={() => router.push('/contact')}>
                                 Contact us <Send size={18} />
                             </Button>
-                            <div >
-                                <button className=" group flex flex-row items-center lg:min-w-[166px] min-w-[100px] space-x-4" onClick={toggle}>
+                            <div>
+                                <button className=" mr-3 group flex flex-row items-center  space-x-4" onClick={toggle}>
                                     <div className="rounded-full bg-primary  p-4 group-hover:bg-primary/80">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 24 24"
                                             fill="currentColor"
-                                            className="h-5 w-5 text-white"
+                                            className="h-6 w-6 text-white"
                                         >
                                             <path
                                                 fillRule="evenodd"
@@ -180,23 +186,31 @@ function Head() {
                                     <span className="font-bold text-primary">{hero_content?.play_button}</span>
 
                                 </button>
+                                
+                                <ModalVideo
+                                 
+                                 title="video"
+                                 header="About univers automatisme"
+                                 controls="default"
+                                 max-width={800}
+                           
+                                 isOpen={isOpen}
+                                 onClosed={close}
+                                 url="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
 
+                            
+
+                            
                             </div>
 
                         </div>
                     </motion.div>
+                    <div className='hidden md:flex absolute left-2/4 bottom-44 xl:bottom-12 animate-bounce'>
+                        <RiArrowDownSLine className='text-3xl text-primary' />
+                    </div>
                 </div>
             </section>
-            <ModalVideo
-                className="modal-video"
-                title="video"
-                header="About univers automatisme"
-                controls="default"
-                max-width={800}
-                isOpen={isOpen}
-                onClosed={close}
-                url="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-            />
+
         </>
     )
 }

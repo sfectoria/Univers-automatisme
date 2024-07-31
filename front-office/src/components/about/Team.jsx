@@ -28,41 +28,46 @@ function Team() {
                     Meet  <span className=' font-caveat '>The Team</span>
                 </h2>
 
-                <div className="px-8  py-16  md:px-12 lg:px-32 max-w-7xl items-center">
+                <div className="px-8  py-16  md:px-12 lg:px-32 max-w-7xl items-center -ml-2 sm:-ml-0">
                     <div className="grid gap-20 lg:grid-cols-2  ">
-                        <div>
+                        <div className='space-y-1 ' >
                             <h1
                                 className='text-[20px] font-caveat uppercase text-primary '>Know our team</h1>
                             <h1 data-aos="fade-right"
                                 className="text-4xl font-semibold tracking-tight text-primary lg:text-5xl">
-                                Meet Our Team 
-                                 <span className=" text-[#EAF2AE]"><br/>Diverse. Skilled. United.</span>
+                                Meet Our Team
+                                <span className=" text-[#EAF2AE]"><br />Diverse. Skilled. United.</span>
                             </h1>
-                            <p className="mt-4  text-gray-800 subtitle">
-                                A group of passionate individuals working together to innovate and
-                                excel in our industry.
-                            </p>
+                    
+                                <div className='grid grid-cols-2  sm:grid-cols-1'>
+                                <p className="py-2 text-gray-800 subtitle  flex flex-col col-span-1">
+                                    A group of passionate individuals working together to innovate and
+                                    excel in our industry.
+
+                                </p>
+                                </div>
+                            
                         </div>
                         <Swiper
                             slidesPerView={1}
                             breakpoints={{
-                              640: { slidesPerView: 2 },
-                              1400: { slidesPerView: 2 },
-                              420:{slidesPerView:1}
+                                640: { slidesPerView: 2 },
+                                // 1400: { slidesPerView: 2 },
+                                390: { slidesPerView: 1 }
                             }}
                             spaceBetween={15}
                             modules={[Pagination]}
                             pagination={{
-                              clickable: true,
+                                clickable: true,
                             }}
 
                             // module={[Pagination]}
-                          
+
                             className="mySwiper "
                         >
                             <SwiperSlide className='swiper-slide'>
-                                <div className="space-y-4" >
-                                    <div className="aspect-[3/2] p-2 overflow-hidden border rounded-3xl border-primary">
+                                <div className="space-y-4 w-[320px] h-[320px] sm:h-full sm:w-full" >
+                                    <div className="  aspect-[3/2] p-2 overflow-hidden border rounded-3xl border-primary">
                                         <Image
                                             className="object-cover w-full h-full rounded-2xl"
                                             src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80"
@@ -99,14 +104,14 @@ function Team() {
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                                <div className="space-y-4" >
-                                    <div className="aspect-[3/2] p-2 overflow-hidden border rounded-3xl border-primary">
+                                <div className="space-y-4  w-[320px] h-[320px] sm:h-full sm:w-full" >
+                                    <div className=" aspect-[3/2] p-2 overflow-hidden border rounded-3xl border-primary">
                                         <Image
                                             className="object-cover w-full h-full rounded-2xl"
                                             src="https://images.unsplash.com/photo-1602434228300-a645bce6891b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1639&amp;q=80"
                                             alt=""
-                                            width={500}
-                                            height={500}
+                                            width={200}
+                                            height={200}
                                         />
                                     </div>
                                     <div className="inline-flex items-start justify-between w-full">
@@ -137,14 +142,14 @@ function Team() {
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                                <div className="space-y-4" >
-                                    <div className="aspect-[3/2] p-2 overflow-hidden border rounded-3xl border-primary">
+                                <div className="space-y-4  w-[320px] h-[320px] sm:h-full sm:w-full" >
+                                    <div className=" aspect-[3/2] p-2 overflow-hidden border rounded-3xl border-primary">
                                         <Image
                                             className="object-cover w-full h-full rounded-2xl"
                                             src="https://images.unsplash.com/photo-1602434228300-a645bce6891b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1639&amp;q=80"
                                             alt=""
-                                            width={500}
-                                            height={500}
+                                            width={200}
+                                            height={200}
                                         />
                                     </div>
                                     <div className="inline-flex items-start justify-between w-full">
@@ -175,14 +180,14 @@ function Team() {
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
-                                <div className="space-y-4" >
-                                    <div className="aspect-[3/2] p-2 overflow-hidden border rounded-3xl border-primary">
+                                <div className="space-y-4  w-[320px] h-[320px] sm:h-full sm:w-full" >
+                                    <div className=" aspect-[3/2] p-2 overflow-hidden border rounded-3xl border-primary">
                                         <Image
                                             className="object-cover w-full h-full rounded-2xl"
                                             src="https://images.unsplash.com/photo-1602434228300-a645bce6891b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1639&amp;q=80"
                                             alt=""
-                                            width={500}
-                                            height={500}
+                                            width={200}
+                                            height={200}
                                         />
                                     </div>
                                     <div className="inline-flex items-start justify-between w-full">
