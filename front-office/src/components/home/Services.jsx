@@ -34,18 +34,18 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 
 const Services = () => {
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 800,
-      easing: "ease-in-sine",
-      delay: 100,
+  // useEffect(() => {
+  //   AOS.init({
+  //     // offset: 100,
+  //     // duration: 800,
+  //     // easing: "ease-in-sine",
+  //     delay: 100,
 
-    });
-    AOS.refresh();
-  }, []);
+  //   });
+  //   AOS.refresh();
+  // }, []);
   return (
-    <section className='mb-12 xl:mb-36 min-h-[70vh]' data-aos="fade-right">
+    <section className='mb-12 xl:mb-36   ' >
       <div className='container mx-auto'>
         <h2 className='section-title mb-12 xl:mb-24 text-center mx-auto'>
          <span className=' font-caveat '>Nos</span>  Services

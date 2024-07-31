@@ -20,18 +20,18 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 
 const Hero = () => {
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 800,
-      easing: "ease-in-sine",
-      delay: 100,
+  // useEffect(() => {
+  //   AOS.init({
+  //     offset: 100,
+  //     duration: 800,
+  //     easing: "ease-in-sine",
+  //     delay: 100,
 
-    });
-    AOS.refresh();
-  }, []);
+  //   });
+  //   AOS.refresh();
+  // }, []);
   return (
-    <section className='py-12 xl:py-24 max-h-screen xl:pt-28 bg-hero bg-no-repeat bg-bottom bg-cover dark:bg-none' data-aos="fade-right">
+    <section className='py-12 xl:py-24 lg:h-[84vh]  min-h-full xl:pt-28 bg-hero bg-no-repeat bg-bottom bg-cover dark:bg-none'>
       <div className='container mx-auto'>
         <div className='flex justify-between gap-x-8'>
           {/* text */}

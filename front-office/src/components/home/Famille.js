@@ -19,16 +19,16 @@ import Banner from "@/components/banner.jsx";
 import AOS from "aos";
 import 'aos/dist/aos.css';
 export default function ProgressSlider() {
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 800,
-      easing: "ease-in-sine",
-      delay: 100,
+  // useEffect(() => {
+  //   AOS.init({
+  //     offset: 100,
+  //     duration: 800,
+  //     easing: "ease-in-sine",
+  //     delay: 100,
 
-    });
-    AOS.refresh();
-  }, []);
+  //   });
+  //   AOS.refresh();
+  // }, []);
 
 
   const items = [
@@ -132,13 +132,13 @@ export default function ProgressSlider() {
     }
   };
 
-  
+
 
   return (
     <>
-      <main className="relative max-h-[1200px] flex flex-col justify-center bg-slate-50 overflow-hidden " >
+      <section className="relative min-h-screen   flex flex-col justify-center bg-slate-50 overflow-hidden " >
         <h2 className="section-title mt-12 mb-12 xl:my-12 text-center mx-auto">
-        Gamme  <span className=' font-caveat '>de produits </span> 
+          Gamme  <span className=' font-caveat '>de produits </span>
         </h2>
         <div className="w-full max-w-6xl mx-auto px-4 md:px-6 pb-24 ">
           <div className="flex justify-center ">
@@ -155,11 +155,10 @@ export default function ProgressSlider() {
                     }}
                   >
                     <span
-                      className={`text-center flex flex-col items-center ${
-                        active === index
-                          ? ""
-                          : "opacity-50 group-hover:opacity-100 group-focus:opacity-100 transition-opacity"
-                      }`}
+                      className={`text-center flex flex-col items-center ${active === index
+                        ? ""
+                        : "opacity-50 group-hover:opacity-100 group-focus:opacity-100 transition-opacity"
+                        }`}
                     >
                       <span className="flex items-center justify-center relative w-9 h-9 rounded-full bg-indigo-100 mb-2">
                         <Image src={item.buttonIcon} alt={item.desc} />
@@ -186,72 +185,34 @@ export default function ProgressSlider() {
               <div className="transition-all duration-150 delay-300 ease-in-out">
                 <div className="relative flex flex-col" ref={itemsRef}>
                   {items.map((item, index) => (
-                   <Transition
-                   key={index}
-                   show={active === index}
-                   enter="transition ease-in-out duration-500 delay-400"
-                   enterFrom="opacity-0 scale-105"
-                   enterTo="opacity-100 scale-100"
-                   leave="transition ease-in-out duration-300"
-                   leaveFrom="opacity-100 scale-100"
-                   leaveTo="opacity-0 scale-95"
-                 >
-                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-                     <div className="grid gap-2">
-                       {item.img.slice(0, 3).map((img, i) => (
-                         <div key={i}>
-                           <Image
-                             className="h-auto max-w-full rounded-lg"
-                             height={400}
-                             width={400}
-                             src={img}
-                             alt=""
-                           />
-                         </div>
-                       ))}
-                     </div>
-                     <div className="grid gap-4">
-                       {item.img.slice(3, 6).map((img, i) => (
-                         <div key={i}>
-                           <Image
-                             className="h-auto max-w-full rounded-lg"
-                             height={400}
-                             width={400}
-                             src={img}
-                             alt=""
-                           />
-                         </div>
-                       ))}
-                     </div>
-                     <div className="grid gap-4">
-                       {item.img.slice(6, 9).map((img, i) => (
-                         <div key={i}>
-                           <Image
-                             className="h-auto max-w-full rounded-lg"
-                             height={400}
-                             width={400}
-                             src={img}
-                             alt=""
-                           />
-                         </div>
-                       ))}
-                     </div>
-                     <div className="grid gap-4">
-                       {item.img.slice(9).map((img, i) => (
-                         <div key={i}>
-                           <Image
-                             className="h-auto max-w-full rounded-lg"
-                             height={400}
-                             width={400}
-                             src={img}
-                             alt=""
-                           />
-                         </div>
-                       ))}
-                     </div>
-                   </div>
-                 </Transition>
-                 
+                    <Transition
+                      key={index}
+                      show={active === index}
+                      enter="transition ease-in-out duration-500 delay-400"
+                      enterFrom="opacity-0 scale-105"
+                      enterTo="opacity-100 scale-100"
+                      leave="transition ease-in-out duration-300"
+                      leaveFrom="opacity-100 scale-100"
+                      leaveTo="opacity-0 scale-95"
+                    >
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+                        {[0, 1, 2, 3].map((colIndex) => (
+                          <div className="grid gap-4" key={colIndex}>
+                            {item.img.slice(colIndex * 3, (colIndex + 1) * 3).map((img, i) => (
+                              <div key={i}>
+                                <Image
+                                  className="h-auto max-w-full rounded-lg"
+                                  height={400}
+                                  width={400}
+                                  src={img}
+                                  alt=""
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+                    </Transition>
                   ))}
                 </div>
               </div>
@@ -259,7 +220,7 @@ export default function ProgressSlider() {
             </div>
           </div>
         </div>
-      </main>
+      </section>
 
       <Banner
         tutorialUrl="https://cruip.com/create-a-carousel-with-progress-indicators-using-tailwind-and-nextjs/"

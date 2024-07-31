@@ -75,21 +75,21 @@ import AOS from "aos";
 import 'aos/dist/aos.css';
 
 export default function About() {
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 800,
-      easing: "ease-in-sine",
-      delay: 100,
+  // useEffect(() => {
+  //   AOS.init({
+  //     offset: 100,
+  //     duration: 800,
+  //     easing: "ease-in-sine",
+  //     delay: 100,
 
-    });
-    AOS.refresh();
-  }, []);
+  //   });
+  //   AOS.refresh();
+  // }, []);
   const getData = (arr, title) => {
     return arr.find((item) => item.title === title);
   };
   return (
-    <section className="xl:max-h-[860px] pb-12 xl:py-24" data-aos="fade-left">
+    <section className="xl:max-h-[860px] pb-12 xl:py-24" >
       <div className="container mx-auto">
         <h2 className="font-PlayfairDisplay section-title mb-8 xl:mb-16 text-center mx-auto">
            A propos<span className=" font-caveat ">nous</span>
