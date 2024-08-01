@@ -20,41 +20,41 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 
 const Hero = () => {
-  useEffect(() => {
-    AOS.init({
-      offset: 100,
-      duration: 800,
-      easing: "ease-in-sine",
-      delay: 100,
+  // useEffect(() => {
+  //   AOS.init({
+  //     offset: 100,
+  //     duration: 800,
+  //     easing: "ease-in-sine",
+  //     delay: 100,
 
-    });
-    AOS.refresh();
-  }, []);
+  //   });
+  //   AOS.refresh();
+  // }, []);
   return (
-    <section className='py-12 xl:py-24 h-[84vh] xl:pt-28 bg-hero bg-no-repeat bg-bottom bg-cover dark:bg-none' data-aos="fade-right">
+    <section className='py-12 xl:py-24 lg:h-[84vh]  min-h-full xl:pt-28 bg-hero bg-no-repeat bg-bottom bg-cover dark:bg-none'>
       <div className='container mx-auto'>
         <div className='flex justify-between gap-x-8'>
           {/* text */}
           <div className='flex max-w-[600px] flex-col justify-center mx-auto xl:mx-0 text-center xl:text-left'>
             <div className='text-sm uppercase font-semibold mb-4 text-primary tracking-[4px]'>
-              More Than a Supplier
+            Plus qu'un fournisseur
             </div>
             <h1 className='h1 mb-4'>Univers Automatisme</h1>
             <p className='subtitle max-w-[490px] mx-auto xl:mx-0'>
-              We offer repair, diagnostics, commissioning, design, and realization services in the fields of pneumatics, hydraulic.
+            Nous offrons des services de réparation, de diagnostic, de mise en service, de conception et de réalisation dans les domaines de la pneumatique et de l'hydraulique.
 
             </p>
             {/* buttons */}
             <div className='flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto xl:mx-0 mb-12'>
               <Link href='/contact'>
                 <Button className='gap-x-2'>
-                  Contact Us <Send size={18} />
+                  Contacter nous <Send size={18} />
                 </Button>
               </Link>
               <Link href='/about'>
 
                 <Button variant='secondary' className='gap-x-2'>
-                  About Us
+                  A propos nous
                   <Download size={18} />
                 </Button>
               </Link>
@@ -72,7 +72,7 @@ const Hero = () => {
               containerStyles='absolute top-[24%] -left-[5rem]'
               icon={<RiBriefcase4Fill />}
               endCountNum={3}
-              badgeText='Years Of Experience'
+              badgeText="Années d'Expérience"
             />
             {/* badge 2 */}
             <Badge
@@ -80,7 +80,7 @@ const Hero = () => {
               icon={<RiTodoFill />}
               endCountNum={6}
               endCountText='k'
-              badgeText='Finished Projects'
+              badgeText=' Projets Terminés'
             />
             {/* badge 3 */}
             <Badge
@@ -88,7 +88,7 @@ const Hero = () => {
               icon={<RiTeamFill />}
               endCountNum={9}
               endCountText='k'
-              badgeText='Happy Clients'
+              badgeText='Clients Satisfaits'
             />
             <div className=' bg-hero_shape2_light dark:bg-hero_shape2_dark w-[500px] h-[500px] bg-no-repeat absolute -top-1 -right-2'></div>
             <div className='text-primary w-[510px] h-[462px] bg-no-repeat relative bg-bottom'>

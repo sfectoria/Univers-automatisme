@@ -19,11 +19,9 @@ const page = () => {
       </div>
       <ProgressSlider />
       <Work />
-
       <Reviews />
       {/* <Stars/> */}
       <Partnaires />
-
       {/* <Cta /> */}
     </div>
   );
