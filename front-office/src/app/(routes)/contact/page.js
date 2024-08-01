@@ -88,8 +88,8 @@ function page() {
 
 
       {/* Partie restante avec le fond blanc */}
-      <div className="bg-white flex-1 visible block">
-      <div className="hidden md:block md:visible ms:block lg:w-1/2 lg:mx-6">
+      <div className="bg-white   ">
+      <div className="hidden md:block lg:w-1/2 lg:mx-6">
         <div className="mt-6 space-y-8 md:mt-8">
           <div className="icon grid grid-cols-1 gap-12 md:grid-cols-2 mt-8 ml-24 mx-2">
             <div className="flex gap-4" data-aos="fade-right">
@@ -116,21 +116,20 @@ function page() {
         </div>
 
       </div>
-        <div className="container px-4 mt-[6.5rem] mx-auto block visible
-        
-        ">
-          <div className="lg:flex lg:items-center lg:-mx-6">
+        <div className="container  px-4 mt-[6.5rem] mx-auto ">
+          <div className="flex justify-center items-center lg:-mx-6 ">
 
-            <iframe className="w-screen mt-20 border-primary border-2 rounded-lg p-1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.8625213585906!2d10.189982275570134!3d36.821814166481346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd3550232fe4b9%3A0x488b37a9204e79dd!2sSfectoria!5e0!3m2!1sfr!2stn!4v1722344990685!5m2!1sfr!2stn" height="350" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe className=" md:w-screen mt-20 border-primary border-2 rounded-lg p-1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.8625213585906!2d10.189982275570134!3d36.821814166481346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd3550232fe4b9%3A0x488b37a9204e79dd!2sSfectoria!5e0!3m2!1sfr!2stn!4v1722344990685!5m2!1sfr!2stn" height="350" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
           </div>
-        </div>
-        <div>
+          <div>
           <Socials
             containerStyles='flex gap-x-10 items-center justify-center mt-14'
             iconsStyles='text-primary text-[26px] hover:text-primary transition-all'
           />
         </div>
+        </div>
+       
       </div>
 
 
