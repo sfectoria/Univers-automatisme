@@ -164,7 +164,7 @@ function Head() {
                         <div className="  flex flex-col items-center gap-y-3 sm:flex-row gap-x-3  sm:mx-left xl:pl-0  sm:pl-[130px] mb-12 ">
 
 
-                            <Button className=' gap-x-2 lg:min-w-[166px]' onClick={() => router.push('/contact')}>
+                            <Button className=' gap-x-2 lg:min-w-[166px] text-white' onClick={() => router.push('/contact')}>
                                 Contacter nous <Send size={18} />
                             </Button>
                             <div>

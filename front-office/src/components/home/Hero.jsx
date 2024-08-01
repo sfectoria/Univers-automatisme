@@ -20,18 +20,18 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 
 const Hero = () => {
-  // useEffect(() => {
-  //   AOS.init({
-  //     offset: 100,
-  //     duration: 800,
-  //     easing: "ease-in-sine",
-  //     delay: 100,
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 800,
+      easing: "ease-in-sine",
+      delay: 100,
 
-  //   });
-  //   AOS.refresh();
-  // }, []);
+    });
+    AOS.refresh();
+  }, []);
   return (
-    <section className='py-12 xl:py-24 lg:h-[84vh]  min-h-full xl:pt-28 bg-hero bg-no-repeat bg-bottom bg-cover dark:bg-none'>
+    <section className='py-12 xl:py-24 lg:h-[84vh]  min-h-full xl:pt-28 bg-hero bg-no-repeat bg-bottom bg-cover dark:bg-none' data-aos="fade-right">
       <div className='container mx-auto'>
         <div className='flex justify-between gap-x-8'>
           {/* text */}
@@ -47,7 +47,7 @@ const Hero = () => {
             {/* buttons */}
             <div className='flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto xl:mx-0 mb-12'>
               <Link href='/contact'>
-                <Button className='gap-x-2'>
+                <Button className='gap-x-2 text-white'>
                   Contacter nous <Send size={18} />
                 </Button>
               </Link>

@@ -27,7 +27,7 @@ function page() {
     <section className="w-full min-h-screen mb-[10rem]">
 
       {/* Partie avec le fond #B8D941 */}
-      <div className="first-section bg-primary p-6 lg:p-24 flex justify-center lg:justify-end relative">
+      <div className="first-section  bg-gradient-to-l from-[#EAF2AE] to-primary p-6 lg:p-24 flex justify-center lg:justify-end relative">
         <div className="container mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between ">
           <div className="  lg:w-1/2  mb-6 lg:mb-0 text-center md:text-left " >
             <div className="text-xl uppercase font-caveat  mb-4 text-white  " data-aos="fade-right">
@@ -72,7 +72,7 @@ function page() {
               {/* <Button className="w-1/3 px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 shadow-xl drop-shadow-lg" style={{ background: "#B8D941" }}>
                     Send Message
                   </Button> */}
-              <Button className='gap-x-2 mt-6'>
+              <Button className='gap-x-2 mt-6 text-white'>
 
                 Envoyer <Send size={18} />
               </Button>

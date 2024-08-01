@@ -75,21 +75,21 @@ import AOS from "aos";
 import 'aos/dist/aos.css';
 
 export default function About() {
-  // useEffect(() => {
-  //   AOS.init({
-  //     offset: 100,
-  //     duration: 800,
-  //     easing: "ease-in-sine",
-  //     delay: 100,
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 800,
+      easing: "ease-in-sine",
+      delay: 100,
 
-  //   });
-  //   AOS.refresh();
-  // }, []);
+    });
+    AOS.refresh();
+  }, []);
   const getData = (arr, title) => {
     return arr.find((item) => item.title === title);
   };
   return (
-    <section className="xl:max-h-[860px] pb-12 xl:py-24" >
+    <section className="xl:max-h-[860px] pb-12 xl:py-24" data-aos="fade-left">
       <div className="container mx-auto">
         <h2 className="font-PlayfairDisplay section-title mb-8 xl:mb-16 text-center mx-auto">
            A propos<span className=" font-caveat ">nous</span>
@@ -107,11 +107,11 @@ export default function About() {
           <div className="flex-1">
             <Tabs defaultValue="company-info">
               <TabsList className="w-full grid xl:grid-cols-2 xl:max-w-[520px] xl:border dark:border-none">
-                <TabsTrigger className="w-[162px] xl:w-auto" value="secteur-d'activité">
+                <TabsTrigger className="w-[230px] xl:w-auto" value="secteur-d'activité">
                 secteur-d'activité
                 </TabsTrigger>
                 <TabsTrigger
-                  className="w-[162px] xl:w-auto"
+                  className="w-[230px] xl:w-auto"
                   value="company-info"
                 >
                 informations sur l'entreprise

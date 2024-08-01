@@ -32,20 +32,11 @@ module.exports = {
           },
           
         },
-        // slideIn: {
-        //   '0%': {
-        //     opacity: 0,
-        //     transform: 'translateY(50px)',
-        //   },
-        //   '100%': {
-        //     opacity: 1,
-        //     transform: 'translateY(0)',
-        //   },
-        // },
+       
       },
       animation: {
         'border-spin': 'border-spin 7s linear infinite',
-        // 'slide-in': 'slideIn 1s ease-out',
+       
       },
       colors: {
         border: "hsl(var(--border))",
@@ -54,7 +45,7 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#B8D947",
+          DEFAULT: "#22C55E",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
