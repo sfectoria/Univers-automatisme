@@ -103,18 +103,18 @@ import AOS from "aos";
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 const Work = () => {
-  // useEffect(() => {
-  //   AOS.init({
-  //     offset: 100,
-  //     duration: 800,
-  //     easing: "ease-in-sine",
-  //     delay: 100,
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 800,
+      easing: "ease-in-sine",
+      delay: 100,
 
-  //   });
-  //   AOS.refresh();
-  // }, []);
+    });
+    AOS.refresh();
+  }, []);
   return (
-    <section className='relative my-12 xl:mb-48 ' >
+    <section className='relative my-12 xl:mb-48 ' data-aos="fade-right">
       <div className='container mx-auto'>
         {/* text */}
         <div className='max-w-[400px] mx-auto xl:mx-0 text-center xl:text-left mb-12 xl:h-[400px] flex flex-col justify-center items-center xl:items-start' >
@@ -123,7 +123,7 @@ const Work = () => {
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           </p>
           <Link href='/projects'>
-            <Button>Tous les Projets</Button>
+            <Button className='text-white'>Tous les Projets</Button>
           </Link>
         </div>
         {/* slider */}

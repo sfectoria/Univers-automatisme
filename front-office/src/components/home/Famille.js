@@ -1,5 +1,6 @@
 "use client";
-
+import AOS from "aos";
+import 'aos/dist/aos.css';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import SilderIcon01 from '../../../public/ps-icon-01.svg';
@@ -132,9 +133,18 @@ export default function ProgressSlider() {
     setActive(index);
     setProgress(0);
   };
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 800,
+      easing: "ease-in-sine",
+      delay: 100,
 
+    });
+    AOS.refresh();
+  }, []);
   return (
-    <section className="relative min-h-screen flex flex-col justify-center bg-slate-50 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-center bg-slate-50 overflow-hidden" data-aos="fade-left">
       <h2 className="section-title mt-12 mb-12 xl:my-12 text-center mx-auto">
         Gamme <span className="font-caveat">de produits</span>
       </h2>

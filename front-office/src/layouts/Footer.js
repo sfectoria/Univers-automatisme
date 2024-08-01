@@ -5,7 +5,7 @@ import "../styles/footer.css"
 
 function Footer() {
 
-  const [primaryColor, setPrimaryColor] = useState('#B8D947');
+  const [primaryColor, setPrimaryColor] = useState('#22c55e');
 
 
 
@@ -63,7 +63,7 @@ function Footer() {
                   />
 
                   <button
-                    className="bg-white text-primary btnnn mt-1  sm:w-auto px-6 py-3 text-sm font-bold uppercase tracking-wide rounded-full transition-none hover:bg-teal-600 sm:mt-0 sm:shrink-0 sm:ml-10 sm:mr-2"
+                    className="bg-white text-primary btnnn mt-1  sm:w-auto px-6 py-3 text-sm font-bold uppercase tracking-wide rounded-full transition-none  sm:mt-0 sm:shrink-0 sm:ml-10 sm:mr-2"
                   >
                     S'abonner
                   </button>
