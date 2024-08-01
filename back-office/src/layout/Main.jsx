@@ -162,7 +162,7 @@ export default function Sidebar( ) {
   const theme = useTheme();
   // const [open, setOpen] = React.useState(false);
   const [open, setOpen] = React.useState(
-    JSON.parse(localStorage.getItem("drawerOpen")) || true
+    JSON.parse(localStorage.getItem("drawerOpen")) || false
   );
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [accordionState, setAccordionState] = React.useState({

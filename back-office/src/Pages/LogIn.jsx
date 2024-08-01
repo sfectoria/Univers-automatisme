@@ -33,9 +33,11 @@ function App() {
         // window.location.reload();
         // console.log("Signed in successfully:", response.data);
         // Handle successful sign-in here (e.g., store token, redirect, etc.)
-        await dispatch(login({ email, password })).unwrap()
-        .then((payload) => console.log('fulfilled', payload))
-        .catch((error) => console.error('rejected', error))
+        await dispatch(login({ email, password }))
+        .then((res)=>{
+          setSignInError(res.payload);
+        })
+        .catch(err=>console.log(err,"this si the err from login jsx"))
         
       }
        catch (error) {

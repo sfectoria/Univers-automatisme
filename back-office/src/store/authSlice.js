@@ -5,7 +5,7 @@ import { axiosGetWithHeaders } from '../helpers/axiosWithHeaders';
 // Async thunk for login
 export const login = createAsyncThunk('auth/login', async (args, { dispatch,rejectWithValue }) => {
   try {
-    console.log("hello")
+    
     const response = await axios.post('http://localhost:4000/auth/login', args);
     console.log(response.data,"response");
 
@@ -13,12 +13,9 @@ export const login = createAsyncThunk('auth/login', async (args, { dispatch,reje
     dispatch(getMe());
     return response.data;
   } catch (error) {
-    if (!err.response) {
-      throw err.response.data
-     
-    }
+  
 
-    return rejectWithValue(err.response.data)
+    return rejectWithValue(error.response.data.message)
   }
 });
 
@@ -50,13 +47,14 @@ export const updateProfile = createAsyncThunk(
 export const authSlice = createSlice({
   name: "auth",
   initialState: {
-    me: null,
+    me: null
   },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getMe.fulfilled, (state, action) => {
       state.me = action.payload;
     });
+   
   },
 });
 export default authSlice.reducer;
