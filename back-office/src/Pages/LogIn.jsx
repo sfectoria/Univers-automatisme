@@ -13,7 +13,6 @@ function App() {
   const [password, setPassword] = useState("");
   const [signInError, setSignInError] = useState("");
 
-
   // const handleSignInClick = () => {
   //   setIsRightPanelActive(false);
   // };
@@ -34,14 +33,15 @@ function App() {
         // console.log("Signed in successfully:", response.data);
         // Handle successful sign-in here (e.g., store token, redirect, etc.)
         await dispatch(login({ email, password }))
-        .then((res)=>{
-          setSignInError(res.payload);
-        })
-        .catch(err=>console.log(err,"this si the err from login jsx"))
-        
-      }
-       catch (error) {
-        console.log("error")
+          .then((res) => {
+            console.log("payload",res.payload);
+            if (res.payload === "Invalid email" || res.payload === "Invalid password") {
+              setSignInError(res.payload);
+            }
+          })
+          .catch((err) => console.log(err, "this si the err from login jsx"));
+      } catch (error) {
+        console.log("error");
         setSignInError(error.response?.data?.message);
       }
     }
@@ -76,7 +76,9 @@ function App() {
       <div>
         <div className="space"></div>
         <div
-          className={`container ${isRightPanelActive ? "right-panel-active" : ""}`}
+          className={`container ${
+            isRightPanelActive ? "right-panel-active" : ""
+          }`}
           id="container"
           style={{ display: "flex", flexWrap: "wrap" }}
         >
