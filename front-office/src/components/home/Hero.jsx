@@ -18,6 +18,8 @@ import Socials from '../Socials';
 import AOS from "aos";
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import NewProject from '../../images/NewProject.png'
+import Image from 'next/image';
 
 const Hero = () => {
   useEffect(() => {
@@ -39,7 +41,8 @@ const Hero = () => {
             <div className='text-sm uppercase font-semibold mb-4 text-primary tracking-[4px]'>
             Plus qu'un fournisseur
             </div>
-            <h1 className='h1 mb-4'>Univers Automatisme</h1>
+            <Image src={NewProject} alt="" height={700} width={450} className='-mx-4 py-4'/>
+            {/* <h1 className='h1 mb-4'>Univers Automatisme</h1> */}
             <p className='subtitle max-w-[490px] mx-auto xl:mx-0'>
             Nous offrons des services de réparation, de diagnostic, de mise en service, de conception et de réalisation dans les domaines de la pneumatique et de l'hydraulique.
 
