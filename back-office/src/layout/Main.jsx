@@ -36,10 +36,62 @@ import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
 import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import FeedbackOutlinedIcon from "@mui/icons-material/FeedbackOutlined";
-import { Link, Outlet, useLocation, useHistory, unstable_HistoryRouter, useNavigate } from "react-router-dom";
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useHistory,
+  unstable_HistoryRouter,
+  useNavigate,
+} from "react-router-dom";
 import { useEffect, useRef } from "react";
+import Badge from "@mui/material/Badge";
+import profile from "../assets/profile.jpg";
+import { Toast } from "primereact/toast";
+import { PanelMenu } from "primereact/panelmenu";
+import Settings from "@mui/icons-material/Settings";
+import Logout from "@mui/icons-material/Logout";
+import PersonAdd from "@mui/icons-material/PersonAdd";
+import { FiBell } from "react-icons/fi";
+import { IoMailOutline } from "react-icons/io5";
+
 
 const drawerWidth = 240;
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  "& .MuiBadge-badge": {
+    backgroundColor: "#44b700",
+    color: "#44b700",
+    boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+    "&::after": {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      borderRadius: "50%",
+      animation: "ripple 1.2s infinite ease-in-out",
+      border: "1px solid currentColor",
+      content: '""',
+    },
+  },
+  "@keyframes ripple": {
+    "0%": {
+      transform: "scale(.8)",
+      opacity: 1,
+    },
+    "100%": {
+      transform: "scale(2.4)",
+      opacity: 0,
+    },
+  },
+}));
+
+const SmallAvatar = styled(Avatar)(({ theme }) => ({
+  width: 22,
+  height: 22,
+  border: `2px solid ${theme.palette.background.paper}`,
+}));
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -130,15 +182,31 @@ const getIcon = (text, index) => {
   return icons[index % icons.length];
 };
 
-export default function Sidebar( ) {
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-   window.location.reload()
+export default function Sidebar() {
+  const toast = useRef(null);
 
+  const handleLogout = () => {
+    navigate('/');
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    window.location.reload();
+    toast.current.show({
+      severity: "info",
+      summary: "Signed out",
+      detail: "User logged out",
+      life: 6000,
+    });
 
     // No need to navigate with <a>, use Link for internal routing
   };
+
+  const items = [
+    {
+      label: "Sign Out",
+      icon: "pi pi-sign-out",
+      command: handleLogout,
+    },
+  ];
   const location = useLocation();
   const [activePath, setActivePath] = React.useState(location.pathname);
 
@@ -192,11 +260,21 @@ export default function Sidebar( ) {
   };
 
   const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
+    setAnchorE2(event.currentTarget);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+  const navigate = useNavigate();
+
+  const [anchorE2, setAnchorE2] = React.useState(null);
+  const open2 = Boolean(anchorE2);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose2 = () => {
+    setAnchorE2(null);
   };
 
   return (
@@ -223,8 +301,29 @@ export default function Sidebar( ) {
           </Typography>
 
           <Box sx={{ flexGrow: 1 }} />
-          <div>
-            <IconButton
+          {/* <Badge
+            badgeContent={4}
+            color="primary"
+            style={{
+              marginRight: 20,
+              transform: "scale(1)", // Agrandir le badge
+              marginTop: 7,
+              // padding: "10px", // Ajouter un rembourrage
+            }}
+          >
+            <MailIcon
+              color="white"
+              style={{
+                fontSize: 30, // Agrandir l'icône
+              }}
+            />
+            
+          </Badge> */}
+          <FiBell style={{fontSize:30, marginRight:20, marginTop:5}} />
+          <IoMailOutline style={{fontSize:30, marginRight:20, marginTop:1}}/>
+
+          <div className="Profile buttonn">
+            {/* <IconButton
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
@@ -239,8 +338,28 @@ export default function Sidebar( ) {
                   color: "white",
                 }} // Ajustez la taille ici selon vos besoins
               />
-            </IconButton>
-            <Menu
+            </IconButton> */}
+
+            <Box display="flex" alignItems="center">
+              <StyledBadge
+                overlap="circular"
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                variant="dot"
+                onClick={handleMenu}
+              >
+                <Avatar src={profile} />
+              </StyledBadge>
+
+              <Box ml={2}>
+                <Box fontWeight="fontWeightBold">Rawen Soltani</Box>
+                <Box fontSize="small" color="text.secondary">
+                  Super Admin
+                </Box>
+              </Box>
+            </Box>
+
+            {/* <Menu
+            style={{marginTop:30}}
               id="menu-appbar"
               anchorEl={anchorEl}
               anchorOrigin={{
@@ -255,13 +374,73 @@ export default function Sidebar( ) {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>
-                <Link to="/profile">Profile</Link>
+              <MenuItem  onClick={() => { navigate('/profile'); handleClose(); }}>Profile</MenuItem>
+              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+              <Toast ref={toast} />
+            </Menu> */}
+            <Menu
+              anchorEl={anchorE2}
+              id="account-menu"
+              open={open2}
+              onClose={handleClose2}
+              onClick={handleClose2}
+              PaperProps={{
+                elevation: 0,
+                sx: {
+                  overflow: "visible",
+                  filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                  mt: 1.5,
+                  "& .MuiAvatar-root": {
+                    width: 32,
+                    height: 32,
+                    ml: -0.5,
+                    mr: 1,
+                  },
+                  "&::before": {
+                    content: '""',
+                    display: "block",
+                    position: "absolute",
+                    top: 0,
+                    right: 14,
+                    width: 10,
+                    height: 10,
+                    bgcolor: "background.paper",
+                    transform: "translateY(-50%) rotate(45deg)",
+                    zIndex: 0,
+                  },
+                },
+              }}
+              transformOrigin={{ horizontal: "right", vertical: "top" }}
+              anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+            >
+              <MenuItem onClick={handleClose2}>
+                <Avatar /> Profile
               </MenuItem>
-              <MenuItem onClick={handleClose}>My account</MenuItem>
-              <MenuItem onClick={handleLogout} > <Link to="/">Logout</Link></MenuItem>
+              <MenuItem onClick={handleClose2}>
+                <Avatar /> My account
+              </MenuItem>
+              <Divider />
+              <MenuItem onClick={handleClose2}>
+                <ListItemIcon>
+                  <PersonAdd fontSize="small" />
+                </ListItemIcon>
+                Add another account
+              </MenuItem>
+              <MenuItem onClick={handleClose2}>
+                <ListItemIcon>
+                  <Settings fontSize="small" />
+                </ListItemIcon>
+                Settings
+              </MenuItem>
+              <MenuItem style={{color:"red"}} onClick={handleLogout}>
+                <ListItemIcon style={{color:"red"}}  >
+                  <Logout  fontSize="small" />
+                </ListItemIcon>
+                Logout
+              </MenuItem>
             </Menu>
           </div>
+          <Toast ref={toast} />
         </Toolbar>
       </AppBar>
 
@@ -313,13 +492,12 @@ export default function Sidebar( ) {
               aria-controls="panel1a-content"
               id="panel1a-header"
               style={
-                !accordionState.acc1 && (
-                activePath === "/Accueil/" ||
-                activePath === "/Accueil/services" ||
-                activePath === "/Accueil/avis" ||
-                activePath === "/Accueil/partenaires" ||
-                activePath === "/Accueil/famille"
-                )
+                !accordionState.acc1 &&
+                (activePath === "/Accueil/" ||
+                  activePath === "/Accueil/services" ||
+                  activePath === "/Accueil/avis" ||
+                  activePath === "/Accueil/partenaires" ||
+                  activePath === "/Accueil/famille")
                   ? activeStyle
                   : {}
               }
@@ -342,7 +520,10 @@ export default function Sidebar( ) {
 
             {/* {open && (
               <> */}
-            <Link to="/Accueil" style={{ textDecoration: "none", color: "inherit" }}>
+            <Link
+              to="/Accueil"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <AccordionDetails
                 sx={{
                   "&:hover": {
@@ -464,7 +645,6 @@ export default function Sidebar( ) {
                 style={activePath === "/Accueil/avis" ? activeStyle : {}}
               >
                 <FeedbackOutlinedIcon sx={{ marginRight: 1 }} />{" "}
-                {/* Ajoutez un margin-right à l'icône pour l'espace */}
                 <Typography
                   variant="body1"
                   sx={{ fontWeight: 300, fontSize: 15 }}
@@ -500,11 +680,10 @@ export default function Sidebar( ) {
               aria-controls="panel1a-content"
               id="panel1a-header"
               style={
-                !accordionState.acc2 && (
-                activePath === "/qui-sommes-nous/presentation" ||
-                activePath === "/qui-sommes-nous/equipe" ||
-                activePath === "/qui-sommes-nous/mission"
-                )
+                !accordionState.acc2 &&
+                (activePath === "/qui-sommes-nous/presentation" ||
+                  activePath === "/qui-sommes-nous/equipe" ||
+                  activePath === "/qui-sommes-nous/mission")
                   ? activeStyle
                   : {}
               }
@@ -540,7 +719,11 @@ export default function Sidebar( ) {
                   alignItems: "center",
                   paddingLeft: 5, // Aligner verticalement le contenu
                 }}
-                style={activePath === "/qui-sommes-nous/presentation" ? activeStyle : {}}
+                style={
+                  activePath === "/qui-sommes-nous/presentation"
+                    ? activeStyle
+                    : {}
+                }
               >
                 <SlideshowIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
@@ -567,7 +750,9 @@ export default function Sidebar( ) {
                   alignItems: "center",
                   paddingLeft: 5, // Aligner verticalement le contenu
                 }}
-                style={activePath === "/qui-sommes-nous/equipe" ? activeStyle : {}}
+                style={
+                  activePath === "/qui-sommes-nous/equipe" ? activeStyle : {}
+                }
               >
                 <PeopleOutlineIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
@@ -594,7 +779,9 @@ export default function Sidebar( ) {
                   alignItems: "center",
                   paddingLeft: 5, // Aligner verticalement le contenu
                 }}
-                style={activePath === "/qui-sommes-nous/mission" ? activeStyle : {}}
+                style={
+                  activePath === "/qui-sommes-nous/mission" ? activeStyle : {}
+                }
               >
                 <SportsScoreIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}

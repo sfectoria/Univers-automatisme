@@ -8,12 +8,16 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import store from "./store/store";
+import "primereact/resources/themes/lara-light-cyan/theme.css";
+import { PrimeReactProvider } from 'primereact/api';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <React.StrictMode>
+    <PrimeReactProvider>
       <Router />
+      </PrimeReactProvider>
     </React.StrictMode>
   </Provider>
 );
