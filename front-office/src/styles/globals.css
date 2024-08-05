@@ -174,3 +174,10 @@
     transform: translateX(-100%);
   }
 }
+
+@font-face {
+  font-family: 'GalacticaBold';
+  src:url('./Galactica\ S\ Bold.woff') format('woff');
+  font-weight: bold;
+  /* font-style: normal; */
+}

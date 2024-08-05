@@ -4,7 +4,7 @@ import logoUni from '../images/logounivers.png';
 const Logo = () => {
   return (
     <Link href='/'>
-      <Image src={logoUni} width={54} height={54} priority alt='' />
+      <Image src={logoUni} width={80} height={80} priority alt='logo univers' />
     </Link>
   );
 };
