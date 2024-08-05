@@ -20,7 +20,7 @@ import {
   randomArrayItem,
 } from '@mui/x-data-grid-generator';
 
-const roles = ['Market', 'Finance', 'Development'];
+const roles = [ 'Admin', 'Employee', ];
 const randomRole = () => {
   return randomArrayItem(roles);
 };
@@ -28,36 +28,36 @@ const randomRole = () => {
 const initialRows = [
   {
     id: randomId(),
-    name: randomTraderName(),
-    age: 25,
+    name: "Rawen Soltani",
+    email: "rawen@gmail.com",
+    joinDate: randomCreatedDate(),
+    role: "SuperAdmin",
+  },
+  {
+    id: randomId(),
+    name: "khalil kraiem",
+    email: "khalil@gmail.com",
     joinDate: randomCreatedDate(),
     role: randomRole(),
   },
   {
     id: randomId(),
-    name: randomTraderName(),
-    age: 36,
+    name: "Rania Elouni",
+    email: "Rania@gmail.com",
     joinDate: randomCreatedDate(),
-    role: randomRole(),
+    role: "Admin",
   },
   {
     id: randomId(),
-    name: randomTraderName(),
-    age: 19,
+    name: "Farouk Mestiri",
+    email: "farouk@gmail.com",
     joinDate: randomCreatedDate(),
-    role: randomRole(),
+    role: "Employee",
   },
   {
     id: randomId(),
-    name: randomTraderName(),
-    age: 28,
-    joinDate: randomCreatedDate(),
-    role: randomRole(),
-  },
-  {
-    id: randomId(),
-    name: randomTraderName(),
-    age: 23,
+    name: "khaled",
+    email: "khaled@gmail.com",
     joinDate: randomCreatedDate(),
     role: randomRole(),
   },
@@ -68,7 +68,7 @@ function EditToolbar(props) {
 
   const handleClick = () => {
     const id = randomId();
-    setRows((oldRows) => [...oldRows, { id, name: '', age: '', isNew: true }]);
+    setRows((oldRows) => [...oldRows, { id, name: '', email: '', isNew: true }]);
     setRowModesModel((oldModel) => ({
       ...oldModel,
       [id]: { mode: GridRowModes.Edit, fieldToFocus: 'name' },
@@ -78,13 +78,13 @@ function EditToolbar(props) {
   return (
     <GridToolbarContainer>
       <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
-        Add record
+        Add User
       </Button>
     </GridToolbarContainer>
   );
 }
 
-export default function FullFeaturedCrudGrid() {
+export default function FullFeaturedCrudGrid({user}) {
   const [rows, setRows] = React.useState(initialRows);
   const [rowModesModel, setRowModesModel] = React.useState({});
 
@@ -131,10 +131,10 @@ export default function FullFeaturedCrudGrid() {
   const columns = [
     { field: 'name', headerName: 'Name', width: 180, editable: true },
     {
-      field: 'age',
-      headerName: 'Age',
-      type: 'number',
-      width: 80,
+      field: 'email',
+      headerName: 'email',
+      type: 'email',
+      width: 180,
       align: 'left',
       headerAlign: 'left',
       editable: true,
@@ -148,11 +148,11 @@ export default function FullFeaturedCrudGrid() {
     },
     {
       field: 'role',
-      headerName: 'Department',
+      headerName: 'Role',
       width: 220,
       editable: true,
       type: 'singleSelect',
-      valueOptions: ['Market', 'Finance', 'Development'],
+      valueOptions: [ 'Admin', 'Employee'],
     },
     {
       field: 'actions',
@@ -185,14 +185,14 @@ export default function FullFeaturedCrudGrid() {
 
         return [
           <GridActionsCellItem
-            icon={<EditIcon />}
+            icon={<EditIcon style={{color:"blue"}}/>}
             label="Edit"
             className="textPrimary"
             onClick={handleEditClick(id)}
             color="inherit"
           />,
           <GridActionsCellItem
-            icon={<DeleteIcon />}
+            icon={<DeleteIcon style={{color:"red"}} />}
             label="Delete"
             onClick={handleDeleteClick(id)}
             color="inherit"

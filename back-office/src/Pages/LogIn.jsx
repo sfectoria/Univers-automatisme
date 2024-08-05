@@ -82,41 +82,7 @@ function App() {
           id="container"
           style={{ display: "flex", flexWrap: "wrap" }}
         >
-          {/* <div className="form-container sign-up-container">
-            <form action="#">
-              <h1 style={{ fontFamily: "Caveat, cursive" }}>Create Account</h1>
-              <input
-                type="text"
-                placeholder="Name"
-                style={{ marginBottom: "10px" }}
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                style={{ marginBottom: "10px" }}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <input
-                type="password"
-                placeholder="Password"
-                style={{ marginBottom: "10px" }}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              {signUpError && <p style={{ color: "red" }}>{signUpError}</p>}
-              <button
-                className="btn"
-                onClick={handleSignUpClickk}
-                style={{ background: "#B7D64C" }}
-              >
-                Sign Up
-              </button>
-            </form>
-          </div> */}
-
+      
           <div className="form-container sign-in-container">
             <form action="#">
               <h1 style={{ fontFamily: "Caveat, cursive" }}>Sign in</h1>

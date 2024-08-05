@@ -17,6 +17,7 @@ import axios from "axios";
 import AccueilPage from "./Pages/AccueilPage";
 import { getMe } from "./store/authSlice";
 import { useDispatch, useSelector } from "react-redux";
+import FullFeaturedCrudGrid from "./Pages/EditUser";
 
 function Router() {
   // const [user, setUser] = React.useState(null);
@@ -60,7 +61,7 @@ function Router() {
     }
   }, [dispatch]);
 
-  // console.log(token,"this is token");
+  console.log(user,"this is token");
 
   return (
     <div>
@@ -70,7 +71,7 @@ function Router() {
             <>
               <Route
                 path="/"
-                element={<App  />}
+                element={<App user={user} />}
               >
                 <Route index element={<Secteur open={open} />} />
                 <Route path="Accueil" element={<AccueilPage />}>
@@ -100,6 +101,9 @@ function Router() {
 
               <Route path="profile" element={<App user={user} open={open} />}>
                 <Route index element={<ProfilePage />} />
+              </Route>
+              <Route path="users" element={<App user={user} />}>
+                <Route index element={<FullFeaturedCrudGrid/>} />
               </Route>
 
               {/* <Route path="*" element={<Navigate to="/Accueil" />} /> */}

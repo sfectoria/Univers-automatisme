@@ -182,7 +182,7 @@ const getIcon = (text, index) => {
   return icons[index % icons.length];
 };
 
-export default function Sidebar() {
+export default function Sidebar({ user }) {
   const toast = useRef(null);
 
   const handleLogout = () => {
@@ -277,6 +277,11 @@ export default function Sidebar() {
     setAnchorE2(null);
   };
 
+  const handleManageUsersClick = () => {
+    handleClose2();
+    navigate('/users');
+  };
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -301,7 +306,10 @@ export default function Sidebar() {
           </Typography>
 
           <Box sx={{ flexGrow: 1 }} />
-          {/* <Badge
+       
+          {/* <FiBell style={{fontSize:30, marginRight:20, marginTop:5}} /> */}
+          {/* <IoMailOutline style={{fontSize:30, marginRight:20, marginTop:1}}/> */}
+          <Badge
             badgeContent={4}
             color="primary"
             style={{
@@ -318,10 +326,7 @@ export default function Sidebar() {
               }}
             />
             
-          </Badge> */}
-          <FiBell style={{fontSize:30, marginRight:20, marginTop:5}} />
-          <IoMailOutline style={{fontSize:30, marginRight:20, marginTop:1}}/>
-
+          </Badge>
           <div className="Profile buttonn">
             {/* <IconButton
               size="large"
@@ -414,21 +419,28 @@ export default function Sidebar() {
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
               <MenuItem onClick={handleClose2}>
-                <Avatar /> Profile
+              <Avatar src={profile} />
+              Profile
               </MenuItem>
-              <MenuItem onClick={handleClose2}>
-                <Avatar /> My account
+              {user.role === 'SuperAdmin'&&
+
+              <MenuItem style={{color:"green"}}onClick={handleManageUsersClick}>
+                <Avatar style={{color:"green"}} /> Manage Users
               </MenuItem>
+              }
               <Divider />
-              <MenuItem onClick={handleClose2}>
+
+              {user.role === 'Admin'&&
+              <MenuItem  style={{color:"green"}} onClick={handleClose2}>
                 <ListItemIcon>
-                  <PersonAdd fontSize="small" />
+                  <PersonAdd style={{color:"green"}} fontSize="small" />
                 </ListItemIcon>
                 Add another account
               </MenuItem>
-              <MenuItem onClick={handleClose2}>
+              }
+              <MenuItem  style={{color:"blue"}}onClick={handleClose2}>
                 <ListItemIcon>
-                  <Settings fontSize="small" />
+                  <Settings style={{color:"blue"}}fontSize="small" />
                 </ListItemIcon>
                 Settings
               </MenuItem>

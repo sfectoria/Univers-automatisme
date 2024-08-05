@@ -42,7 +42,7 @@ export class UsersController {
 
   @ApiSecurity('apiKey') //logo cadna
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('SuperAdmin', ' Admin') // Only ADMIN can access this endpoint  //d'après ton role t'as accés ou pas
+  @Roles('SuperAdmin', 'Admin') // Only ADMIN can access this endpoint  //d'après ton role t'as accés ou pas
   @Get('AllUsers')
   // @ApiBearerAuth() //logo cadna to indicate that authentication is required:
   findAll() {
