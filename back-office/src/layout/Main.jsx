@@ -422,7 +422,7 @@ export default function Sidebar({ user }) {
               <Avatar src={profile} />
               Profile
               </MenuItem>
-              {user.role === 'SuperAdmin'&&
+              {(user.role === 'SuperAdmin' || user.role === 'Admin') &&
 
               <MenuItem style={{color:"green"}}onClick={handleManageUsersClick}>
                 <Avatar style={{color:"green"}} /> Manage Users
@@ -430,14 +430,6 @@ export default function Sidebar({ user }) {
               }
               <Divider />
 
-              {user.role === 'Admin'&&
-              <MenuItem  style={{color:"green"}} onClick={handleClose2}>
-                <ListItemIcon>
-                  <PersonAdd style={{color:"green"}} fontSize="small" />
-                </ListItemIcon>
-                Add another account
-              </MenuItem>
-              }
               <MenuItem  style={{color:"blue"}}onClick={handleClose2}>
                 <ListItemIcon>
                   <Settings style={{color:"blue"}}fontSize="small" />

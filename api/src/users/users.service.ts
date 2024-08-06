@@ -35,14 +35,33 @@ export class UsersService {
     return this.prisma.user.findUniqueOrThrow({ where: { id } });
   }
 
+  // async update(id: number, updateUserDto: UpdateUserDto) {
+  //   const { password, ...rest } = updateUserDto;
+  //   const salt = await bcrypt.genSalt();
+  //   const hashedPassword = await bcrypt.hashSync (password, salt);
+    
+  //   return this.prisma.user.update({ 
+  //     where: { id },
+  //     data: { ...rest, password: hashedPassword },
+  //   });
+  // }
+
   async update(id: number, updateUserDto: UpdateUserDto) {
     const { password, ...rest } = updateUserDto;
-    const salt = await bcrypt.genSalt();
-    const hashedPassword = await bcrypt.hashSync (password, salt);
-    
+  
+    // Préparer les données de mise à jour
+    const updateData: any = { ...rest };
+  
+    // Si le mot de passe est présent, le hasher avant de l'ajouter aux données de mise à jour
+    if (password) {
+      const salt = await bcrypt.genSalt();
+      const hashedPassword = await bcrypt.hash(password, salt);
+      updateData.password = hashedPassword;
+    }
+  
     return this.prisma.user.update({ 
       where: { id },
-      data: { ...rest, password: hashedPassword },
+      data: updateData,
     });
   }
 

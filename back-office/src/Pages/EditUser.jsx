@@ -1,77 +1,46 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/DeleteOutlined';
-import SaveIcon from '@mui/icons-material/Save';
-import CancelIcon from '@mui/icons-material/Close';
+import * as React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import AddIcon from "@mui/icons-material/Add";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/DeleteOutlined";
+import SaveIcon from "@mui/icons-material/Save";
+import CancelIcon from "@mui/icons-material/Close";
 import {
   GridRowModes,
   DataGrid,
   GridToolbarContainer,
   GridActionsCellItem,
   GridRowEditStopReasons,
-} from '@mui/x-data-grid';
+} from "@mui/x-data-grid";
 import {
   randomCreatedDate,
   randomTraderName,
   randomId,
   randomArrayItem,
-} from '@mui/x-data-grid-generator';
+} from "@mui/x-data-grid-generator";
+import { edituser, getusers } from "../store/userSlice";
 
-const roles = [ 'Admin', 'Employee', ];
+const roles = ["Admin", "Employee"];
 const randomRole = () => {
   return randomArrayItem(roles);
 };
-
-const initialRows = [
-  {
-    id: randomId(),
-    name: "Rawen Soltani",
-    email: "rawen@gmail.com",
-    joinDate: randomCreatedDate(),
-    role: "SuperAdmin",
-  },
-  {
-    id: randomId(),
-    name: "khalil kraiem",
-    email: "khalil@gmail.com",
-    joinDate: randomCreatedDate(),
-    role: randomRole(),
-  },
-  {
-    id: randomId(),
-    name: "Rania Elouni",
-    email: "Rania@gmail.com",
-    joinDate: randomCreatedDate(),
-    role: "Admin",
-  },
-  {
-    id: randomId(),
-    name: "Farouk Mestiri",
-    email: "farouk@gmail.com",
-    joinDate: randomCreatedDate(),
-    role: "Employee",
-  },
-  {
-    id: randomId(),
-    name: "khaled",
-    email: "khaled@gmail.com",
-    joinDate: randomCreatedDate(),
-    role: randomRole(),
-  },
-];
 
 function EditToolbar(props) {
   const { setRows, setRowModesModel } = props;
 
   const handleClick = () => {
     const id = randomId();
-    setRows((oldRows) => [...oldRows, { id, name: '', email: '', isNew: true }]);
+    setRows((oldRows) => [
+      ...oldRows,
+      { id, username: "", email: "", isNew: true },
+    ]);
     setRowModesModel((oldModel) => ({
       ...oldModel,
-      [id]: { mode: GridRowModes.Edit, fieldToFocus: 'name' },
+      [id]: { mode: GridRowModes.Edit, fieldToFocus: "username" },
     }));
   };
 
@@ -84,9 +53,21 @@ function EditToolbar(props) {
   );
 }
 
-export default function FullFeaturedCrudGrid({user}) {
-  const [rows, setRows] = React.useState(initialRows);
+export default function FullFeaturedCrudGrid({ user }) {
+  const dispatch = useDispatch();
+  const { users, status, error } = useSelector((state) => state.users);
+  
+
+  useEffect(() => {
+    dispatch(getusers());
+  }, [status, dispatch]);
+
+  const [rows, setRows] = React.useState(users.items || []);
   const [rowModesModel, setRowModesModel] = React.useState({});
+
+  useEffect(() => {
+    setRows(users.items);
+  }, [users]);
 
   const handleRowEditStop = (params, event) => {
     if (params.reason === GridRowEditStopReasons.rowFocusOut) {
@@ -95,11 +76,28 @@ export default function FullFeaturedCrudGrid({user}) {
   };
 
   const handleEditClick = (id) => () => {
-    setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
-  };
+    setRowModesModel((prevRowModesModel) => ({
+        ...prevRowModesModel,
+        [id]: { mode: GridRowModes.Edit }
+    }));
+};
 
   const handleSaveClick = (id) => () => {
-    setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.View } });
+    const row = rows.find((row) => row.id === id);
+    console.log("row", row)
+    if (row) {
+      const body = { username: row.username, email: row.email, role: row.role };
+      dispatch(edituser({ id, body }))
+        .then(() => {
+          setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.View } });
+          setRows(rows.map((row) => (row.id === id ? { ...row, isNew: false } : row)));
+       
+        })
+        .catch((error) => {
+          console.error("Error saving user:", error);
+          console.log("error")
+        });
+    }
   };
 
   const handleDeleteClick = (id) => () => {
@@ -129,37 +127,36 @@ export default function FullFeaturedCrudGrid({user}) {
   };
 
   const columns = [
-    { field: 'name', headerName: 'Name', width: 180, editable: true },
+    { field: "username", headerName: "Name", width: 180, editable: true },
     {
-      field: 'email',
-      headerName: 'email',
-      type: 'email',
+      field: "email",
+      headerName: "Email",
+      type: "email",
       width: 180,
-      align: 'left',
-      headerAlign: 'left',
+      align: "left",
+      headerAlign: "left",
       editable: true,
     },
     {
-      field: 'joinDate',
-      headerName: 'Join date',
-      type: 'date',
+      field: "createdAt",
+      headerName: "Join Date",
       width: 180,
       editable: true,
     },
     {
-      field: 'role',
-      headerName: 'Role',
+      field: "role",
+      headerName: "Role",
       width: 220,
       editable: true,
-      type: 'singleSelect',
-      valueOptions: [ 'Admin', 'Employee'],
+      type: "singleSelect",
+      valueOptions: ["Admin", "Employee"],
     },
     {
-      field: 'actions',
-      type: 'actions',
-      headerName: 'Actions',
+      field: "actions",
+      type: "actions",
+      headerName: "Actions",
       width: 100,
-      cellClassName: 'actions',
+      cellClassName: "actions",
       getActions: ({ id }) => {
         const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
 
@@ -169,7 +166,7 @@ export default function FullFeaturedCrudGrid({user}) {
               icon={<SaveIcon />}
               label="Save"
               sx={{
-                color: 'primary.main',
+                color: "primary.main",
               }}
               onClick={handleSaveClick(id)}
             />,
@@ -185,18 +182,21 @@ export default function FullFeaturedCrudGrid({user}) {
 
         return [
           <GridActionsCellItem
-            icon={<EditIcon style={{color:"blue"}}/>}
+            icon={<EditIcon style={{ color: "blue" }} />}
             label="Edit"
             className="textPrimary"
             onClick={handleEditClick(id)}
             color="inherit"
           />,
-          <GridActionsCellItem
-            icon={<DeleteIcon style={{color:"red"}} />}
-            label="Delete"
-            onClick={handleDeleteClick(id)}
-            color="inherit"
-          />,
+          
+          // user?.role === 'SuperAdmin' && (
+            <GridActionsCellItem
+              icon={<DeleteIcon style={{ color: "red" }} />}
+              label="Delete"
+              onClick={handleDeleteClick(id)}
+              color="inherit"
+            />
+          // ),
         ];
       },
     },
@@ -206,12 +206,12 @@ export default function FullFeaturedCrudGrid({user}) {
     <Box
       sx={{
         height: 500,
-        width: '100%',
-        '& .actions': {
-          color: 'text.secondary',
+        width: "100%",
+        "& .actions": {
+          color: "text.secondary",
         },
-        '& .textPrimary': {
-          color: 'text.primary',
+        "& .textPrimary": {
+          color: "text.primary",
         },
       }}
     >

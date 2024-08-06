@@ -61,8 +61,7 @@ function Router() {
     }
   }, [dispatch]);
 
-  console.log(user,"this is token");
-
+  
   return (
     <div>
       <BrowserRouter>
@@ -85,7 +84,7 @@ function Router() {
 
               <Route
                 path="qui-sommes-nous"
-                element={<App user={user} open={open} />}
+                element={<App user={user}  />}
               >
                 <Route index element={<QuiSommesNous />} />
                 <Route path="presentation" element={<Presentation />} />
@@ -95,15 +94,15 @@ function Router() {
 
               {/* <Route path="/" element={<Navigate to="/Accueil" />} /> */}
 
-              <Route path="contact" element={<App user={user} open={open} />}>
+              <Route path="contact" element={<App user={user}  />}>
                 <Route index element={<Contact />} />
               </Route>
 
-              <Route path="profile" element={<App user={user} open={open} />}>
+              <Route path="profile" element={<App user={user}  />}>
                 <Route index element={<ProfilePage />} />
               </Route>
               <Route path="users" element={<App user={user} />}>
-                <Route index element={<FullFeaturedCrudGrid/>} />
+                <Route index element={<FullFeaturedCrudGrid user={user}/>} />
               </Route>
 
               {/* <Route path="*" element={<Navigate to="/Accueil" />} /> */}

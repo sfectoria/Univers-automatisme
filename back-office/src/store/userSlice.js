@@ -1,10 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const token = localStorage.getItem("token"); // Adjust this line to how you store the token
+
 //users lkol
 export const getusers = createAsyncThunk("getusers", async () => {
   try {
-    const response = await axios.get("http://localhost:4000/users/AllUsers");
+    const response = await axios.get("http://localhost:4000/users/AllUsers", {
+      headers: {
+        Authorization: `Bearer ${token}`, // Attach the token to the Authorization header
+      },
+    });
     return response.data;
   } catch (error) {
     console.error("Error fetching users:", error);
@@ -16,7 +22,11 @@ export const getusers = createAsyncThunk("getusers", async () => {
 
 export const getuser = createAsyncThunk("getuser", async (id) => {
   try {
-    const response = await axios.get("http://localhost:4000/users/" + id);
+    const response = await axios.get("http://localhost:4000/users/" + id, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return response.data;
   } catch (error) {
     console.error("Error fetching user:", error);
@@ -31,7 +41,11 @@ export const adduser = createAsyncThunk("adduser", async (body) => {
 
 export const deleteuser = createAsyncThunk("deleteuser", async (id) => {
   try {
-    const response = await axios.delete("http://localhost:4000/users/" + id);
+    const response = await axios.delete("http://localhost:4000/users/" + id, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     return response.data;
   } catch (error) {
@@ -45,15 +59,21 @@ export const edituser = createAsyncThunk(
   async (args, { dispatch }) => {
     const { id, body } = args;
     try {
+      console.log("bodyRedux", body);
       const response = await axios.patch(
         "http://localhost:4000/users/" + id,
-        body
+        body,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
 
-      dispatch(getuser(id));
+      // dispatch(getuser(id));
       return response.data;
     } catch (error) {
-      console.error("Error deleting user:", error);
+      console.error("Error editing user:", error);
       throw error;
     }
   }

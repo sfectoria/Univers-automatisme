@@ -1,4 +1,16 @@
-import { PartialType } from '@nestjs/swagger';
-import { CreateUsersDto } from './create-user.dto';
+import { IsEmail, IsEnum, IsOptional } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
+import { UserRole } from '@prisma/client';
 
-export class UpdateUserDto extends PartialType(CreateUsersDto) {}
+export class UpdateUserDto  {
+    @IsEmail()
+    @ApiProperty()
+    email?: string;
+    @ApiProperty()
+    password?: string;
+    @ApiProperty()
+    username?: string;
+    @ApiProperty()
+    @IsEnum(UserRole, { message: 'Role must be either Admin or Employee' })
+    role?: UserRole;
+}

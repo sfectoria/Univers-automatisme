@@ -49,17 +49,17 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
-  @Get(':id')
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('SuperAdmin', ' Admin') // Only ADMIN can access this endpoint  //d'après ton role t'as accés ou pas
   @ApiSecurity('apiKey')
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles('SuperAdmin', 'Admin') // Only ADMIN can access this endpoint  //d'après ton role t'as accés ou pas
+  @Get(':id')
   findOne(@Param('id') id: string) {
     return this.usersService.findOne(+id);
   }
 
   @ApiSecurity('apiKey') //logo cadna
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('SuperAdmin') // Only ADMIN can access this endpoint  //d'après ton role t'as accés ou pas
+  @Roles('SuperAdmin', 'Admin') // Only ADMIN can access this endpoint  //d'après ton role t'as accés ou pas
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.usersService.update(+id, updateUserDto);
