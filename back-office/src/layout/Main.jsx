@@ -356,9 +356,9 @@ export default function Sidebar({ user }) {
               </StyledBadge>
 
               <Box ml={2}>
-                <Box fontWeight="fontWeightBold">Rawen Soltani</Box>
+                <Box fontWeight="fontWeightBold">{user.username}</Box>
                 <Box fontSize="small" color="text.secondary">
-                  Super Admin
+                {user.role}
                 </Box>
               </Box>
             </Box>

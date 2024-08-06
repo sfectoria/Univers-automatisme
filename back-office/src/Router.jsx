@@ -21,7 +21,7 @@ import FullFeaturedCrudGrid from "./Pages/EditUser";
 
 function Router() {
   // const [user, setUser] = React.useState(null);
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
 
   // const [token, setToken] = React.useState(JSON.parse(localStorage.getItem("token")));
   // useEffect(() => {
@@ -73,9 +73,9 @@ function Router() {
                 path="/"
                 element={<App user={user} />}
               >
-                <Route index element={<Secteur open={open} />} />
+                <Route index element={<Secteur  />} />
                 <Route path="Accueil" element={<AccueilPage />}>
-                  <Route index element={<Secteur open={open} />} />
+                  <Route index element={<Secteur />} />
                   <Route path="famille" element={<Famille />} />
                   <Route path="partenaires" element={<Partenaires />} />
                   <Route path="services" element={<Services />} />
