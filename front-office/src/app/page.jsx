@@ -20,9 +20,9 @@ const page = () => {
       <ProgressSlider />
       <Work />
       <Reviews />
-      {/* <Stars/> */}
+    
       <Partnaires />
-      {/* <Cta /> */}
+  
     </div>
   );
 };

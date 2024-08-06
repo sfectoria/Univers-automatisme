@@ -28,7 +28,7 @@ function Team() {
                     Rencontrez <span className=' font-caveat '>l'Équipe</span>
                 </h2>
 
-                <div className="px-8  py-16  md:px-12 lg:px-32 max-w-7xl items-center -ml-2 sm:-ml-0" data-aos="fade-right">
+                <div className="px-8  py-16  md:px-12 lg:px-32 max-w-7xl items-center -ml-2 sm:-ml-0" >
                     <div className="grid gap-20 lg:grid-cols-2  ">
                         <div className='space-y-1 ' >
                             <h1

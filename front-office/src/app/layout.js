@@ -1,4 +1,6 @@
 
+import { Provider } from "react-redux";
+import { store } from "@/store/store";
 import Footer from "@/layouts/Footer";
 import Header from "@/layouts/Header";
 import "../styles/globals.css";
@@ -11,7 +13,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  
+
   return (
     <html lang="en">
       <head>
@@ -23,9 +25,11 @@ export default function RootLayout({ children }) {
         ></link>
       </head>
       <body className="no-scrollbar overflow-y-scroll">
-        <Header />
-        {children}
-        <Footer />
+        <Provider store={store}>
+          <Header />
+          {children}
+          <Footer />
+        </Provider>
       </body>
     </html>
   );
