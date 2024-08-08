@@ -5,7 +5,10 @@ import Navbar1 from '../layout/Navbar1';
 import DataGridComponent from '../components/DataGrid';
 import EditIcon from "@mui/icons-material/Edit";
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import axios from 'axios';
+import { fetchServices } from '../store/servicesSlice';
 
 const initialRows = [
   {
@@ -68,27 +71,32 @@ const [array,setArray]=React.useState([])
   //     });
   // }, []);
 
-  const [rows, setRows] = React.useState(initialRows);
+  // const [rows, setRows] = React.useState(initialRows);
 
+  // useEffect(() => {
+  //   axios.get("http://localhost:4000/sections/Services")
+  //     .then(response => {
+  //       const contentsArray = response.data[0].contents.map((content, index) => ({
+  //         id: content.id,
+  //         typeService: content.name,
+  //         description: content.value,
+  //       }));
+  //       setRows(contentsArray);
+  //       console.log("array", contentsArray);
+  //     })
+  //     .catch(error => {
+  //       console.error('There was an error fetching the data!', error);
+  //     });
+  // }, []);
+
+  const dispatch = useDispatch();
+  const rows = useSelector((state) => state.services.services);
   useEffect(() => {
-    axios.get("http://localhost:4000/sections/Services")
-      .then(response => {
-        const contentsArray = response.data[0].contents.map((content, index) => ({
-          id: content.id,
-          typeService: content.name,
-          description: content.value,
-        }));
-        setRows(contentsArray);
-        console.log("array", contentsArray);
-      })
-      .catch(error => {
-        console.error('There was an error fetching the data!', error);
-      });
-  }, []);
-
+    dispatch(fetchServices());
+  }, [dispatch]);
 
   const handleDelete = (id) => {
-    setRows((prevRows) => prevRows.filter((row) => row.id !== id));
+    // setRows((prevRows) => prevRows.filter((row) => row.id !== id));
   };
 
   const columns = [
