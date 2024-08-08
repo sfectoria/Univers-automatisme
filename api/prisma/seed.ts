@@ -115,17 +115,17 @@ async function main() {
     data: [
       {
         name: 'Web Design',
-        value: 'Web Design',
+        value: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quasi libero quidem sit deserunt fuga.',
+        sectionId: 4,
+      },
+      {
+        name: 'Web Development',
+        value: 'Lorem2 ipsum dolor sit amet, consectetur adipisicing elit. Hic quasi libero quidem sit deserunt fuga.',
         sectionId: 4,
       },
       {
         name: 'App Development',
-        value: 'App Development',
-        sectionId: 4,
-      },
-      {
-        name: 'App Development',
-        value: 'App Development',
+        value: 'Lorem3 ipsum dolor sit amet, consectetur adipisicing elit. Hic quasi libero quidem sit deserunt fuga.',
         sectionId: 4,
       },
     ],
