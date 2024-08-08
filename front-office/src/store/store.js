@@ -1,6 +1,8 @@
+
 import { configureStore } from "@reduxjs/toolkit";
-import contents from "./contents";
+
+import sections from "./sections";
 
 export const store=configureStore({
-    reducer:{contents,},
+    reducer:{sections,},
 })

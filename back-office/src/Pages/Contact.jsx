@@ -46,11 +46,16 @@ export default function ContactezNous() {
       headerName: 'Actions',
       width: 120,
       renderCell: (params) => (
-      
+
+       <>
+          <EditIcon
+            sx={{ cursor: 'pointer', marginRight: 2 }}
+          />
           <DeleteIcon
-            sx={{ cursor: 'pointer' }}
+            sx={{ cursor: "pointer" }}
             onClick={() => handleDelete(params.row.id)}
           />
+        </>
       ),
     },
   ];
@@ -60,7 +65,7 @@ export default function ContactezNous() {
            <link rel="preconnect" href="https://fonts.googleapis.com"/>
 
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
-        <h3 style={{ marginLeft: 30, fontWeight: 300, fontFamily: 'Roboto, sans-serif' }}>Contactez-nous</h3>
+        <div style={{ fontWeight: 10, fontFamily: 'Roboto, sans-serif' }}>Contactez-nous </div>
        
       </Box>
       <DataGridComponent rows={rows} columns={columns} />

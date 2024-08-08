@@ -60,7 +60,9 @@ export default function DataGridDemo() {
       width: 120,
       renderCell: (params) => (
         <>
-         
+          <EditIcon
+            sx={{ cursor: 'pointer', marginRight: 2 }}
+          />
           <DeleteIcon
             sx={{ cursor: "pointer" }}
             onClick={() => handleDelete(params.row.id)}
@@ -84,7 +86,7 @@ export default function DataGridDemo() {
           marginBottom: 2,
         }}
       >
-        <h3 style={{ marginLeft: 30, fontWeight: 300, fontFamily: 'Roboto, sans-serif' }}>Avis des clients</h3>
+        <div style={{ fontWeight: 300, fontFamily: 'Roboto, sans-serif' }}>Avis des clients</div>
       </Box>
       <DataGridComponent rows={rows} columns={columns} />
 

@@ -32,13 +32,66 @@ import SlideshowIcon from "@mui/icons-material/Slideshow";
 import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
 import SportsScoreIcon from "@mui/icons-material/SportsScore";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
-import CategoryIcon from "@mui/icons-material/Category";
-import HandshakeIcon from "@mui/icons-material/Handshake";
-import WorkIcon from "@mui/icons-material/Work";
-import FeedbackIcon from "@mui/icons-material/Feedback";
-import { Link, Outlet } from "react-router-dom";
+import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
+import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
+import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
+import FeedbackOutlinedIcon from "@mui/icons-material/FeedbackOutlined";
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useHistory,
+  unstable_HistoryRouter,
+  useNavigate,
+} from "react-router-dom";
+import { useEffect, useRef } from "react";
+import Badge from "@mui/material/Badge";
+import profile from "../assets/profile.jpg";
+import { Toast } from "primereact/toast";
+import { PanelMenu } from "primereact/panelmenu";
+import Settings from "@mui/icons-material/Settings";
+import Logout from "@mui/icons-material/Logout";
+import PersonAdd from "@mui/icons-material/PersonAdd";
+import { FiBell } from "react-icons/fi";
+import { IoMailOutline } from "react-icons/io5";
+
 
 const drawerWidth = 240;
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  "& .MuiBadge-badge": {
+    backgroundColor: "#44b700",
+    color: "#44b700",
+    boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+    "&::after": {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      borderRadius: "50%",
+      animation: "ripple 1.2s infinite ease-in-out",
+      border: "1px solid currentColor",
+      content: '""',
+    },
+  },
+  "@keyframes ripple": {
+    "0%": {
+      transform: "scale(.8)",
+      opacity: 1,
+    },
+    "100%": {
+      transform: "scale(2.4)",
+      opacity: 0,
+    },
+  },
+}));
+
+const SmallAvatar = styled(Avatar)(({ theme }) => ({
+  width: 22,
+  height: 22,
+  border: `2px solid ${theme.palette.background.paper}`,
+}));
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -105,24 +158,23 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
+const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft:0,
+    marginLeft: 0,
     ...(open && {
-      transition: theme.transitions.create('margin', {
+      transition: theme.transitions.create("margin", {
         easing: theme.transitions.easing.easeOut,
         duration: theme.transitions.duration.enteringScreen,
       }),
       marginLeft: 0,
     }),
-  }),
+  })
 );
 
 const getIcon = (text, index) => {
@@ -130,17 +182,74 @@ const getIcon = (text, index) => {
   return icons[index % icons.length];
 };
 
-export default function Sidebar() {
-  const handleAccordionChange = (accordion) => (event, isExpanded) => {
-    setAccordionState({ ...accordionState, [accordion]: isExpanded });
+export default function Sidebar({ user }) {
+  const toast = useRef(null);
+
+  const handleLogout = () => {
+    navigate('/');
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    window.location.reload();
+    toast.current.show({
+      severity: "info",
+      summary: "Signed out",
+      detail: "User logged out",
+      life: 6000,
+    });
+
+    // No need to navigate with <a>, use Link for internal routing
   };
+
+  const items = [
+    {
+      label: "Sign Out",
+      icon: "pi pi-sign-out",
+      command: handleLogout,
+    },
+  ];
+  const location = useLocation();
+  const [activePath, setActivePath] = React.useState(location.pathname);
+
+  React.useEffect(() => {
+    setActivePath(location.pathname);
+  }, [location.pathname]);
+
+  const activeStyle = {
+    color: "white",
+    // textDecoration: "underline",
+    backgroundColor: "#b8d941",
+    borderRadius: "8px",
+  };
+
+  const handleAccordionChange = (accordion) => (event, isExpanded) => {
+    const newAccordionState = { ...accordionState, [accordion]: isExpanded };
+    setAccordionState(newAccordionState);
+    localStorage.setItem("accordionState", JSON.stringify(newAccordionState));
+  };
+
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(
+    JSON.parse(localStorage.getItem("drawerOpen")) || false
+  );
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [accordionState, setAccordionState] = React.useState({
     acc1: false,
     acc2: false,
   });
+
+  useEffect(() => {
+    const savedAccordionState = JSON.parse(
+      localStorage.getItem("accordionState")
+    );
+    if (savedAccordionState) {
+      setAccordionState(savedAccordionState);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("drawerOpen", JSON.stringify(open));
+  }, [open]);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -148,15 +257,29 @@ export default function Sidebar() {
 
   const handleDrawerClose = () => {
     setOpen(false);
-    // setAccordionState({ acc1: false, acc2: false });
   };
 
   const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
+    setAnchorE2(event.currentTarget);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+  const navigate = useNavigate();
+
+  const [anchorE2, setAnchorE2] = React.useState(null);
+  const open2 = Boolean(anchorE2);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose2 = () => {
+    setAnchorE2(null);
+  };
+
+  const handleManageUsersClick = () => {
+    handleClose2();
+    navigate('/users');
   };
 
   return (
@@ -183,8 +306,29 @@ export default function Sidebar() {
           </Typography>
 
           <Box sx={{ flexGrow: 1 }} />
-          <div>
-            <IconButton
+       
+          {/* <FiBell style={{fontSize:30, marginRight:20, marginTop:5}} /> */}
+          {/* <IoMailOutline style={{fontSize:30, marginRight:20, marginTop:1}}/> */}
+          <Badge
+            badgeContent={4}
+            color="primary"
+            style={{
+              marginRight: 20,
+              transform: "scale(1)", // Agrandir le badge
+              marginTop: 7,
+              // padding: "10px", // Ajouter un rembourrage
+            }}
+          >
+            <MailIcon
+              color="white"
+              style={{
+                fontSize: 30, // Agrandir l'icône
+              }}
+            />
+            
+          </Badge>
+          <div className="Profile buttonn">
+            {/* <IconButton
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
@@ -199,8 +343,28 @@ export default function Sidebar() {
                   color: "white",
                 }} // Ajustez la taille ici selon vos besoins
               />
-            </IconButton>
-            <Menu
+            </IconButton> */}
+
+            <Box display="flex" alignItems="center">
+              <StyledBadge
+                overlap="circular"
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                variant="dot"
+                onClick={handleMenu}
+              >
+                <Avatar src={profile} />
+              </StyledBadge>
+
+              <Box ml={2}>
+                <Box fontWeight="fontWeightBold">{user.username}</Box>
+                <Box fontSize="small" color="text.secondary">
+                {user.role}
+                </Box>
+              </Box>
+            </Box>
+
+            {/* <Menu
+            style={{marginTop:30}}
               id="menu-appbar"
               anchorEl={anchorEl}
               anchorOrigin={{
@@ -215,11 +379,80 @@ export default function Sidebar() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>My account</MenuItem>
-              <MenuItem onClick={handleClose}>Logout</MenuItem>
+              <MenuItem  onClick={() => { navigate('/profile'); handleClose(); }}>Profile</MenuItem>
+              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+              <Toast ref={toast} />
+            </Menu> */}
+            <Menu
+              anchorEl={anchorE2}
+              id="account-menu"
+              open={open2}
+              onClose={handleClose2}
+              onClick={handleClose2}
+              PaperProps={{
+                elevation: 0,
+                sx: {
+                  overflow: "visible",
+                  filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                  mt: 1.5,
+                  "& .MuiAvatar-root": {
+                    width: 32,
+                    height: 32,
+                    ml: -0.5,
+                    mr: 1,
+                  },
+                  "&::before": {
+                    content: '""',
+                    display: "block",
+                    position: "absolute",
+                    top: 0,
+                    right: 14,
+                    width: 10,
+                    height: 10,
+                    bgcolor: "background.paper",
+                    transform: "translateY(-50%) rotate(45deg)",
+                    zIndex: 0,
+                  },
+                },
+              }}
+              transformOrigin={{ horizontal: "right", vertical: "top" }}
+              anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+            >
+              <MenuItem onClick={handleClose2}>
+              <Avatar src={profile} />
+              Profile
+              </MenuItem>
+              {user.role === 'SuperAdmin'&&
+
+              <MenuItem style={{color:"green"}}onClick={handleManageUsersClick}>
+                <Avatar style={{color:"green"}} /> Manage Users
+              </MenuItem>
+              }
+              <Divider />
+
+              {user.role === 'Admin'&&
+              <MenuItem  style={{color:"green"}} onClick={handleClose2}>
+                <ListItemIcon>
+                  <PersonAdd style={{color:"green"}} fontSize="small" />
+                </ListItemIcon>
+                Add another account
+              </MenuItem>
+              }
+              <MenuItem  style={{color:"blue"}}onClick={handleClose2}>
+                <ListItemIcon>
+                  <Settings style={{color:"blue"}}fontSize="small" />
+                </ListItemIcon>
+                Settings
+              </MenuItem>
+              <MenuItem style={{color:"red"}} onClick={handleLogout}>
+                <ListItemIcon style={{color:"red"}}  >
+                  <Logout  fontSize="small" />
+                </ListItemIcon>
+                Logout
+              </MenuItem>
             </Menu>
           </div>
+          <Toast ref={toast} />
         </Toolbar>
       </AppBar>
 
@@ -261,32 +494,48 @@ export default function Sidebar() {
             }}
           >
             <AccordionSummary
-              sx={{
-                "&:hover": {
-                  backgroundColor: "rgba(0, 0, 0, 0.08)",
-                  boxShadow: "20px 4px 10px rgba(0, 0, 0, 0.1)",
-                },
-              }}
+              // sx={{
+              //   "&:hover": {
+              //     backgroundColor: "rgba(0, 0, 0, 0.08)",
+              //     boxShadow: "20px 4px 10px rgba(0, 0, 0, 0.1)",
+              //   },
+              // }}
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
+              style={
+                !accordionState.acc1 &&
+                (activePath === "/Accueil/" ||
+                  activePath === "/Accueil/services" ||
+                  activePath === "/Accueil/avis" ||
+                  activePath === "/Accueil/partenaires" ||
+                  activePath === "/Accueil/famille")
+                  ? activeStyle
+                  : {}
+              }
             >
               <ListItemIcon
                 sx={{
                   minWidth: 0,
                   mr: open ? 3 : "auto",
                   justifyContent: "start",
-
                 }}
               >
-                <HomeIcon style={{width:27,height:27, color:"black"}}/>
+                <HomeIcon style={{ width: 27, height: 27, color: "black" }} />
+                {/* <Player sx={{marginTop: -40}}
+                  ref={playerRef} 
+                  icon={ ICON }
+                /> */}
               </ListItemIcon>
-              {open && <Typography style={{width:131}} >Accueil</Typography>}
+              {open && <Typography style={{ width: 131 }}>Accueil</Typography>}
             </AccordionSummary>
 
             {/* {open && (
               <> */}
-            <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+            <Link
+              to="/Accueil"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <AccordionDetails
                 sx={{
                   "&:hover": {
@@ -294,20 +543,24 @@ export default function Sidebar() {
                     boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
                   },
                   display: "flex",
-                  alignItems: "center", 
-                  paddingLeft:5,// Aligner verticalement le contenu
+                  alignItems: "center",
+                  paddingLeft: 5, // Aligner verticalement le contenu
                 }}
+                style={activePath === "/Accueil" ? activeStyle : {}}
               >
                 <BusinessOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{}}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 300, fontSize: 15 }}
+                >
                   Secteur d'activité
                 </Typography>
               </AccordionDetails>
             </Link>
 
             <Link
-              to="/famille"
+              to="/Accueil/famille"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <AccordionDetails
@@ -318,19 +571,23 @@ export default function Sidebar() {
                   },
                   display: "flex",
                   alignItems: "center",
-                  paddingLeft:5, // Aligner verticalement le contenu
+                  paddingLeft: 5, // Aligner verticalement le contenu
                 }}
+                style={activePath === "/Accueil/famille" ? activeStyle : {}}
               >
-                <CategoryIcon sx={{ marginRight: 1 }} />{" "}
+                <CategoryOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{}}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 300, fontSize: 15 }}
+                >
                   Famille de produits
                 </Typography>
               </AccordionDetails>
             </Link>
 
             <Link
-              to="/partenaires"
+              to="/Accueil/partenaires"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <AccordionDetails
@@ -341,42 +598,23 @@ export default function Sidebar() {
                   },
                   display: "flex",
                   alignItems: "center",
-                  paddingLeft:5, // Aligner verticalement le contenu
+                  paddingLeft: 5, // Aligner verticalement le contenu
                 }}
+                style={activePath === "/Accueil/partenaires" ? activeStyle : {}}
               >
-                <HandshakeIcon sx={{ marginRight: 1 }} />{" "}
+                <HandshakeOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{}}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 300, fontSize: 15 }}
+                >
                   Les partenaires
                 </Typography>
               </AccordionDetails>
             </Link>
 
             <Link
-              to="/services"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <AccordionDetails
-                sx={{
-                  "&:hover": {
-                    backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                  },
-                  display: "flex",
-                  alignItems: "center", 
-                  paddingLeft:5,// Aligner verticalement le contenu
-                }}
-              >
-                <WorkIcon sx={{ marginRight: 1 }} />{" "}
-                {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{}}>
-                  Services
-                </Typography>
-              </AccordionDetails>
-            </Link>
-
-            <Link
-              to="/avis"
+              to="/Accueil/services"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <AccordionDetails
@@ -387,12 +625,42 @@ export default function Sidebar() {
                   },
                   display: "flex",
                   alignItems: "center",
-                  paddingLeft:5, // Aligner verticalement le contenu
+                  paddingLeft: 5, // Aligner verticalement le contenu
                 }}
+                style={activePath === "/Accueil/services" ? activeStyle : {}}
               >
-                <FeedbackIcon sx={{ marginRight: 1 }} />{" "}
+                <WorkOutlineOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{}}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 300, fontSize: 15 }}
+                >
+                  Services
+                </Typography>
+              </AccordionDetails>
+            </Link>
+
+            <Link
+              to="/Accueil/avis"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <AccordionDetails
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "rgba(0, 0, 0, 0.08)",
+                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                  },
+                  display: "flex",
+                  alignItems: "center",
+                  paddingLeft: 5, // Aligner verticalement le contenu
+                }}
+                style={activePath === "/Accueil/avis" ? activeStyle : {}}
+              >
+                <FeedbackOutlinedIcon sx={{ marginRight: 1 }} />{" "}
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 300, fontSize: 15 }}
+                >
                   Avis des clients
                 </Typography>
               </AccordionDetails>
@@ -400,7 +668,6 @@ export default function Sidebar() {
             {/* </>
             )} */}
           </Accordion>
-
 
           <Accordion
             expanded={accordionState.acc2}
@@ -413,15 +680,25 @@ export default function Sidebar() {
             }}
           >
             <AccordionSummary
-              sx={{
-                "&:hover": {
-                  backgroundColor: "rgba(0, 0, 0, 0.08)",
-                  boxShadow: "20px  rgba(0, 0, 0, 0.1)",
-                }, 
-              }}
+              // sx={
+              //   {
+              //     "&:hover": {
+              //       backgroundColor: "rgba(0, 0, 0, 0.08)",
+              //       boxShadow: "20px  rgba(0, 0, 0, 0.1)",
+              //     },
+              //   }
+              // }
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
+              style={
+                !accordionState.acc2 &&
+                (activePath === "/qui-sommes-nous/presentation" ||
+                  activePath === "/qui-sommes-nous/equipe" ||
+                  activePath === "/qui-sommes-nous/mission")
+                  ? activeStyle
+                  : {}
+              }
             >
               <ListItemIcon
                 sx={{
@@ -430,14 +707,18 @@ export default function Sidebar() {
                   justifyContent: "center",
                 }}
               >
-                <InfoIcon  style={{color:"black"}} />
+                <InfoIcon style={{ color: "black" }} />
+                {/* <Player sx={{}}
+                  ref={playerRef} 
+                  icon={ INFO }
+                /> */}
               </ListItemIcon>
-              {open && <Typography>Qui sommes-nous</Typography>}
+              {open && <Typography sx={{}}>Qui sommes-nous</Typography>}
             </AccordionSummary>
             {/* {open && (
               <> */}
             <Link
-              to="/presentation"
+              to="/qui-sommes-nous/presentation"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <AccordionDetails
@@ -448,42 +729,27 @@ export default function Sidebar() {
                   },
                   display: "flex",
                   alignItems: "center",
-                  paddingLeft:5, // Aligner verticalement le contenu
+                  paddingLeft: 5, // Aligner verticalement le contenu
                 }}
+                style={
+                  activePath === "/qui-sommes-nous/presentation"
+                    ? activeStyle
+                    : {}
+                }
               >
                 <SlideshowIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{}}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 100, fontSize: 15 }}
+                >
                   Présentation
                 </Typography>
               </AccordionDetails>
             </Link>
 
             <Link
-              to="/equipe"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <AccordionDetails
-                sx={{
-                  "&:hover": {
-                    backgroundColor: "rgba(0, 0, 0, 0.08)",
-                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                  },
-                  display: "flex",
-                  alignItems: "center", 
-                  paddingLeft:5,// Aligner verticalement le contenu
-                }}
-              >
-                <PeopleOutlineIcon sx={{ marginRight: 1 }} />{" "}
-                {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{}}>
-                  Equipe
-                </Typography>
-              </AccordionDetails>
-            </Link>
-
-            <Link
-              to="/mission"
+              to="/qui-sommes-nous/equipe"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <AccordionDetails
@@ -494,12 +760,47 @@ export default function Sidebar() {
                   },
                   display: "flex",
                   alignItems: "center",
-                  paddingLeft:5, // Aligner verticalement le contenu
+                  paddingLeft: 5, // Aligner verticalement le contenu
                 }}
+                style={
+                  activePath === "/qui-sommes-nous/equipe" ? activeStyle : {}
+                }
+              >
+                <PeopleOutlineIcon sx={{ marginRight: 1 }} />{" "}
+                {/* Ajoutez un margin-right à l'icône pour l'espace */}
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 100, fontSize: 15 }}
+                >
+                  Equipe
+                </Typography>
+              </AccordionDetails>
+            </Link>
+
+            <Link
+              to="/qui-sommes-nous/mission"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <AccordionDetails
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "rgba(0, 0, 0, 0.08)",
+                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                  },
+                  display: "flex",
+                  alignItems: "center",
+                  paddingLeft: 5, // Aligner verticalement le contenu
+                }}
+                style={
+                  activePath === "/qui-sommes-nous/mission" ? activeStyle : {}
+                }
               >
                 <SportsScoreIcon sx={{ marginRight: 1 }} />{" "}
                 {/* Ajoutez un margin-right à l'icône pour l'espace */}
-                <Typography variant="body1" sx={{}}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 100, fontSize: 15 }}
+                >
                   Notre mission
                 </Typography>
               </AccordionDetails>
@@ -522,7 +823,11 @@ export default function Sidebar() {
                   minHeight: 48,
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
+                  "&:active": {
+                    boxShadow: "none",
+                  },
                 }}
+                style={activePath === "/contact" ? activeStyle : {}}
               >
                 <ListItemIcon
                   sx={{
@@ -531,7 +836,11 @@ export default function Sidebar() {
                     justifyContent: "center",
                   }}
                 >
-                  <MailIcon style={{color:"black"}}/>
+                  <MailIcon style={{ color: "black" }} />
+                  {/* <Player sx={{width: "500px",}}
+                  ref={playerRef} 
+                  icon={ MSG }
+                /> */}
                 </ListItemIcon>
                 <ListItemText
                   primary="Contactez Nous"

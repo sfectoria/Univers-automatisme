@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 import "./App.css";
 import Main from "./layout/Main";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function App() {
+function App({ user }) {
   const [open, setOpen] = React.useState(false);
   return (
     <div className="App">
-      <Main/>
+      <Main user={user} />
     </div>
   );
 }

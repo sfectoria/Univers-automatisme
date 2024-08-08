@@ -16,6 +16,15 @@ import {
     RiArrowDownSLine,
 } from 'react-icons/ri';
 function Head() {
+    // const { name } = useParams();
+
+    // const sectionContent = useSelector((state) => state.sections.section)
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //   dispatch(fetchSection("header"))
+    // }, [dispatch,name])
+
+
     useEffect(() => {
         AOS.init({
             offset: 100,
@@ -145,6 +154,7 @@ function Head() {
                             {hero_content?.title &&
                                 hero_content?.title.map((item, i) => <span key={i} >{item}</span>)}
                         </h1>
+                        
                         <p className="  subtitle text-[14px]  text-gray-600 xl:max-w-lg xl:text-xl mt-4 ">
                             {hero_content?.description}
                         </p>
