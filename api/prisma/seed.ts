@@ -24,6 +24,12 @@ async function main() {
         password: 'password',
         role: 'Employee',
       },
+      {
+        username: 'rawen',
+        email: 'rawen@gmail.com',
+        password: '$2b$10$4YCNEOqafQxBVYeX2e5jZ.KjtCBrX5OGC/zAqRpyy2v6DSmoAxDUy',
+        role: 'SuperAdmin',
+      },
     ],
   });
 
@@ -108,18 +114,18 @@ async function main() {
    await prisma.content.createMany({
     data: [
       {
-        name: 'Titre 1',
+        name: 'Web Design',
         value: 'Web Design',
         sectionId: 4,
       },
       {
-        name: 'Titre 2',
+        name: 'App Development',
         value: 'App Development',
         sectionId: 4,
       },
       {
-        name: 'Titre 3',
-        value: 'Appp Development',
+        name: 'App Development',
+        value: 'App Development',
         sectionId: 4,
       },
     ],

@@ -20,14 +20,19 @@ export class SectionsController {
     return this.sectionsService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.sectionsService.findOne(+id);
+  @Get(':name')
+  async getSection(@Param('name') name: string) {
+    return this.sectionsService.getSection(name);
   }
 
+  // @Get(':id')
+  // findOne(@Param('id') id: string) {
+  //   return this.sectionsService.findOne(+id);
+  // }
+
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateSectionDto: UpdateSectionDto) {
-    return this.sectionsService.update(+id, updateSectionDto);
+  updateSection(@Param('id') id: string, @Body() updateSectionDto: UpdateSectionDto) {
+    return this.sectionsService.updateSection(+id, updateSectionDto);
   }
 
   @Delete(':id')

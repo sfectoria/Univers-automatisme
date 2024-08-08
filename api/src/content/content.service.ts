@@ -16,9 +16,15 @@ export class ContentService {
     return await this.prisma.content.findMany();
   }
 
-  findOne(id: number) {
-    return this.prisma.content.findUniqueOrThrow({ where: { id } });
+  async getContent(name: string) {
+    return this.prisma.content.findMany({
+      where: {name},
+    });
   }
+
+  // findOne(id: number) {
+  //   return this.prisma.content.findUniqueOrThrow({ where: { id } });
+  // }
 
   update(id: number, updateContentDto: UpdateContentDto) {
     return `This action updates a #${id} content`;

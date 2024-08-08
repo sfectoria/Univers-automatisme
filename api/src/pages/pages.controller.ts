@@ -19,9 +19,9 @@ export class PagesController {
     return this.pagesService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.pagesService.findOne(+id);
+  @Get(':slug')
+  async getPage(@Param('slug') slug: string) {
+    return this.pagesService.getPage(slug);
   }
 
   @Patch(':id')
@@ -34,3 +34,4 @@ export class PagesController {
     return this.pagesService.remove(+id);
   }
 }
+

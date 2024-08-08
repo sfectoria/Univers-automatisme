@@ -16,12 +16,22 @@ export class SectionsService {
     return this.prisma.section.findMany();
   }
 
-  findOne(id: number) {
-    return this.prisma.section.findUnique( { where: {id} } );
+  // findOne(id: number) {
+  //   return this.prisma.section.findUnique( { where: {id} } );
+  // }
+  async getSection(name: string) {
+    return this.prisma.section.findMany({
+      where: {name},
+      include: { contents: true },
+    });
   }
 
-  update(id: number, updateSectionDto: UpdateSectionDto) {
-    return `This action updates a #${id} section`;
+  async updateSection(id: number, updateSectionDto: UpdateSectionDto) {
+    return this.prisma.section.update({
+      where: { id },
+      data: updateSectionDto,
+      include: { contents: true },  // Inclure les contenus associés si nécessaire
+    });
   }
 
   remove(id: number) {

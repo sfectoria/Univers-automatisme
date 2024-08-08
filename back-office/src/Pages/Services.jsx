@@ -4,6 +4,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Navbar1 from '../layout/Navbar1';
 import DataGridComponent from '../components/DataGrid';
 import EditIcon from "@mui/icons-material/Edit";
+import { useEffect } from 'react';
+import axios from 'axios';
 
 const initialRows = [
   {
@@ -36,25 +38,53 @@ const initialRows = [
     typeService: 'Secteur 6',
     description: 'Systèmes automatisés pour l industrie manufacturière',
   },
-  {
-    id: 7,
-    typeService: 'Secteur 7',
-    description: 'Systèmes automatisés pour l industrie manufacturière',
-  },
-  {
-    id: 8,
-    typeService: 'Secteur 8',
-    description: 'Systèmes automatisés pour l industrie manufacturière',
-  },
-  {
-    id: 9,
-    typeService: 'Secteur 9',
-    description: 'Systèmes automatisés pour l industrie manufacturière',
-  },
+ 
 ];
 
 export default function DataGridDemo() {
+const [array,setArray]=React.useState([])
+
+  // useEffect(() => {
+  //   axios.get("http://localhost:4000/pages/accueil")
+  //     .then(response => {
+  //       setServices(response.data.sections);
+  //       console.log("object",response.data.sections);
+  //       console.log("ser",services)
+  //     })
+  //     .catch(error => {
+  //       console.error('There was an error fetching the data!', error);
+  //     });
+  // }, []);
+  // useEffect(() => {
+  //   axios.get("http://localhost:4000/sections/Services")
+  //     .then(response => {
+  //       const contentsArray = response.data[0].contents;
+  //       console.log("contents", contentsArray);  
+  //       setArray(response.data[0].contents)  ;
+  //       console.log("array",array)   ;
+  //     })
+  //     .catch(error => {
+  //       console.error('There was an error fetching the data!', error);
+  //     });
+  // }, []);
+
   const [rows, setRows] = React.useState(initialRows);
+
+  useEffect(() => {
+    axios.get("http://localhost:4000/sections/Services")
+      .then(response => {
+        const contentsArray = response.data[0].contents.map((content, index) => ({
+          id: content.id,
+          typeService: content.name,
+          description: content.value,
+        }));
+        setRows(contentsArray);
+        console.log("array", contentsArray);
+      })
+      .catch(error => {
+        console.error('There was an error fetching the data!', error);
+      });
+  }, []);
 
 
   const handleDelete = (id) => {

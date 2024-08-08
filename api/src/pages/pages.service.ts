@@ -16,8 +16,11 @@ export class PagesService {
     return this.prisma.page.findMany();
   }
 
-  findOne(id: number) {
-    return this.prisma.page.findUnique( { where: {id} } );
+  async getPage(slug: string) {
+    return this.prisma.page.findUnique({
+      where: { slug },
+      include: { sections: true },
+    });
   }
 
   update(id: number, updatePageDto: UpdatePageDto) {
