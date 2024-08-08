@@ -1,0 +1,107 @@
+footer .wave {
+    position: absolute;
+    top: -90px;
+    left: 0;
+    width: 100%;
+    height: 96px;
+    /* background: url(../images/wave_colored.png); */
+    background-size: 1000px 100px;
+}
+.primaryImage {
+    background: url('../images/wave_colored.png');
+  }
+  
+  .secondaryImage {
+    background: url('../images/waves.png');
+  }
+
+footer .wave#wave1 {
+    z-index: 1000;
+    opacity: 1;
+    bottom: 0;
+    animation: animateWave 10s linear infinite;
+}
+
+@keyframes animateWave {
+    0% {
+        background-position-x: 1000px;
+    }
+
+    100% {
+        background-position-x: 0px;
+    }
+}
+
+footer .wave#wave2 {
+    z-index: 999;
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animateWave 9s linear infinite;
+}
+
+@keyframes animateWave {
+    0% {
+        background-position-x: 1000px;
+    }
+
+    100% {
+        background-position-x: 0px;
+    }
+}
+
+footer .wave#wave3 {
+    z-index: 999;
+    opacity: 0.5;
+    bottom: 15px;
+    animation: animateWave 8s linear infinite;
+}
+
+@keyframes animateWave {
+    0% {
+        background-position-x: 1000px;
+    }
+
+    100% {
+        background-position-x: 0px;
+    }
+}
+
+
+
+
+
+@media  only screen and (max-width: 440px) {
+    .titre{
+        margin-left: 25px;
+        margin-bottom: 15px;
+    }
+    .btnnn{
+        width:35%;
+        margin-left: 3.55rem;
+        
+    }
+    .inpt{
+        
+    }
+}
+@media screen and (max-width: 768px) {
+    .titre{
+        margin-left: 25px;
+        margin-bottom: 15px;
+    }
+    
+}
+@media screen and (max-width: 968px) {
+    .titre{
+        margin-left: 25px;
+        margin-bottom: 15px;
+    }
+    
+}
+@media screen and (max-width: 980px) {
+    .titre{
+        margin-left: 25px;
+        margin-bottom: 15px;
+    }
+    
+}

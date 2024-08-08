@@ -1,19 +1,23 @@
 import { Injectable } from '@nestjs/common';
 import { CreateContentDto } from './dto/create-content.dto';
 import { UpdateContentDto } from './dto/update-content.dto';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class ContentService {
+  constructor(private readonly prisma: PrismaService) {}
+
+
   create(createContentDto: CreateContentDto) {
     return 'This action adds a new content';
   }
 
-  findAll() {
-    return `This action returns all content`;
+  async findAll() {
+    return await this.prisma.content.findMany();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} content`;
+    return this.prisma.content.findUniqueOrThrow({ where: { id } });
   }
 
   update(id: number, updateContentDto: UpdateContentDto) {

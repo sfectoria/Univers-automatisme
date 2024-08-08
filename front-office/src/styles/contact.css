@@ -1,0 +1,80 @@
+@media only screen and (max-width:960px) {
+  .container {
+    display: none;
+  }
+
+  .icon {
+    display: none;
+  }
+
+  .first-section {
+    height: 30vh;
+  }
+
+  .formulaire {}
+}
+
+@media only screen and (max-width:420px) {
+  .formulaire {}
+}
+
+.title {
+  /* -webkit-text-stroke: 1px #fff;
+  color: #B8D941; */
+  /* text-shadow: 1px 1px 1px #fff, 1px 1px 1px #fff, 1px 1px 1px #fff, 1px 1px 1px #fff; */
+  /* text-shadow: 5px 1px 6px rgba(255, 255, 255, 0.58); */
+
+
+}
+
+/* .problem{
+  display: inline;
+  background: #fff;
+  color: #B8D941;
+  /* -webkit-text-stroke: 1px #fff; */
+
+
+.realistic-marker-highlight {
+  position: relative;
+
+  top: 12px;
+}
+
+.realistic-marker-highlight:before {
+  content: "";
+  background-color: #fff;
+  width: 300px;
+  height: 1.35em;
+  position: absolute;
+  z-index: -1;
+  filter: url(#marker-shape);
+  left: -0.1em;
+  top: 0.1em;
+  padding: 0 0.25em;
+}
+
+.responsive-container {
+  /* display: flex;
+    align-items: center; */
+}
+
+@media (max-width: 1080px) {
+  .responsive-container {
+    flex: column;
+    align-items: flex-start;
+  }
+
+  .realistic-marker-highlight {
+    margin-bottom: 10px;
+  }
+}
+
+
+@media (max-width:1240px) {
+  .realistic-marker-highlight {
+    display: flex;
+    align-items: center;
+  }
+
+ 
+}

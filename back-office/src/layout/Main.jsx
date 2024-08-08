@@ -546,7 +546,7 @@ export default function Sidebar({ user }) {
                   variant="body1"
                   sx={{ fontWeight: 300, fontSize: 15 }}
                 >
-                  Secteur d'activité
+                  Projets
                 </Typography>
               </AccordionDetails>
             </Link>
@@ -657,8 +657,57 @@ export default function Sidebar({ user }) {
                 </Typography>
               </AccordionDetails>
             </Link>
-            {/* </>
-            )} */}
+            <Link
+              to="/Accueil/avis"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <AccordionDetails
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "rgba(0, 0, 0, 0.08)",
+                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                  },
+                  display: "flex",
+                  alignItems: "center",
+                  paddingLeft: 5, // Aligner verticalement le contenu
+                }}
+                style={activePath === "/Accueil/avis" ? activeStyle : {}}
+              >
+                <FeedbackOutlinedIcon sx={{ marginRight: 1 }} />{" "}
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 300, fontSize: 15 }}
+                >
+                  Hero
+                </Typography>
+              </AccordionDetails>
+            </Link>
+
+            <Link
+              to="/Accueil/avis"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <AccordionDetails
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "rgba(0, 0, 0, 0.08)",
+                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                  },
+                  display: "flex",
+                  alignItems: "center",
+                  paddingLeft: 5, // Aligner verticalement le contenu
+                }}
+                style={activePath === "/Accueil/avis" ? activeStyle : {}}
+              >
+                <FeedbackOutlinedIcon sx={{ marginRight: 1 }} />{" "}
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 300, fontSize: 15 }}
+                >
+                  A propos de nous
+                </Typography>
+              </AccordionDetails>
+            </Link>
           </Accordion>
 
           <Accordion

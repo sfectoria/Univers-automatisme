@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 
 async function main() {
   // Création des utilisateurs
-  await prisma.user.createMany({
+  const user = await prisma.user.createMany({
     data: [
       {
         username: 'SuperAdmin',
@@ -101,6 +101,28 @@ async function main() {
         ],
       },
     },
+  });
+
+
+   // Création des contenus
+   await prisma.content.createMany({
+    data: [
+      {
+        name: 'Titre 1',
+        value: 'Web Design',
+        sectionId: 4,
+      },
+      {
+        name: 'Titre 2',
+        value: 'App Development',
+        sectionId: 4,
+      },
+      {
+        name: 'Titre 3',
+        value: 'Appp Development',
+        sectionId: 4,
+      },
+    ],
   });
 
   console.log({ accueilPage, quiSommesNousPage, contactPage, profilPage });
