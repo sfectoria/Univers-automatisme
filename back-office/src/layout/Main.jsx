@@ -55,7 +55,6 @@ import PersonAdd from "@mui/icons-material/PersonAdd";
 import { FiBell } from "react-icons/fi";
 import { IoMailOutline } from "react-icons/io5";
 
-
 const drawerWidth = 240;
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -186,7 +185,7 @@ export default function Sidebar({ user }) {
   const toast = useRef(null);
 
   const handleLogout = () => {
-    navigate('/');
+    navigate("/");
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     window.location.reload();
@@ -279,7 +278,7 @@ export default function Sidebar({ user }) {
 
   const handleManageUsersClick = () => {
     handleClose2();
-    navigate('/users');
+    navigate("/users");
   };
 
   return (
@@ -306,7 +305,7 @@ export default function Sidebar({ user }) {
           </Typography>
 
           <Box sx={{ flexGrow: 1 }} />
-       
+
           {/* <FiBell style={{fontSize:30, marginRight:20, marginTop:5}} /> */}
           {/* <IoMailOutline style={{fontSize:30, marginRight:20, marginTop:1}}/> */}
           <Badge
@@ -325,7 +324,6 @@ export default function Sidebar({ user }) {
                 fontSize: 30, // Agrandir l'icône
               }}
             />
-            
           </Badge>
           <div className="Profile buttonn">
             {/* <IconButton
@@ -358,7 +356,7 @@ export default function Sidebar({ user }) {
               <Box ml={2}>
                 <Box fontWeight="fontWeightBold">{user.username}</Box>
                 <Box fontSize="small" color="text.secondary">
-                {user.role}
+                  {user.role}
                 </Box>
               </Box>
             </Box>
@@ -419,26 +417,28 @@ export default function Sidebar({ user }) {
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
               <MenuItem onClick={handleClose2}>
-              <Avatar src={profile} />
-              Profile
+                <Avatar src={profile} />
+                Profile
               </MenuItem>
-              {(user.role === 'SuperAdmin' || user.role === 'Admin') &&
-
-              <MenuItem style={{color:"green"}}onClick={handleManageUsersClick}>
-                <Avatar style={{color:"green"}} /> Manage Users
-              </MenuItem>
-              }
+              {(user.role === "SuperAdmin" || user.role === "Admin") && (
+                <MenuItem
+                  style={{ color: "green" }}
+                  onClick={handleManageUsersClick}
+                >
+                  <Avatar style={{ color: "green" }} /> Manage Users
+                </MenuItem>
+              )}
               <Divider />
 
-              <MenuItem  style={{color:"blue"}}onClick={handleClose2}>
+              <MenuItem style={{ color: "blue" }} onClick={handleClose2}>
                 <ListItemIcon>
-                  <Settings style={{color:"blue"}}fontSize="small" />
+                  <Settings style={{ color: "blue" }} fontSize="small" />
                 </ListItemIcon>
                 Settings
               </MenuItem>
-              <MenuItem style={{color:"red"}} onClick={handleLogout}>
-                <ListItemIcon style={{color:"red"}}  >
-                  <Logout  fontSize="small" />
+              <MenuItem style={{ color: "red" }} onClick={handleLogout}>
+                <ListItemIcon style={{ color: "red" }}>
+                  <Logout fontSize="small" />
                 </ListItemIcon>
                 Logout
               </MenuItem>
@@ -658,7 +658,7 @@ export default function Sidebar({ user }) {
               </AccordionDetails>
             </Link>
             <Link
-              to="/Accueil/avis"
+              to="/Accueil/hero"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <AccordionDetails
@@ -671,7 +671,7 @@ export default function Sidebar({ user }) {
                   alignItems: "center",
                   paddingLeft: 5, // Aligner verticalement le contenu
                 }}
-                style={activePath === "/Accueil/avis" ? activeStyle : {}}
+                style={activePath === "/Accueil/hero" ? activeStyle : {}}
               >
                 <FeedbackOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 <Typography
@@ -684,7 +684,7 @@ export default function Sidebar({ user }) {
             </Link>
 
             <Link
-              to="/Accueil/avis"
+              to="/Accueil/Apropos"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <AccordionDetails
@@ -697,7 +697,7 @@ export default function Sidebar({ user }) {
                   alignItems: "center",
                   paddingLeft: 5, // Aligner verticalement le contenu
                 }}
-                style={activePath === "/Accueil/avis" ? activeStyle : {}}
+                style={activePath === "/Accueil/Apropos" ? activeStyle : {}}
               >
                 <FeedbackOutlinedIcon sx={{ marginRight: 1 }} />{" "}
                 <Typography
@@ -759,7 +759,7 @@ export default function Sidebar({ user }) {
             {/* {open && (
               <> */}
             <Link
-              to="/qui-sommes-nous/presentation"
+              to="/qui-sommes-nous/valeurs"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <AccordionDetails
@@ -773,7 +773,7 @@ export default function Sidebar({ user }) {
                   paddingLeft: 5, // Aligner verticalement le contenu
                 }}
                 style={
-                  activePath === "/qui-sommes-nous/presentation"
+                  activePath === "/qui-sommes-nous/valeurs"
                     ? activeStyle
                     : {}
                 }
@@ -784,7 +784,38 @@ export default function Sidebar({ user }) {
                   variant="body1"
                   sx={{ fontWeight: 100, fontSize: 15 }}
                 >
-                  Présentation
+                  Nos valeurs{" "}
+                </Typography>
+              </AccordionDetails>
+            </Link>
+
+            <Link
+              to="/qui-sommes-nous/AproposDeNous"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <AccordionDetails
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "rgba(0, 0, 0, 0.08)",
+                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                  },
+                  display: "flex",
+                  alignItems: "center",
+                  paddingLeft: 5, // Aligner verticalement le contenu
+                }}
+                style={
+                  activePath === "/qui-sommes-nous/AproposDeNous"
+                    ? activeStyle
+                    : {}
+                }
+              >
+                <SlideshowIcon sx={{ marginRight: 1 }} />{" "}
+                {/* Ajoutez un margin-right à l'icône pour l'espace */}
+                <Typography
+                  variant="body1"
+                  sx={{ fontWeight: 100, fontSize: 15 }}
+                >
+                  A Propos De Nous
                 </Typography>
               </AccordionDetails>
             </Link>
@@ -842,7 +873,7 @@ export default function Sidebar({ user }) {
                   variant="body1"
                   sx={{ fontWeight: 100, fontSize: 15 }}
                 >
-                  Notre mission
+                  Mission & Vision
                 </Typography>
               </AccordionDetails>
             </Link>

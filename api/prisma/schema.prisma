@@ -49,12 +49,11 @@ model Section {
   contents Content[]
 }
 model Image{
-    id        Int        @id @default(autoincrement())
+id        Int        @id @default(autoincrement())
 url String?
 alt String?
 contentId     Int
 contents Content   @relation(fields: [contentId], references: [id])
-
 }
 model Content {
   id        Int       @id @default(autoincrement())

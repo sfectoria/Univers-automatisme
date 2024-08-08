@@ -5,7 +5,7 @@ import Famille from "./Pages/Famille";
 import Partenaires from "./Pages/Partenaires";
 import Services from "./Pages/Services";
 import Avis from "./Pages/Avis";
-import Presentation from "./Pages/Presentation";
+import Presentation from "./Pages/Valeur";
 import Equipe from "./Pages/Equipe";
 import Mission from "./Pages/Mission";
 import Contact from "./Pages/Contact";
@@ -18,36 +18,13 @@ import AccueilPage from "./Pages/AccueilPage";
 import { getMe } from "./store/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import FullFeaturedCrudGrid from "./Pages/EditUser";
+import Apropos from "./Pages/Apropos";
+import Hero from "./Pages/Hero";
+import Valeur from "./Pages/Valeur.jsx";
+import AproposDeNouss from "./Pages/AproposDeNouss.jsx";
 
 function Router() {
-  // const [user, setUser] = React.useState(null);
   const [open, setOpen] = React.useState(false);
-  // const [user, setUser] = React.useState(false);
-  // const [open, setOpen] = React.useState(false);
-
-  // const [token, setToken] = React.useState(JSON.parse(localStorage.getItem("token")));
-  // useEffect(() => {
-  //   const validateToken = async () => {
-  //     if (localStorage.getItem("token")) {
-  //       try {
-  //         const response = await axios.get("http://localhost:4000/auth/getme", {
-  //           headers: { Authorization: `Bearer ${token}` },
-  //         });
-
-  //         if (!response.error) {
-  //           setUser(response.data);
-  //         }
-  //       } catch (error) {
-  //         console.error("Token validation failed:", error);
-          
-  //       }
-  //       console.log("user",user);
-  //     }
-  //   };
-
-  //   validateToken(); // Valider le token au chargement
-  // }, []);
-
   const user = useSelector((store) => store.auth.me);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -81,6 +58,8 @@ function Router() {
                   <Route path="partenaires" element={<Partenaires />} />
                   <Route path="services" element={<Services />} />
                   <Route path="avis" element={<Avis />} />
+                  <Route path="hero" element={<Hero />} />
+                  <Route path="Apropos" element={<Apropos />} /> 
                 </Route>
               </Route>
 
@@ -89,9 +68,11 @@ function Router() {
                 element={<App user={user}  />}
               >
                 <Route index element={<QuiSommesNous />} />
-                <Route path="presentation" element={<Presentation />} />
+                <Route path="valeurs" element={<Valeur />} />
                 <Route path="equipe" element={<Equipe />} />
                 <Route path="mission" element={<Mission />} />
+                <Route path="AproposDeNous" element={<AproposDeNouss />} />
+
               </Route>
 
               {/* <Route path="/" element={<Navigate to="/Accueil" />} /> */}

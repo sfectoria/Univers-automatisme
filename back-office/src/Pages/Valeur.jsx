@@ -47,14 +47,12 @@ export default function DataGridDemo() {
       width: 120,
       renderCell: (params) => (
         <>
-        <EditIcon
-          sx={{ cursor: 'pointer', marginRight: 2 }}
-        />
-        <DeleteIcon
-          sx={{ cursor: "pointer" }}
-          onClick={() => handleDelete(params.row.id)}
-        />
-      </>
+          <EditIcon sx={{ cursor: "pointer", marginRight: 2 }} />
+          <DeleteIcon
+            sx={{ cursor: "pointer" }}
+            onClick={() => handleDelete(params.row.id)}
+          />
+        </>
       ),
     },
   ];
@@ -78,7 +76,7 @@ export default function DataGridDemo() {
             fontFamily: "Roboto, sans-serif",
           }}
         >
-          Présentation
+          Valeurs
         </div>
       </Box>
       <DataGridComponent rows={rows} columns={columns} />
