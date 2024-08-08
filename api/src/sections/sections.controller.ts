@@ -25,10 +25,10 @@ export class SectionsController {
     return this.sectionsService.getSection(name);
   }
 
-  // @Get(':id')
-  // findOne(@Param('id') id: string) {
-  //   return this.sectionsService.findOne(+id);
-  // }
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.sectionsService.findOne(+id);
+  }
 
   @Patch(':id')
   updateSection(@Param('id') id: string, @Body() updateSectionDto: UpdateSectionDto) {

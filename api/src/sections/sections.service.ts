@@ -16,9 +16,9 @@ export class SectionsService {
     return this.prisma.section.findMany();
   }
 
-  // findOne(id: number) {
-  //   return this.prisma.section.findUnique( { where: {id} } );
-  // }
+  findOne(id: number) {
+    return this.prisma.section.findUnique( { where: {id} } );
+  }
   async getSection(name: string) {
     return this.prisma.section.findMany({
       where: {name},

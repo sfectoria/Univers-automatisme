@@ -21,9 +21,9 @@ export class ContentService {
     });
   }
 
-  // findOne(id: number) {
-  //   return this.prisma.content.findUniqueOrThrow({ where: { id } });
-  // }
+  findOne(id: number) {
+    return this.prisma.content.findUniqueOrThrow({ where: { id } });
+  }
 
   update(id: number, updateContentDto: UpdateContentDto) {
     return this.prisma.content.update({
@@ -33,6 +33,6 @@ export class ContentService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} content`;
+    return this.prisma.content.delete({ where: { id } });
   }
 }
