@@ -7,7 +7,6 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class ContentService {
   constructor(private readonly prisma: PrismaService) {}
 
-
   create(createContentDto: CreateContentDto) {
     return 'This action adds a new content';
   }
@@ -18,7 +17,7 @@ export class ContentService {
 
   async getContent(name: string) {
     return this.prisma.content.findMany({
-      where: {name},
+      where: { name },
     });
   }
 
@@ -27,7 +26,10 @@ export class ContentService {
   // }
 
   update(id: number, updateContentDto: UpdateContentDto) {
-    return `This action updates a #${id} content`;
+    return this.prisma.content.update({
+      where: { id },
+      data: updateContentDto,
+    });
   }
 
   remove(id: number) {
