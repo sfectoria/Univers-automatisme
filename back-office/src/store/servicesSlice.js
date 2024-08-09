@@ -3,11 +3,11 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const fetchServices = createAsyncThunk('services/fetchServices', async () => {
-  const response = await axios.get('http://localhost:4000/sections/Services');
-  return response.data[0].contents.map(content => ({
+  const response = await axios.get(`http://localhost:4000/sections/${3}`);
+  return response.data.contents.map(content => ({
     id: content.id,
-    typeService: content.name,
-    description: content.value,
+    typeService: content.title,
+    description: content.paragraph,
   }));
 });
 
