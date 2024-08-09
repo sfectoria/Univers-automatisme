@@ -26,7 +26,7 @@ export class AuthService {
     if (!user) {
       throw new HttpException('Invalid email', HttpStatus.BAD_REQUEST);
     }
-
+    
     // Step 2: Check if the password is correct
     const validPassword = await bcrypt.compare(dto.password, user.password);
     // If password does not match, throw an error

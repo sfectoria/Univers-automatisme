@@ -20,14 +20,14 @@ export class SectionsController {
     return this.sectionsService.findAll();
   }
 
-  @Get(':name')
-  async getSection(@Param('name') name: string) {
-    return this.sectionsService.getSection(name);
-  }
+  // @Get(':name')
+  // async getSection(@Param('name') name: string) {
+  //   return this.sectionsService.getSection(name);
+  // }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.sectionsService.findOne(+id);
+  async getSectionId(@Param('id') id: string) {
+    return this.sectionsService.getSectionId(+id);
   }
 
   @Patch(':id')

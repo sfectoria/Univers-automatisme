@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import { contents, pages, sections } from './data';
 
 const prisma = new PrismaClient();
 
@@ -27,111 +28,30 @@ async function main() {
       {
         username: 'rawen',
         email: 'rawen@gmail.com',
-        password: '$2b$10$4YCNEOqafQxBVYeX2e5jZ.KjtCBrX5OGC/zAqRpyy2v6DSmoAxDUy',
+        password:
+          '$2b$10$4YCNEOqafQxBVYeX2e5jZ.KjtCBrX5OGC/zAqRpyy2v6DSmoAxDUy',
         role: 'SuperAdmin',
       },
     ],
   });
 
   // Création des Pages et Sections
-  const accueilPage = await prisma.page.create({
-    data: {
-      title: 'Accueil',
-      slug: 'accueil',
-      sections: {
-        create: [
-          {
-            name: "Secteur d'activité",
-            content: "Description du secteur d'activité",
-          },
-          {
-            name: 'Famille de produits',
-            content: 'Description de la famille de produits',
-          },
-          {
-            name: 'Partenaires',
-            content: 'Description des partenaires',
-          },
-          {
-            name: 'Services',
-            content: 'Description des services',
-          },
-          {
-            name: 'Avis des clients',
-            content: 'Commentaires et témoignages des clients',
-          },
-        ],
-      },
-    },
+  const page = await prisma.page.createMany({
+    data: pages,
+  });
+  const section = await prisma.section.createMany({
+    data: sections,
   });
 
-  const quiSommesNousPage = await prisma.page.create({
-    data: {
-      title: 'Qui sommes-nous',
-      slug: 'qui-sommes-nous',
-      sections: {
-        create: [
-          { name: 'Présentation', content: 'Description de la présentation' },
-          { name: 'Mission', content: 'Description de la mission' },
-          { name: 'Équipe', content: "Présentation de l'équipe" },
-        ],
-      },
-    },
+  const content = await prisma.content.createMany({
+    data: contents,
   });
+  // const content = await prisma.content.createMany({
+  //   data:contents
 
-  const contactPage = await prisma.page.create({
-    data: {
-      title: 'Contact',
-      slug: 'contact',
-      sections: {
-        create: [
-          {
-            name: 'Formulaire de contact',
-            content: 'Formulaire pour nous contacter',
-          },
-        ],
-      },
-    },
-  });
+  // });
 
-  const profilPage = await prisma.page.create({
-    data: {
-      title: 'Profil',
-      slug: 'profil',
-      sections: {
-        create: [
-          {
-            name: 'Informations personnelles',
-            content: 'Détails des informations personnelles',
-          },
-        ],
-      },
-    },
-  });
-
-
-   // Création des contenus
-   await prisma.content.createMany({
-    data: [
-      {
-        name: 'Web Design',
-        value: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quasi libero quidem sit deserunt fuga.',
-        sectionId: 4,
-      },
-      {
-        name: 'Web Development',
-        value: 'Lorem2 ipsum dolor sit amet, consectetur adipisicing elit. Hic quasi libero quidem sit deserunt fuga.',
-        sectionId: 4,
-      },
-      {
-        name: 'App Development',
-        value: 'Lorem3 ipsum dolor sit amet, consectetur adipisicing elit. Hic quasi libero quidem sit deserunt fuga.',
-        sectionId: 4,
-      },
-    ],
-  });
-
-  console.log({ accueilPage, quiSommesNousPage, contactPage, profilPage });
+  // console.log({ accueilPage, quiSommesNousPage, contactPage, profilPage });
 }
 
 main()

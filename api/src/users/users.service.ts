@@ -11,7 +11,7 @@ export class UsersService {
   async create(dto: CreateUsersDto) {
     // Check if the email already exists
     const existingUser = await this.prisma.user.findUnique({
-      where: { email: dto.email },
+      where: { email:dto.email },
     });
 
     if (existingUser) {

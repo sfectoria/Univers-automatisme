@@ -21,12 +21,10 @@ enum UserRole {
 model User {
   id       Int     @id @default(autoincrement())
   username String?
-  email    String 
+  email    String @unique
   password String
   role UserRole @default(Employee)
   createdAt DateTime @default(now())
-
-
 }
 
 model Page {
@@ -42,18 +40,20 @@ model Page {
 model Section {
   id        Int        @id @default(autoincrement())
   name      String
+  content   String?
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
   pageId    Int
   page      Page       @relation(fields: [pageId], references: [id])
   contents Content[]
 }
+
 model Image{
 id        Int        @id @default(autoincrement())
 url String?
 alt String?
 contentId     Int
-contents Content   @relation(fields: [contentId], references: [id])
+content Content   @relation(fields: [contentId], references: [id])
 }
 model Content {
   id        Int       @id @default(autoincrement())

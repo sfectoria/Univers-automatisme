@@ -19,10 +19,10 @@ export class ContentController {
     return this.contentService.findAll();
   }
 
-  @Get(':name')
-  async getContent(@Param('name') name: string) {
-    return this.contentService.getContent(name);
-  }
+  // @Get(':name')
+  // async getContent(@Param('name') name: string) {
+  //   return this.contentService.getContent(name);
+  // }
 
   @Get(':id')
   findOne(@Param('id') id: string) {

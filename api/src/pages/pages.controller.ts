@@ -19,9 +19,9 @@ export class PagesController {
     return this.pagesService.findAll();
   }
 
-  @Get(':slug')
-  async getPage(@Param('slug') slug: string) {
-    return this.pagesService.getPage(slug);
+  @Get(':id')
+  async getPage(@Param('id') id: string) {
+    return this.pagesService.getPage(+id);
   }
 
   @Patch(':id')

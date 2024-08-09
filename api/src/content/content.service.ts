@@ -7,32 +7,32 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class ContentService {
   constructor(private readonly prisma: PrismaService) {}
 
-  create(createContentDto: CreateContentDto) {
-    return 'This action adds a new content';
+  async create(createContentDto: CreateContentDto) {
+    return this.prisma.content.create({ data: createContentDto });
   }
 
   async findAll() {
-    return await this.prisma.content.findMany();
+    return this.prisma.content.findMany();
   }
 
-  async getContent(name: string) {
-    return this.prisma.content.findMany({
-      where: { name },
-    });
-  }
+  // async getContent(name: string) {
+  //   return this.prisma.content.findMany({
+  //     where: { name },
+  //   });
+  // }
 
-  findOne(id: number) {
+  async findOne(id: number) {
     return this.prisma.content.findUniqueOrThrow({ where: { id } });
   }
 
-  update(id: number, updateContentDto: UpdateContentDto) {
+  async update(id: number, updateContentDto: UpdateContentDto) {
     return this.prisma.content.update({
       where: { id },
       data: updateContentDto,
     });
   }
 
-  remove(id: number) {
+  async remove(id: number) {
     return this.prisma.content.delete({ where: { id } });
   }
 }

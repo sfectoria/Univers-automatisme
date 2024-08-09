@@ -16,9 +16,9 @@ export class PagesService {
     return this.prisma.page.findMany();
   }
 
-  async getPage(slug: string) {
+  async getPage(id: number) {
     return this.prisma.page.findUnique({
-      where: { slug },
+      where: { id },
       include: { sections: true },
     });
   }
